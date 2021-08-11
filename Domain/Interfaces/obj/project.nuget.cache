@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CROOHGN3/px+OAF3RnXOMfjvbM41wr41KzQwm/jdX9ZJmwfrxnlFFwGZM6dZx4W/9MZvosv/TX7BOBQLOqUV+Q==",
+  "dgSpecHash": "Ev64+EXYE+d8UCFDjwrjrQzwMp5Jxfc+dHGrhyQRtYYeAuGNnQQaVwWOse48vOKmc1799b4GxgjxJlA+bYYTKw==",
   "success": true,
-  "projectFilePath": "/home/dev/Área de Trabalho/projetos/dotnet-web-api-ddd/Domain/Interfaces/Interfaces.csproj",
+  "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

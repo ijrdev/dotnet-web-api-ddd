@@ -1,0 +1,7 @@
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.csprojAssemblyReference.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfoInputs.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfo.cs
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.csproj.CoreCompileInputs.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cache

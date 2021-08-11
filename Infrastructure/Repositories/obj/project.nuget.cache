@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "qBRX6DJavOHrgkE31z4ncPGVRwh3OoOWQaU84dVrLvWLBa+9KXUDr1UV/YhsenfRDBtEF64d9OWJQKub1VoieQ==",
+  "dgSpecHash": "Dz8fUXCby4Znuxfxpn3hWL8485qHes7ckc0ajyTfQ7c2+rJmEQVjPUC7NngfZcRe4D6DXWQLOo88gsqib8kpDQ==",
   "success": true,
-  "projectFilePath": "/home/dev/Área de Trabalho/projetos/dotnet-web-api-ddd/Infrastructure/Repositories/Repositories.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

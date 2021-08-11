@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace WebApi.Controllers
 {
@@ -11,10 +7,25 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class ClientsController : DefaultController
     {
-        [HttpGet]
-        public IEnumerable Get()
+        private readonly IClientsService _iClientsService;
+
+        public ClientsController(IClientsService iClientsService)
         {
-            return new Enumerable();
+            _iClientsService = iClientsService;
+        }
+
+        [HttpPost]
+        public string Add()
+        {
+            _iClientsService.AddClient();
+
+            return "Hello World";
+        }
+
+        [HttpPut]
+        public string Put()
+        {
+            return "Hello World";
         }
     }
 }
