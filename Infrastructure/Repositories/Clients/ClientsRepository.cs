@@ -1,7 +1,7 @@
-﻿using Interfaces.Repositories;
+﻿using Interfaces.Repositories.Clients;
 using System;
 
-namespace Repositories
+namespace Repositories.Clients
 {
     public class ClientsRepository : IClientsRepository
     {

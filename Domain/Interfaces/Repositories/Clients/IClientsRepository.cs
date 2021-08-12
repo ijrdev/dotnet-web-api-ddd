@@ -1,4 +1,4 @@
-﻿namespace Interfaces.Repositories
+﻿namespace Interfaces.Repositories.Clients
 {
     public interface IClientsRepository
     {

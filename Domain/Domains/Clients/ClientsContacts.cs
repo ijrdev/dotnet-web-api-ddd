@@ -1,4 +1,4 @@
-namespace Domains
+namespace Domains.Clients
 {
     public class ClientsContacts
     {

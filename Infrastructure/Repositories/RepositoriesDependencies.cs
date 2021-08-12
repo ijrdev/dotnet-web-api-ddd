@@ -1,5 +1,6 @@
-﻿using Interfaces.Repositories;
+﻿using Interfaces.Repositories.Clients;
 using Microsoft.Extensions.DependencyInjection;
+using Repositories.Clients;
 
 namespace Repositories
 {

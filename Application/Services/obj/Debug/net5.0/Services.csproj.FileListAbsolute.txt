@@ -15,3 +15,5 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\ref\Services.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.pdb
+E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\CrossCutting.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\CrossCutting.pdb

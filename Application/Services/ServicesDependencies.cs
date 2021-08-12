@@ -1,5 +1,6 @@
-﻿using Interfaces.Services;
+﻿using Interfaces.Services.Clients;
 using Microsoft.Extensions.DependencyInjection;
+using Services.Clients;
 
 namespace Services
 {

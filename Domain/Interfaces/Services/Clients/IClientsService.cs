@@ -1,4 +1,4 @@
-﻿namespace Interfaces.Services
+﻿namespace Interfaces.Services.Clients
 {
     public interface IClientsService
     {
