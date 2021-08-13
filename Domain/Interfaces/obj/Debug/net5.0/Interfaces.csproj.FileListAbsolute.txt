@@ -2,6 +2,7 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\bin\Debug\net5.0\
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\bin\Debug\net5.0\Interfaces.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\bin\Debug\net5.0\ref\Interfaces.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\bin\Debug\net5.0\Interfaces.pdb
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\Interfaces.csprojAssemblyReference.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\Interfaces.GeneratedMSBuildEditorConfig.editorconfig
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\Interfaces.AssemblyInfoInputs.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\Interfaces.AssemblyInfo.cs
@@ -9,4 +10,3 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\Interfaces.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\ref\Interfaces.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\Interfaces.pdb
-E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Interfaces\obj\Debug\net5.0\Interfaces.csprojAssemblyReference.cache

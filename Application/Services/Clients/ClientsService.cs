@@ -2,8 +2,6 @@ using CrossCutting;
 using Interfaces.Repositories.Clients;
 using Interfaces.Services.Clients;
 using System;
-using System.Net;
-using System.Collections.Generic;
 
 namespace Services.Clients
 {
@@ -20,12 +18,7 @@ namespace Services.Clients
         {
             try
             {
-                Console.WriteLine("SERVICE");
-
                 _iClientsRepository.AddClient();
-
-                // throw new CustomException(HttpStatusCode.NotFound, "Erro ao procurar o recurso.");
-                throw new Exception();
             }
             catch (CustomException)
             {
@@ -39,7 +32,7 @@ namespace Services.Clients
 
         public void UpdateClient()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
