@@ -1,8 +1,10 @@
 using CrossCutting;
+using Domains.Helpers;
 using Interfaces.Services.Clients;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
+using Domain = Domains.Clients;
 
 namespace WebApi.Controllers.Clients
 {
@@ -18,13 +20,13 @@ namespace WebApi.Controllers.Clients
         }
 
         [HttpPost]
-        public IActionResult Add()
+        public IActionResult Add([FromBody] Domain.Clients client)
         {
             try
             {
-                _iClientsService.AddClient();
+                _iClientsService.AddClient(client);
 
-                return CustomResponse.Response(HttpStatusCode.OK, "Hello World", new { });
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.OK);
             }
             catch(CustomException cex)
             {
@@ -32,14 +34,27 @@ namespace WebApi.Controllers.Clients
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, "Internal Server Error");
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.INTERNAL_SERVER_ERROR);
             }
         }
 
-        [HttpPut]
-        public string Put()
+        [HttpPut("{id:int}")]
+        public IActionResult Put(long id, [FromBody] Domain.Clients client)
         {
-            return "Hello World";
+            try
+            {
+                _iClientsService.UpdateClient(id, client);
+
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.OK);
+            }
+            catch (CustomException cex)
+            {
+                return CustomResponse.Response(cex.Status, cex.Msg, cex.Info);
+            }
+            catch (Exception)
+            {
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.INTERNAL_SERVER_ERROR);
+            }
         }
     }
 }

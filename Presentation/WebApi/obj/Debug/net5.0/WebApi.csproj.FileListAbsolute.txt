@@ -1,9 +1,3 @@
-E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.csprojAssemblyReference.cache
-E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
-E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfoInputs.cache
-E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfo.cs
-E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.csproj.CoreCompileInputs.cache
-E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\appsettings.Development.json
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\appsettings.json
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\WebApi.exe
@@ -61,7 +55,13 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Domains.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Interfaces.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Repositories.pdb
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.csprojAssemblyReference.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfoInputs.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfo.cs
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.csproj.CoreCompileInputs.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\staticwebassets\WebApi.StaticWebAssets.Manifest.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\staticwebassets\WebApi.StaticWebAssets.xml
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\scopedcss\bundle\WebApi.styles.css

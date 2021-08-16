@@ -185,6 +185,10 @@
               "target": "Package",
               "version": "[5.0.9, )"
             },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.9, )"
@@ -290,7 +294,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -345,6 +353,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj"
+              },
               "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj": {
                 "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj"
               },

@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "Domains/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Domains.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domains.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Domains/1.0.0": {
+      "type": "project",
+      "path": "../Domains/Domains.csproj",
+      "msbuildProject": "../Domains/Domains.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "Domains >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Ivan\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj": {
+              "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

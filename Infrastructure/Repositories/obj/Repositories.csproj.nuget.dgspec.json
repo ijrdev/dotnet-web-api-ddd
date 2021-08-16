@@ -4,6 +4,70 @@
     "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj": {}
   },
   "projects": {
+    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj",
+        "projectName": "CrossCutting",
+        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj",
+        "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
+        "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.206\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -48,6 +112,10 @@
           "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
               "version": "[5.0.9, )"
             },
@@ -156,7 +224,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -211,6 +283,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj"
+              },
               "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj": {
                 "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj"
               },

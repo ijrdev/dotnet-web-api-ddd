@@ -1,9 +1,13 @@
-﻿namespace Interfaces.Repositories.Clients
+﻿using Domain = Domains.Clients;
+
+namespace Interfaces.Repositories.Clients
 {
     public interface IClientsRepository
     {
-        void AddClient();
+        Domain.Clients GetClient(long id);
 
-        void UpdateClient();
+        void AddClient(Domain.Clients client);
+
+        void UpdateClient(long id, Domain.Clients client);
     }
 }

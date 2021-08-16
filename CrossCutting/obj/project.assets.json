@@ -1025,9 +1025,22 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Domains/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Domains.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domains.dll": {}
+        }
+      },
       "Interfaces/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Domains": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Interfaces.dll": {}
         },
@@ -3874,6 +3887,11 @@
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Domains/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domains/Domains.csproj",
+      "msbuildProject": "../Domain/Domains/Domains.csproj"
     },
     "Interfaces/1.0.0": {
       "type": "project",

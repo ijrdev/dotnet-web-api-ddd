@@ -27,7 +27,7 @@ namespace WebApi
             services.InjectServicesDependencies();
             services.InjectRepositoriesDependencies();
 
-            services.AddDbContext<DotnetWebApiDDDDbContext>(options => options.UseSqlServer("Server=DESKTOP-ELFNCSC\\SQLEXPRESS;Database=dotnet_web_api_ddd;Trusted_Connection=True;"));
+            // services.AddDbContext<DotnetWebApiDDDDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

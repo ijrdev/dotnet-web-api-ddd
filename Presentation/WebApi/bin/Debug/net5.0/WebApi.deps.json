@@ -1621,6 +1621,9 @@
         }
       },
       "Interfaces/1.0.0": {
+        "dependencies": {
+          "Domains": "1.0.0"
+        },
         "runtime": {
           "Interfaces.dll": {}
         },
@@ -1630,6 +1633,7 @@
       },
       "Repositories/1.0.0": {
         "dependencies": {
+          "CrossCutting": "1.0.0",
           "Database": "1.0.0",
           "Interfaces": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.2"
