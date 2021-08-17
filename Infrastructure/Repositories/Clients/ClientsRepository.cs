@@ -6,20 +6,28 @@ using Domains.Helpers;
 using Interfaces.Repositories.Clients;
 using System;
 using System.Net;
-using Domain = Domains.Clients;
+using Domains.Enums;
 
 namespace Repositories.Clients
 {
     public class ClientsRepository : IClientsRepository
     {
-        //private readonly DotnetWebApiDDDDbContext _dotnetWebApiDDDDbContext;
+        public Domains.Clients.Clients GetClient(string cpf)
+        {
+            try
+            {
+                using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
+                {
+                    return context.Clients.FindAsync(cpf).GetAwaiter().GetResult();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-        //public ClientsRepository(DotnetWebApiDDDDbContext dotnetWebApiDDDDbContext)
-        //{
-        //    _dotnetWebApiDDDDbContext = dotnetWebApiDDDDbContext;
-        //}
-
-        public Domain.Clients GetClient(long id)
+        public Domains.Clients.Clients GetClient(long id)
         {
             try
             {
@@ -27,7 +35,6 @@ namespace Repositories.Clients
                 {
                     return context.Clients.FindAsync(id).GetAwaiter().GetResult();
                 }
-                
             }
             catch (Exception)
             {
@@ -35,47 +42,36 @@ namespace Repositories.Clients
             }
         }
 
-        public void AddClient(Domain.Clients client)
+        public void AddClient(Domains.Clients.Clients client)
         {
-            try
+            using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
             {
-                    //context.Clients.Add(client);
+                Domains.Clients.Clients clientResult = GetClient(client.Cpf);
 
-                    //await context.SaveChangesAsync();
-            }
-            catch (CustomException)
-            {
-                throw;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+                if (clientResult != null)
+                {
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.CLIENT_CPF_ALREADY_REGISTERED);
+                }
 
+                Domains.Accounts.Accounts account = new Domains.Accounts.Accounts()
+                {
+                    AccountType = (AccountsType) 10,
+                    AccountNumber = "10"
+                };
+
+                context.Entry(clientResult).CurrentValues.SetValues(client);
+
+                context.SaveChangesAsync().GetAwaiter().GetResult();
+            }
         }
 
-        public void UpdateClient(long id, Domain.Clients client)
+        public void UpdateClient(long id, Domains.Clients.Clients client)
         {
             try
             {
-                //Console.WriteLine("Save Starting");
-                //client.Id = id;
-
-                //var clientResult = await _dotnetWebApiDDDDbContext.Clients.ToListAsync();
-
-                //if (clientResult == null)
-                //{
-                //    throw new CustomException(HttpStatusCode.NotFound, CustomResponseMessage.NOT_FOUND);
-                //}
-
-                //_dotnetWebApiDDDDbContext.Entry(clientResult).CurrentValues.SetValues(client);
-
-                //await _dotnetWebApiDDDDbContext.SaveChangesAsync();
-                //Console.WriteLine("Save Complete");
-
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
                 {
-                    Domain.Clients clientResult = GetClient(id);
+                    Domains.Clients.Clients clientResult = context.Clients.FindAsync(id).GetAwaiter().GetResult();
 
                     if (clientResult == null)
                     {
@@ -97,6 +93,16 @@ namespace Repositories.Clients
             {
                 throw;
             }
+        }
+
+        public void DeleteClient(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteClient(string cpf)
+        {
+            throw new NotImplementedException();
         }
     }
 }

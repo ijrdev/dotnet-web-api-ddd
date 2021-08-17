@@ -4,6 +4,6 @@ namespace Domains.Clients
     {
         public long? Id { get; set; }
         public string Phone { get; set; }
-        public Clients Clients { get; set; }
+        public Clients Client { get; set; }
     }
 }

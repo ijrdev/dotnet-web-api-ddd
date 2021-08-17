@@ -9,6 +9,6 @@ namespace Domains.Clients
         public string District { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public Clients Clients { get; set; }
+        public Clients Client { get; set; }
     }
 }

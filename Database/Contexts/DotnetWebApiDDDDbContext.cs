@@ -1,5 +1,5 @@
 ﻿using Domains.Clients;
-using Domains.Database;
+using Domains.Accounts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -7,6 +7,7 @@ namespace Database.Contexts
 {
     public class DotnetWebApiDDDDbContext : DbContext
     {
+        public DbSet<Accounts> Accounts { get; set; }
         public DbSet<Clients> Clients { get; set; }
         public DbSet<ClientsContacts> ClientsContacts { get; set; }
         public DbSet<ClientsAddresses> ClientsAddresses { get; set; }

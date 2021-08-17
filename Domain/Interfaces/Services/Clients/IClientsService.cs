@@ -1,13 +1,13 @@
-﻿using Domain = Domains.Clients;
+﻿using Domains.DTO;
+using Domain = Domains.Clients;
 
 namespace Interfaces.Services.Clients
 {
     public interface IClientsService
     {
         Domain.Clients GetClient(long id);
-
-        void AddClient(Domain.Clients client);
-
+        Domain.Clients GetClient(string cpf);
+        void AddClient(ClientAccountDTO clientAccount);
         void UpdateClient(long id, Domain.Clients client);
     }
 }

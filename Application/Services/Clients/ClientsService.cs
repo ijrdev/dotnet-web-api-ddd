@@ -1,4 +1,5 @@
 using CrossCutting;
+using Domains.DTO;
 using Interfaces.Repositories.Clients;
 using Interfaces.Services.Clients;
 using System;
@@ -20,14 +21,35 @@ namespace Services.Clients
             throw new NotImplementedException();
         }
 
-        public void AddClient(Domain.Clients client)
+        public Domain.Clients GetClient(string cpf)
         {
             try
             {
-                _iClientsRepository.AddClient(client);
+                return _iClientsRepository.GetClient(cpf);
             }
-            catch { 
-                throw; 
+            catch (CustomException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void AddClient(ClientAccountDTO clientAccount)
+        {
+            try
+            {
+                //_iClientsRepository.UpdateClient(id, client);
+            }
+            catch (CustomException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
