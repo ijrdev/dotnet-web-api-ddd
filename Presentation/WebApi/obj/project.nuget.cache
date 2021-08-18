@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "LzuW3Nl3s9Rtriz991rYGkIEyW4yLMd3v5c2DnsOKbbCkx+0NIRgvFsweD2Hd+XYY8jIFgR7E8bs/RE66PpJkA==",
+  "dgSpecHash": "Erft/u8SS0F39C1gfwczAfANDALFKALYbh7pWHmbFmGlGwxKefHlkg5cfC5f2HHWPJ/FbEyidUvcwxsh1tF5tA==",
   "success": true,
   "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Presentation\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
@@ -29,6 +30,7 @@
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.9\\microsoft.entityframeworkcore.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.9\\microsoft.entityframeworkcore.abstractions.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.9\\microsoft.entityframeworkcore.analyzers.5.0.9.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.9\\microsoft.entityframeworkcore.design.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.proxies\\5.0.9\\microsoft.entityframeworkcore.proxies.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.9\\microsoft.entityframeworkcore.relational.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.9\\microsoft.entityframeworkcore.sqlserver.5.0.9.nupkg.sha512",

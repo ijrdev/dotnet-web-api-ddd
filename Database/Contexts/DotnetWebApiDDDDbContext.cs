@@ -9,8 +9,8 @@ namespace Database.Contexts
     {
         public DbSet<Accounts> Accounts { get; set; }
         public DbSet<Clients> Clients { get; set; }
-        public DbSet<ClientsContacts> ClientsContacts { get; set; }
-        public DbSet<ClientsAddresses> ClientsAddresses { get; set; }
+        //public DbSet<ClientsContacts> ClientsContacts { get; set; }
+        //public DbSet<ClientsAddresses> ClientsAddresses { get; set; }
 
         public DotnetWebApiDDDDbContext(DbContextOptions<DotnetWebApiDDDDbContext> options) : base(options)
         {
@@ -20,7 +20,7 @@ namespace Database.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole())).EnableSensitiveDataLogging();
-            // optionsBuilder.UseSqlServer(DatabaseConnectionString.DOTNET_WEB_API_DDD_CONNECTION_STRING);
+            // optionsBuilder.UseSqlServer("Server=DESKTOP-ELFNCSC\\SQLEXPRESS;Database=dotnet_web_api_ddd;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

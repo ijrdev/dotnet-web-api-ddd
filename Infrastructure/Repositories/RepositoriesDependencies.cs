@@ -1,5 +1,7 @@
-﻿using Interfaces.Repositories.Clients;
+﻿using Interfaces.Repositories.Accounts;
+using Interfaces.Repositories.Clients;
 using Microsoft.Extensions.DependencyInjection;
+using Repositories.Accounts;
 using Repositories.Clients;
 
 namespace Repositories
@@ -9,6 +11,7 @@ namespace Repositories
         public static void InjectRepositoriesDependencies(this IServiceCollection services)
         {
             services.AddTransient<IClientsRepository, ClientsRepository>();
+            services.AddTransient<IAccountsRepository, AccountsRepository>();
         }
     }
 }

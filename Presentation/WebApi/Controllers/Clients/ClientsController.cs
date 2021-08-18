@@ -5,17 +5,16 @@ using Interfaces.Services.Clients;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
-using Domain = Domains.Clients;
 
 namespace WebApi.Controllers.Clients
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AccountsController : DefaultController
+    public class ClientsController : DefaultController
     {
         private readonly IClientsService _iClientsService;
 
-        public AccountsController(IClientsService iClientsService)
+        public ClientsController(IClientsService iClientsService)
         {
             _iClientsService = iClientsService;
         }

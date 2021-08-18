@@ -1,4 +1,5 @@
-﻿using Interfaces.Services.Clients;
+﻿using Interfaces.Services.Accounts;
+using Interfaces.Services.Clients;
 using Microsoft.Extensions.DependencyInjection;
 using Services.Clients;
 
@@ -9,6 +10,7 @@ namespace Services
         public static void InjectServicesDependencies(this IServiceCollection services)
         {
             services.AddTransient<IClientsService, ClientsService>();
+            services.AddTransient<IAccountsService, AccountsService>();
         }
     }
 }

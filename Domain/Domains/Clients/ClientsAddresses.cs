@@ -1,7 +1,7 @@
 namespace Domains.Clients
 {
     public class ClientsAddresses
-    {
+    {// pesquisar por api
         public long? Id { get; set; }
         public string ZipCode { get; set; }
         public string Street { get; set; }

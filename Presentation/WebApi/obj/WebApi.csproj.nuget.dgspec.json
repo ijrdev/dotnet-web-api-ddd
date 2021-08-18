@@ -189,6 +189,12 @@
               "target": "Package",
               "version": "[5.0.9, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
             "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
               "version": "[5.0.9, )"
@@ -432,6 +438,9 @@
               },
               "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
                 "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj"
+              },
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj"
               }
             }
           }
@@ -446,6 +455,12 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"

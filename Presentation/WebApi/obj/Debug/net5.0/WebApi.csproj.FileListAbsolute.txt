@@ -7,10 +7,13 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\WebApi.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\ref\WebApi.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\WebApi.pdb
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\AutoMapper.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Castle.Core.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
@@ -71,3 +74,5 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\ref\WebApi.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Humanizer.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
