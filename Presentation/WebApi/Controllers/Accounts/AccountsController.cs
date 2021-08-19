@@ -22,7 +22,7 @@ namespace WebApi.Controllers.Accounts
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody] ClientAccountDTO clientAccount)
+        public IActionResult Add([FromBody] AccountClientDTO accountClient)
         {
             try
             { // COLOCAR ISSO EM UM MIDDLEWARE??
@@ -38,12 +38,12 @@ namespace WebApi.Controllers.Accounts
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.PRECONDITION_FAILED, errors);
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, errors);
                 }
 
-                _iAccountsService.AddAccount(clientAccount);
+                _iAccountsService.AddAccount(accountClient);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
             }
             catch(CustomException cex)
             {
@@ -51,7 +51,7 @@ namespace WebApi.Controllers.Accounts
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
     }

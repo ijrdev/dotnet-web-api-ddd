@@ -14,13 +14,19 @@ namespace Database.Mapping.Clients
             builder.Property(c => c.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.Property(c => c.Cpf)
-                .HasColumnType("varchar(100)")
+            builder.Property(c => c.Document)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(100)
                 .IsRequired();
+            builder.HasIndex(c => c.Document).IsUnique();
+
 
             builder.Property(c => c.Name)
-                .HasColumnType("varchar(100)")
+                .HasColumnType("nvarchar")
+                .HasMaxLength(100)
                 .IsRequired();
+
+            builder.Property(c => c.Age).IsRequired();
 
             builder.Property(c => c.Person).IsRequired();
         }

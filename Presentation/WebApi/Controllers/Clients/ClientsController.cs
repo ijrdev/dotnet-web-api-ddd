@@ -20,13 +20,13 @@ namespace WebApi.Controllers.Clients
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody] ClientAccountDTO clientAccount)
+        public IActionResult Add([FromBody] AccountClientDTO accountClient)
         {
             try
             {
                 //_iClientsService.Add(clientAccount);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
             }
             catch (CustomException cex)
             {
@@ -34,7 +34,7 @@ namespace WebApi.Controllers.Clients
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
     }

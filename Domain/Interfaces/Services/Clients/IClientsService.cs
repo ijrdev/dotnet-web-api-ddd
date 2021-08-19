@@ -7,7 +7,7 @@ namespace Interfaces.Services.Clients
     {
         Domain.Clients GetClient(long id);
         Domain.Clients GetClient(string cpf);
-        void AddClient(ClientAccountDTO clientAccount);
+        void AddClient(AccountClientDTO accountClient);
         void UpdateClient(long id, Domain.Clients client);
     }
 }

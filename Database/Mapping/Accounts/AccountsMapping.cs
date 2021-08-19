@@ -14,11 +14,13 @@ namespace Database.Mapping.Clients
             builder.Property(a => a.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.Property(a => a.AccountType)
-                .IsRequired();
+            builder.Property(a => a.AccountType).IsRequired();
+            builder.HasIndex(a => a.AccountType)
+                .IsUnique();
 
             builder.Property(a => a.AccountNumber)
-                .HasColumnType("varchar(100)")
+                .HasColumnType("nvarchar")
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(a => a.Balance)

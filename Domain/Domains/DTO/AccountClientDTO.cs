@@ -1,16 +1,13 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Domains.Helpers;
 
-namespace Domains.Clients
+namespace Domains.DTO
 {
-    public class Clients
+    public class AccountClientDTO
     {
-        public long? Id { get; set; }
-
         [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_DOCUMENT)]
         public string Document { get; set; }
-   
+
         [StringLength(100, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.LONG_NAME)]
         [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_NAME)]
         public string Name { get; set; }
@@ -24,6 +21,7 @@ namespace Domains.Clients
         [Range(1, int.MaxValue, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_PERSON)]
         public int Person { get; set; }
 
-        public virtual IEnumerable<Accounts.Accounts> Accounts { get; set; }
+        [Range(1, double.MaxValue, ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.INVALID_ACCOUNT_TYPE)]
+        public int AccountType { get; set; }
     }
 }

@@ -5,6 +5,7 @@ namespace Interfaces.Services.Accounts
 {
     public interface IAccountsService
     {
-        void AddAccount(ClientAccountDTO clientAccount);
+        void AddAccount(AccountClientDTO accountClient);
+        Domain.Accounts GetAccount(string accountNumber);
     }
 }

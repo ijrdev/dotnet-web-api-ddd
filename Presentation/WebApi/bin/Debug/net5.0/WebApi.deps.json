@@ -36,6 +36,7 @@
           "CrossCutting": "1.0.0",
           "Database": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.9",
+          "Microsoft.EntityFrameworkCore.Tools": "5.0.9",
           "Services": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -682,6 +683,11 @@
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/5.0.9": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "5.0.9"
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
@@ -3935,6 +3941,13 @@
       "sha512": "sha512-WGKYDApx75QRQ8LecGoPi5tvwHM8CvHz383U4c9zfW2Pjz+yUNUL4XAzLRlkg9QyE7USGk4VnAVNS0sTXK4qVQ==",
       "path": "microsoft.entityframeworkcore.sqlserver/5.0.9",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.5.0.9.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/5.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BdNfn6IzyD6r6XpjnOn7HuWKryVzT6TnDIH8MZLD3d/wLG24V0BYB1Dyr6wnAqgGXXCZxJf77YES5nobge56aA==",
+      "path": "microsoft.entityframeworkcore.tools/5.0.9",
+      "hashPath": "microsoft.entityframeworkcore.tools.5.0.9.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "type": "package",

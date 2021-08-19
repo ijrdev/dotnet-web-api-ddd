@@ -1,6 +1,4 @@
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Database.deps.json
-E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Database.runtimeconfig.json
-E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Database.runtimeconfig.dev.json
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Database.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\ref\Database.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Database.pdb
@@ -17,4 +15,3 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\ref\Database.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.pdb
-E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.genruntimeconfig.cache

@@ -37,7 +37,7 @@ namespace Services.Clients
             }
         }
 
-        public void AddClient(ClientAccountDTO clientAccount)
+        public void AddClient(AccountClientDTO accountClient)
         {
             try
             {

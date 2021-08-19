@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DotnetWebApiDDDDbContext))]
-    [Migration("20210817212728_NewMigration")]
-    partial class NewMigration
+    [Migration("20210819014045_AccountClient")]
+    partial class AccountClient
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace Database.Migrations
 
             modelBuilder.Entity("Domains.Accounts.Accounts", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -49,7 +49,7 @@ namespace Database.Migrations
 
             modelBuilder.Entity("Domains.Clients.Clients", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -57,14 +57,17 @@ namespace Database.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("Cpf")
+                    b.Property<string>("Document")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Person")
                         .HasColumnType("int");
@@ -74,83 +77,10 @@ namespace Database.Migrations
                     b.ToTable("Clients");
                 });
 
-            modelBuilder.Entity("Domains.Clients.ClientsAddresses", b =>
-                {
-                    b.Property<long?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long?>("ClientId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("District")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Number")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Street")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ZipCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
-
-                    b.ToTable("ClientsAddresses");
-                });
-
-            modelBuilder.Entity("Domains.Clients.ClientsContacts", b =>
-                {
-                    b.Property<long?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long?>("ClientId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
-
-                    b.ToTable("ClientsContacts");
-                });
-
             modelBuilder.Entity("Domains.Accounts.Accounts", b =>
                 {
                     b.HasOne("Domains.Clients.Clients", "Client")
                         .WithMany("Accounts")
-                        .HasForeignKey("ClientId");
-
-                    b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("Domains.Clients.ClientsAddresses", b =>
-                {
-                    b.HasOne("Domains.Clients.Clients", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId");
-
-                    b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("Domains.Clients.ClientsContacts", b =>
-                {
-                    b.HasOne("Domains.Clients.Clients", "Client")
-                        .WithMany()
                         .HasForeignKey("ClientId");
 
                     b.Navigation("Client");

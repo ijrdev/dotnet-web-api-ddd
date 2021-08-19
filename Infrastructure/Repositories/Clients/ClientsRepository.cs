@@ -6,7 +6,6 @@ using Domains.Helpers;
 using Interfaces.Repositories.Clients;
 using System;
 using System.Net;
-using Domains.Enums;
 
 namespace Repositories.Clients
 {
@@ -46,16 +45,16 @@ namespace Repositories.Clients
         {
             using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
             {
-                Domains.Clients.Clients clientResult = GetClient(client.Cpf);
+                Domains.Clients.Clients clientResult = GetClient(client.Document);
 
                 if (clientResult != null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.CLIENT_CPF_ALREADY_REGISTERED);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_DOCUMENT_ALREADY_REGISTERED);
                 }
 
                 Domains.Accounts.Accounts account = new Domains.Accounts.Accounts()
                 {
-                    AccountType = (AccountsType) 10,
+                    AccountType = 10,
                     AccountNumber = "10"
                 };
 
@@ -75,7 +74,7 @@ namespace Repositories.Clients
 
                     if (clientResult == null)
                     {
-                        throw new CustomException(HttpStatusCode.NotFound, CustomResponseMessage.NOT_FOUND);
+                        throw new CustomException(HttpStatusCode.NotFound, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND);
                     }
 
                     client.Id = id;
