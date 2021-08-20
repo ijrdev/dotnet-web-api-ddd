@@ -76,7 +76,7 @@ namespace Services.Clients
                     accountMapped.AccountNumber = GenerateAccountNumber();
                     accountMapped.Client = clientMapped;
 
-                    _iAccountsRepository.AddAccount(accountMapped);
+                    _iAccountsRepository.AddAccount(accountMapped, true);
                 }
             }
             catch (CustomException)

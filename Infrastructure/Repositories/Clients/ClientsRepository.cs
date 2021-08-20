@@ -42,29 +42,6 @@ namespace Repositories.Clients
             }
         }
 
-        public void AddClient(Domains.Clients.Clients client)
-        {
-            using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
-            {
-                Domains.Clients.Clients clientResult = GetClient(client.Document);
-
-                if (clientResult != null)
-                {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED);
-                }
-
-                Domains.Accounts.Accounts account = new Domains.Accounts.Accounts()
-                {
-                    AccountType = 10,
-                    AccountNumber = "10"
-                };
-
-                context.Entry(clientResult).CurrentValues.SetValues(client);
-
-                context.SaveChangesAsync().GetAwaiter().GetResult();
-            }
-        }
-
         public void UpdateClient(long id, Domains.Clients.Clients client)
         {
             try
@@ -81,7 +58,6 @@ namespace Repositories.Clients
                     client.Id = id;
 
                     context.Entry(clientResult).CurrentValues.SetValues(client);
-
                     context.SaveChangesAsync().GetAwaiter().GetResult();
                 }
             }
@@ -93,16 +69,6 @@ namespace Repositories.Clients
             {
                 throw;
             }
-        }
-
-        public void DeleteClient(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteClient(string document)
-        {
-            throw new NotImplementedException();
         }
     }
 }

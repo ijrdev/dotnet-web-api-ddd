@@ -6,8 +6,8 @@ namespace Interfaces.Services.Accounts
 {
     public interface IAccountsService
     {
-        void AddAccount(AccountClientDTO accountClient);
         Domain.Accounts GetAccount(string accountNumber);
         IEnumerable<Domain.Accounts> GetAccounts(long clientId);
+        void AddAccount(AccountClientDTO accountClient);
     }
 }
