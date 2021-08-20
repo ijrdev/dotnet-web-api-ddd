@@ -1,24 +1,36 @@
 using AutoMapper;
 using CrossCutting;
 using Domains.DTO;
+using Domains.Enums;
+using Domains.Helpers;
 using Interfaces.Repositories.Accounts;
 using Interfaces.Services.Accounts;
+using Interfaces.Services.Clients;
 using System;
+using System.Collections.Generic;
+using System.Net;
 
 namespace Services.Clients
 {
     public class AccountsService : IAccountsService
     {
         private readonly IAccountsRepository _iAccountsRepository;
+        private readonly IClientsService _iClientsService;
 
-        public AccountsService(IAccountsRepository iAccountsRepository)
+        public AccountsService(IAccountsRepository iAccountsRepository, IClientsService iClientsService)
         {
             _iAccountsRepository = iAccountsRepository;
+            _iClientsService = iClientsService;
         }
 
         public Domains.Accounts.Accounts GetAccount(string accountNumber)
         {
             return _iAccountsRepository.GetAccount(accountNumber);
+        }
+
+        public IEnumerable<Domains.Accounts.Accounts> GetAccounts(long clientId)
+        {
+            return _iAccountsRepository.GetAccounts(clientId);
         }
 
         public void AddAccount(AccountClientDTO accountClient)
@@ -30,35 +42,48 @@ namespace Services.Clients
                     cfg.CreateMap<AccountClientDTO, Domains.Accounts.Accounts>();
                 }).CreateMapper();
 
-                Domains.Clients.Clients client = mapper.Map<Domains.Clients.Clients>(accountClient);
-                Domains.Accounts.Accounts account = mapper.Map<Domains.Accounts.Accounts>(accountClient);
+                Domains.Clients.Clients clientMapped = mapper.Map<Domains.Clients.Clients>(accountClient);
+                Domains.Accounts.Accounts accountMapped = mapper.Map<Domains.Accounts.Accounts>(accountClient);
 
-                string accountNumber = string.Empty;
+                if(!Enum.IsDefined(typeof(Genders), clientMapped.Gender))
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INVALID_GENDER, clientMapped.Gender);
 
-                bool checkAccount = true;
+                if (!Enum.IsDefined(typeof(Persons), clientMapped.Person))
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INVALID_PERSON, clientMapped.Person);
 
-                while(checkAccount)
+                if (!Enum.IsDefined(typeof(AccountsType), accountMapped.AccountType))
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INVALID_ACCOUNT_TYPE, accountMapped.AccountType);
+
+                Domains.Clients.Clients client = _iClientsService.GetClient(clientMapped.Document);
+
+                if(client != null)
                 {
-                    accountNumber = GenerateAccountNumber();
+                    IEnumerable<Domains.Accounts.Accounts> accounts = GetAccounts((long) client.Id);
 
-                    Domains.Accounts.Accounts acc = GetAccount(accountNumber);
+                    foreach(Domains.Accounts.Accounts acc in accounts)
+                    {
+                        if(acc.AccountType == accountMapped.AccountType)
+                            throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_ALREADY_REGISTERED, accountMapped.AccountType);
+                    }
 
-                    if (acc == null)
-                        checkAccount = false;
+                    accountMapped.AccountNumber = GenerateAccountNumber();
+                    accountMapped.Client = client;
+
+                    _iAccountsRepository.AddAccount(accountMapped);
                 }
+                else
+                {
+                    accountMapped.AccountNumber = GenerateAccountNumber();
+                    accountMapped.Client = clientMapped;
 
-                // VERIFICAR CPF JÁ CADASTRADO?
-
-                account.AccountNumber = accountNumber;
-                account.Client = client;
-
-                _iAccountsRepository.AddAccount(account);
+                    _iAccountsRepository.AddAccount(accountMapped);
+                }
             }
             catch (CustomException)
             {
                 throw;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -73,7 +98,20 @@ namespace Services.Clients
             int minutes = DateTime.Now.Second;
             int seconds = DateTime.Now.Second;
 
-            return $"{new Random().Next(0, 9)}{year}{month}{day}{hour}{minutes}{seconds}{new Random().Next(0, 9)}";
+            string accountNumber = string.Empty;
+            bool checkAccount = true;
+
+            while (checkAccount)
+            {
+                accountNumber = $"{new Random().Next(0, 9)}{year}{month}{day}{hour}{minutes}{seconds}{new Random().Next(0, 9)}";
+
+                Domains.Accounts.Accounts acc = GetAccount(accountNumber);
+
+                if (acc == null)
+                    checkAccount = false;
+            }
+
+            return accountNumber;
         }
     }
 }

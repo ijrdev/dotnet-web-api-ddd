@@ -4,6 +4,7 @@ using Database.Factories;
 using Domains.Database;
 using Domains.Helpers;
 using Interfaces.Repositories.Clients;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Net;
 
@@ -11,13 +12,13 @@ namespace Repositories.Clients
 {
     public class ClientsRepository : IClientsRepository
     {
-        public Domains.Clients.Clients GetClient(string cpf)
+        public Domains.Clients.Clients GetClient(string document)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Clients.FindAsync(cpf).GetAwaiter().GetResult();
+                    return context.Clients.Include(c => c.Accounts).FirstOrDefaultAsync(c => c.Document == document).GetAwaiter().GetResult();
                 }
             }
             catch (Exception)
@@ -32,7 +33,7 @@ namespace Repositories.Clients
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Clients.FindAsync(id).GetAwaiter().GetResult();
+                    return context.Clients.Include(c => c.Accounts).FirstOrDefaultAsync(c => c.Id == id).GetAwaiter().GetResult();
                 }
             }
             catch (Exception)
@@ -49,7 +50,7 @@ namespace Repositories.Clients
 
                 if (clientResult != null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_DOCUMENT_ALREADY_REGISTERED);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED);
                 }
 
                 Domains.Accounts.Accounts account = new Domains.Accounts.Accounts()
@@ -99,7 +100,7 @@ namespace Repositories.Clients
             throw new NotImplementedException();
         }
 
-        public void DeleteClient(string cpf)
+        public void DeleteClient(string document)
         {
             throw new NotImplementedException();
         }

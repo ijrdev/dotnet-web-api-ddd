@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DotnetWebApiDDDDbContext))]
-    [Migration("20210819014045_AccountClient")]
+    [Migration("20210819135028_AccountClient")]
     partial class AccountClient
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

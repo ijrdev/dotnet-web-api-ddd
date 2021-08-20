@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace CrossCutting
 {
     public static class CustomResponse
     {
-        public static IActionResult Response(HttpStatusCode statusCode, string message, dynamic data = null)
+        public static IActionResult Response(HttpStatusCode statusCode, string message, object data = null)
         {
             ObjectResult result = new ObjectResult(
                 new

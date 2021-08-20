@@ -1,10 +1,10 @@
 ﻿using CrossCutting;
-using Domains.DTO;
 using Domains.Helpers;
 using Interfaces.Services.Clients;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
+using Domain = Domains.Clients;
 
 namespace WebApi.Controllers.Clients
 {
@@ -19,14 +19,14 @@ namespace WebApi.Controllers.Clients
             _iClientsService = iClientsService;
         }
 
-        [HttpPost]
-        public IActionResult Add([FromBody] AccountClientDTO accountClient)
+        [HttpGet]
+        public IActionResult Get()
         {
             try
             {
-                //_iClientsService.Add(clientAccount);
+                Domain.Clients client = _iClientsService.GetClient((long)1);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, client);
             }
             catch (CustomException cex)
             {

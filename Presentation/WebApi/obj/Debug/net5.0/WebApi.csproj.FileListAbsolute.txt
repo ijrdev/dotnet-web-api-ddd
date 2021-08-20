@@ -76,3 +76,6 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\ref\WebApi.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

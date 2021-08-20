@@ -14,8 +14,10 @@
         {
             public static class ConditionValidations
             {
-                public const string CLIENT_DOCUMENT_ALREADY_REGISTERED = "Documento já cadastrado.";
+                public const string DOCUMENT_ALREADY_REGISTERED = "Documento já cadastrado.";
                 public const string CLIENT_NOT_FOUND = "Cliente não encontrado.";
+                public const string INVALID_GENDER = "Gênero inválido.";
+                public const string INVALID_PERSON = "Tipo da pessoa inválido.";
             }
 
             public static class DomainValidations {
@@ -33,6 +35,7 @@
             public static class ConditionValidations
             {
                 public const string ACCOUNT_ALREADY_REGISTERED = "Conta já cadastrada.";
+                public const string INVALID_ACCOUNT_TYPE = "Tipo da conta inválido.";
             }
 
             public static class DomainValidations

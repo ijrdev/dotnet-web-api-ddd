@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Database.Contexts;
 using Database.Factories;
 using Domains.Database;
@@ -20,6 +22,21 @@ namespace Repositories.Accounts
                 }
             }
             catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public IEnumerable<Domain.Accounts> GetAccounts(long clientId)
+        {
+            try
+            {
+                using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
+                {
+                    return context.Accounts.Where(a => a.Client.Id == clientId).ToListAsync().GetAwaiter().GetResult();
+                }
+            }
+            catch (Exception ex)
             {
                 throw;
             }

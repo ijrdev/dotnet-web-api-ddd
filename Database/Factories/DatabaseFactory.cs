@@ -14,7 +14,7 @@ namespace Database.Factories
                     //return DatabaseConnectionString.DOTNET_WEB_API_DDD_CONNECTION_STRING;
                     return new DbContextOptionsBuilder<DotnetWebApiDDDDbContext>()
                         .UseSqlServer(DatabaseConnectionString.DOTNET_WEB_API_DDD_CONNECTION_STRING)
-                        .UseLazyLoadingProxies()
+                        // .UseLazyLoadingProxies()
                         .Options;
 
                 default:
