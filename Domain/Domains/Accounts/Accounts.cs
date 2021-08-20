@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Domains.Helpers;
+using CrossCutting;
 using Domain = Domains.Clients;
 
 namespace Domains.Accounts

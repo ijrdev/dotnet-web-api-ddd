@@ -31,11 +31,11 @@ namespace Services.Clients
             }
         }
 
-        public Domain.Clients GetClient(string document)
+        public Domain.Clients GetClient(string documentEmail)
         {
             try
             {
-                return _iClientsRepository.GetClient(document);
+                return _iClientsRepository.GetClient(documentEmail);
             }
             catch (CustomException)
             {

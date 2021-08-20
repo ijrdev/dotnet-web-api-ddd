@@ -2,7 +2,6 @@
 using Database.Contexts;
 using Database.Factories;
 using Domains.Database;
-using Domains.Helpers;
 using Interfaces.Repositories.Clients;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,13 +11,13 @@ namespace Repositories.Clients
 {
     public class ClientsRepository : IClientsRepository
     {
-        public Domains.Clients.Clients GetClient(string document)
+        public Domains.Clients.Clients GetClient(string documentEmail)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnectionString.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Clients.Include(c => c.Accounts).FirstOrDefaultAsync(c => c.Document == document).GetAwaiter().GetResult();
+                    return context.Clients.Include(c => c.Accounts).FirstOrDefaultAsync(c => c.Document == documentEmail || c.Email == documentEmail).GetAwaiter().GetResult();
                 }
             }
             catch (Exception)

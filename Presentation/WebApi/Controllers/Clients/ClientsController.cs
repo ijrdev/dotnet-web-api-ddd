@@ -1,5 +1,4 @@
 ﻿using CrossCutting;
-using Domains.Helpers;
 using Interfaces.Services.Clients;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +9,7 @@ namespace WebApi.Controllers.Clients
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ClientsController : DefaultController
+    public class ClientsController : AccessController
     {
         private readonly IClientsService _iClientsService;
 
@@ -40,7 +39,7 @@ namespace WebApi.Controllers.Clients
         }
 
         [HttpPut("{id:long}")]
-        public IActionResult Put(long id, Domain.Clients client)
+        public IActionResult Put(long id, [FromBody] Domain.Clients client)
         {
             try
             {

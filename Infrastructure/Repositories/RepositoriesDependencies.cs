@@ -1,7 +1,9 @@
 ﻿using Interfaces.Repositories.Accounts;
+using Interfaces.Repositories.Auth;
 using Interfaces.Repositories.Clients;
 using Microsoft.Extensions.DependencyInjection;
 using Repositories.Accounts;
+using Repositories.Auth;
 using Repositories.Clients;
 
 namespace Repositories
@@ -12,6 +14,7 @@ namespace Repositories
         {
             services.AddTransient<IClientsRepository, ClientsRepository>();
             services.AddTransient<IAccountsRepository, AccountsRepository>();
+            services.AddTransient<IAuthRepository, AuthRepository>();
         }
     }
 }

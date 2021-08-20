@@ -1,6 +1,5 @@
 using CrossCutting;
 using Domains.DTO;
-using Domains.Helpers;
 using Interfaces.Services.Accounts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -13,7 +12,7 @@ namespace WebApi.Controllers.Accounts
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AccountsController : DefaultController
+    public class AccountsController : AccessController
     {
         private readonly IAccountsService _iAccountsService;
 

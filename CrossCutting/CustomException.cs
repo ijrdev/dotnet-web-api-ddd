@@ -9,8 +9,6 @@ namespace CrossCutting
         public dynamic Info { get; private set; }
         public HttpStatusCode Status { get; private set; }
 
-        public CustomException() { }
-
         public CustomException(HttpStatusCode status, string msg, dynamic info = null) 
         {
             Status = status;

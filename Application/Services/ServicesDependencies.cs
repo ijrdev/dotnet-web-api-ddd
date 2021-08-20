@@ -1,6 +1,8 @@
 ﻿using Interfaces.Services.Accounts;
+using Interfaces.Services.Auth;
 using Interfaces.Services.Clients;
 using Microsoft.Extensions.DependencyInjection;
+using Services.Auth;
 using Services.Clients;
 
 namespace Services
@@ -11,6 +13,7 @@ namespace Services
         {
             services.AddTransient<IClientsService, ClientsService>();
             services.AddTransient<IAccountsService, AccountsService>();
+            services.AddTransient<IAuthService, AuthService>();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace CrossCutting
 {

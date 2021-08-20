@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Domains.Helpers;
+using CrossCutting;
 
 namespace Domains.Clients
 {
@@ -23,6 +23,14 @@ namespace Domains.Clients
 
         [Range(1, int.MaxValue, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_PERSON)]
         public int Person { get; set; }
+
+        [StringLength(100, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.LONG_EMAIL)]
+        [EmailAddress(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_EMAIL)]
+        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_EMAIL)]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_PASSWORD)]
+        public string Password { get; set; }
 
         public virtual IEnumerable<Accounts.Accounts> Accounts { get; set; }
     }
