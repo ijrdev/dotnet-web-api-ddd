@@ -1,19 +1,21 @@
 ﻿using Database.Contexts;
-using Domains.Database;
+using Domain.Database;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Database.Factories
 {
     public static class DatabaseFactory
     {
+        private static IConfiguration Configuration;
+
         public static dynamic CreateConnection(string database)
         {
             switch(database)
             {
-                case DatabaseConnectionString.DOTNET_WEB_API_DDD:
-                    //return DatabaseConnectionString.DOTNET_WEB_API_DDD_CONNECTION_STRING;
+                case DatabaseConnections.DOTNET_WEB_API_DDD:
                     return new DbContextOptionsBuilder<DotnetWebApiDDDDbContext>()
-                        .UseSqlServer(DatabaseConnectionString.DOTNET_WEB_API_DDD_CONNECTION_STRING)
+                        .UseSqlServer($"Server={Configuration.GetSection("ConnectionStrings")["Server"]};Database={Configuration.GetSection("ConnectionStrings")["Database"]};Trusted_Connection=True;")
                         // .UseLazyLoadingProxies()
                         .Options;
 

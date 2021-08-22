@@ -1,9 +1,5 @@
-﻿using Interfaces.Services.Accounts;
-using Interfaces.Services.Auth;
-using Interfaces.Services.Clients;
+﻿using Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Services.Auth;
-using Services.Clients;
 
 namespace Services
 {

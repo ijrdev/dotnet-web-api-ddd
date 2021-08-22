@@ -20,8 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Application\Services\Services.csproj" />
-    <ProjectReference Include="..\..\CrossCutting\CrossCutting.csproj" />
-    <ProjectReference Include="..\..\Database\Database.csproj" />
   </ItemGroup>
 
 </Project>

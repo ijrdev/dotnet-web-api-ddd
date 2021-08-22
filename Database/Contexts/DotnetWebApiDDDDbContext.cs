@@ -1,5 +1,4 @@
-﻿using Domains.Clients;
-using Domains.Accounts;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using CrossCutting;
+using Domain.Responses;
 
-namespace Domains.DTO
+namespace Domain.DTO
 {
     public class AuthDTO
     {

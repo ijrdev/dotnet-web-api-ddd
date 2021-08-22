@@ -1,4 +1,3 @@
-using Database.Contexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +9,8 @@ using Newtonsoft.Json;
 using Repositories;
 using Services;
 using Microsoft.IdentityModel.Tokens;
+using Database.Contexts;
+using System.Text;
 
 namespace WebApi
 {
@@ -45,7 +46,7 @@ namespace WebApi
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    //IssuerSigningKey = new SymmetricSecurityKey(),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("Token")["Key"])),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };

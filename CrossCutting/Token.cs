@@ -3,15 +3,18 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Domains;
+using Domain.Entities;
+using Microsoft.Extensions.Configuration;
 
 namespace CrossCutting
 {
     public static class Token
     {
-        private static readonly byte[] Key = Encoding.ASCII.GetBytes("GB54VBGfbv45asv744v");
+        private static readonly IConfiguration Configuration;
 
-        public static string GenerateToken(Domain.Clients client)
+        private static readonly byte[] Key = Encoding.ASCII.GetBytes(Configuration.GetSection("Token")["Key"]);
+
+        public static string GenerateToken(Clients client)
         {
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 

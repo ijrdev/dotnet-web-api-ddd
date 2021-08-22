@@ -101,7 +101,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -170,11 +174,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj"
-              },
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj"
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj"
               }
             }
           }
@@ -190,10 +191,6 @@
           "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.9, )"
-            },
-            "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
               "version": "[5.0.9, )"
             },
@@ -225,12 +222,12 @@
         }
       }
     },
-    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj": {
+    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj",
-        "projectName": "Domains",
-        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj",
+        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
         "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\obj\\",
         "projectStyle": "PackageReference",
@@ -248,11 +245,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -264,6 +257,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -307,8 +306,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domains.csproj"
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj"
               }
             }
           }
@@ -365,9 +364,6 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj"
-              },
               "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj": {
                 "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj"
               },

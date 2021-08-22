@@ -1,4 +1,4 @@
-﻿namespace Domains.DTO
+﻿namespace Domain.DTO
 {
     public class AuthClientDTO
     {
