@@ -1,11 +1,12 @@
 ﻿using CrossCutting;
 using Domain.DTO;
-using Interfaces.Services;
+using Domain.Interfaces.Services;
 using Domain.Entities;
 using System.Net;
 using AutoMapper;
 using Domain.Responses;
 using Domain.Exceptions;
+using System;
 
 namespace Services
 {
@@ -20,29 +21,40 @@ namespace Services
 
         public AuthClientDTO Login(AuthDTO auth)
         {
-            Clients client = _iClientsService.GetClient(auth.Email);
-
-            if (client == null)
+            try
             {
-                throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND, auth.Email);
+                Clients client = _iClientsService.GetClient(auth.Email);
+
+                if (client == null)
+                {
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND, auth.Email);
+                }
+
+                bool checkPassword = Crypto.Password.Verify(auth.Password, client.Password);
+
+                if (!checkPassword)
+                {
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INCORRECT_PASSWORD, auth.Email);
+                }
+
+                IMapper mapper = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<Clients, AuthClientDTO>();
+                }).CreateMapper();
+
+                AuthClientDTO authClientDTO = mapper.Map<AuthClientDTO>(client);
+                authClientDTO.Token = Token.GenerateToken(client);
+
+                return authClientDTO;
             }
-
-            bool checkPassword = Crypto.Password.Verify(auth.Password, client.Password);
-
-            if(!checkPassword)
+            catch (CustomException)
             {
-                throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INCORRECT_PASSWORD, auth.Email);
+                throw;
             }
-
-            IMapper mapper = new MapperConfiguration(cfg =>
+            catch (Exception)
             {
-                cfg.CreateMap<Clients, AuthClientDTO>();
-            }).CreateMapper();
-
-            AuthClientDTO authClientDTO = mapper.Map<AuthClientDTO>(client);
-            authClientDTO.Token = Token.GenerateToken(client);
-
-            return authClientDTO;
+                throw;
+            }
         }
     }
 }

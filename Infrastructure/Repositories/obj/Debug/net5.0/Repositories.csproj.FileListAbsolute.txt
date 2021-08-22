@@ -4,9 +4,7 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\bin\Deb
 E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\bin\Debug\net5.0\Repositories.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\bin\Debug\net5.0\Database.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\bin\Debug\net5.0\Domain.dll
-E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\bin\Debug\net5.0\Interfaces.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\bin\Debug\net5.0\Database.pdb
-E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\bin\Debug\net5.0\Interfaces.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\bin\Debug\net5.0\Domain.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\obj\Debug\net5.0\Repositories.csprojAssemblyReference.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Infrastructure\Repositories\obj\Debug\net5.0\Repositories.GeneratedMSBuildEditorConfig.editorconfig

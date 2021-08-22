@@ -10,9 +10,7 @@ namespace CrossCutting
 {
     public static class Token
     {
-        private static readonly IConfiguration Configuration;
-
-        private static readonly byte[] Key = Encoding.ASCII.GetBytes(Configuration.GetSection("Token")["Key"]);
+        private static readonly byte[] Key = Encoding.ASCII.GetBytes("DotnetWebApiDDD0123456789");
 
         public static string GenerateToken(Clients client)
         {

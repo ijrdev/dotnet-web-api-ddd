@@ -15,13 +15,12 @@ namespace Data.Mapping
                 .ValueGeneratedOnAdd();
 
             builder.Property(a => a.AccountType).IsRequired();
-            builder.HasIndex(a => a.AccountType)
-                .IsUnique();
 
             builder.Property(a => a.AccountNumber)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(100)
                 .IsRequired();
+            //builder.HasIndex(a => a.AccountNumber).IsUnique();
 
             builder.Property(a => a.Balance)
                 .HasDefaultValue(0);

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wNzRH5XU9Nq2BhG22Ng+R/RyiSPusQvpeb1Qj45sX28op5e4HsrWBQRqG8B7go9ZikHRrSJwCJRMPAr6dgHtcQ==",
+  "dgSpecHash": "dFBft51AIN/A39UtlX22SFzUKTfa8li9RjRM3y3YAzkOfih35okX/8nDxtyhWvSXyc5ZnbYKV8z9DBq28gdVtQ==",
   "success": true,
   "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj",
   "expectedPackageFiles": [

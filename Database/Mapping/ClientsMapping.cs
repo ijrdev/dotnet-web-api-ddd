@@ -18,13 +18,19 @@ namespace Data.Mapping
                 .HasColumnType("nvarchar")
                 .HasMaxLength(100)
                 .IsRequired();
-            builder.HasIndex(c => c.Document).IsUnique();
-
+            //builder.HasIndex(c => c.Document).IsUnique();
 
             builder.Property(c => c.Name)
                 .HasColumnType("nvarchar")
                 .HasMaxLength(100)
                 .IsRequired();
+
+            builder.Property(c => c.Email)
+                .HasColumnType("nvarchar")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder.Property(c => c.Password).IsRequired();
 
             builder.Property(c => c.Age).IsRequired();
 

@@ -3135,19 +3135,6 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
-      },
-      "Interfaces/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Interfaces.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Interfaces.dll": {}
-        }
       }
     }
   },
@@ -9565,17 +9552,11 @@
       "type": "project",
       "path": "../../Domain/Domains/Domain.csproj",
       "msbuildProject": "../../Domain/Domains/Domain.csproj"
-    },
-    "Interfaces/1.0.0": {
-      "type": "project",
-      "path": "../../Domain/Interfaces/Interfaces.csproj",
-      "msbuildProject": "../../Domain/Interfaces/Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Database >= 1.0.0",
-      "Interfaces >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 5.0.2"
     ]
   },
@@ -9608,9 +9589,6 @@
           "projectReferences": {
             "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj": {
               "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj"
-            },
-            "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj": {
-              "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj"
             }
           }
         }

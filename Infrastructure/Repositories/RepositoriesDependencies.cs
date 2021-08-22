@@ -1,4 +1,4 @@
-﻿using Interfaces.Repositories;
+﻿using Domain.Interfaces.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Repositories

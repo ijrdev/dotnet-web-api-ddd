@@ -1,14 +1,15 @@
 using AutoMapper;
 using Domain.DTO;
 using Domain.Enums;
-using Interfaces.Repositories;
-using Interfaces.Services;
+using Domain.Interfaces.Repositories;
+using Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Responses;
+using CrossCutting;
 
 namespace Services
 {
@@ -74,6 +75,9 @@ namespace Services
                 else
                 {
                     accountMapped.AccountNumber = GenerateAccountNumber();
+
+                    clientMapped.Password = Crypto.Password.Hash(clientMapped.Password);
+
                     accountMapped.Client = clientMapped;
 
                     _iAccountsRepository.AddAccount(accountMapped, true);

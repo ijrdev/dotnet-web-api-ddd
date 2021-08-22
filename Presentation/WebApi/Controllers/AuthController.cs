@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
-using Interfaces.Services;
+using Domain.Interfaces.Services;
 using Domain.DTO;
 using Domain.Responses;
 using Domain.Exceptions;

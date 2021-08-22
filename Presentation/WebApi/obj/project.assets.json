@@ -3155,25 +3155,11 @@
           "bin/placeholder/Domain.dll": {}
         }
       },
-      "Interfaces/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Interfaces.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Interfaces.dll": {}
-        }
-      },
       "Repositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Database": "1.0.0",
-          "Interfaces": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.2"
         },
         "compile": {
@@ -3189,7 +3175,6 @@
         "dependencies": {
           "AutoMapper": "10.1.1",
           "CrossCutting": "1.0.0",
-          "Interfaces": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.2",
           "Repositories": "1.0.0"
         },
@@ -9609,11 +9594,6 @@
       "type": "project",
       "path": "../../Domain/Domains/Domain.csproj",
       "msbuildProject": "../../Domain/Domains/Domain.csproj"
-    },
-    "Interfaces/1.0.0": {
-      "type": "project",
-      "path": "../../Domain/Interfaces/Interfaces.csproj",
-      "msbuildProject": "../../Domain/Interfaces/Interfaces.csproj"
     },
     "Repositories/1.0.0": {
       "type": "project",

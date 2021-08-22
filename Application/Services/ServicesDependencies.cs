@@ -1,4 +1,4 @@
-﻿using Interfaces.Services;
+﻿using Domain.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Services

@@ -1,5 +1,5 @@
-using Interfaces.Repositories;
-using Interfaces.Services;
+using Domain.Interfaces.Repositories;
+using Domain.Interfaces.Services;
 using System;
 using Domain.Entities;
 using Domain.Exceptions;

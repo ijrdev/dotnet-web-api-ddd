@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DotnetWebApiDDDDbContext))]
-    [Migration("20210819135028_AccountClient")]
-    partial class AccountClient
+    [Migration("20210822140926_ClientAccount")]
+    partial class ClientAccount
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Database.Migrations
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Domains.Accounts.Accounts", b =>
+            modelBuilder.Entity("Domain.Entities.Accounts", b =>
                 {
                     b.Property<long?>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,7 +47,7 @@ namespace Database.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("Domains.Clients.Clients", b =>
+            modelBuilder.Entity("Domain.Entities.Clients", b =>
                 {
                     b.Property<long?>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,6 +61,11 @@ namespace Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
@@ -68,6 +73,10 @@ namespace Database.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Person")
                         .HasColumnType("int");
@@ -77,16 +86,16 @@ namespace Database.Migrations
                     b.ToTable("Clients");
                 });
 
-            modelBuilder.Entity("Domains.Accounts.Accounts", b =>
+            modelBuilder.Entity("Domain.Entities.Accounts", b =>
                 {
-                    b.HasOne("Domains.Clients.Clients", "Client")
+                    b.HasOne("Domain.Entities.Clients", "Client")
                         .WithMany("Accounts")
                         .HasForeignKey("ClientId");
 
                     b.Navigation("Client");
                 });
 
-            modelBuilder.Entity("Domains.Clients.Clients", b =>
+            modelBuilder.Entity("Domain.Entities.Clients", b =>
                 {
                     b.Navigation("Accounts");
                 });

@@ -5,10 +5,8 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\CrossCutting.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Database.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Domain.dll
-E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Interfaces.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Repositories.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\CrossCutting.pdb
-E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Interfaces.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Repositories.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Database.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Domain.pdb

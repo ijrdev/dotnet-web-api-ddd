@@ -3165,25 +3165,11 @@
           "bin/placeholder/Domain.dll": {}
         }
       },
-      "Interfaces/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Interfaces.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Interfaces.dll": {}
-        }
-      },
       "Repositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Database": "1.0.0",
-          "Interfaces": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.2"
         },
         "compile": {
@@ -9675,11 +9661,6 @@
       "path": "../../Domain/Domains/Domain.csproj",
       "msbuildProject": "../../Domain/Domains/Domain.csproj"
     },
-    "Interfaces/1.0.0": {
-      "type": "project",
-      "path": "../../Domain/Interfaces/Interfaces.csproj",
-      "msbuildProject": "../../Domain/Interfaces/Interfaces.csproj"
-    },
     "Repositories/1.0.0": {
       "type": "project",
       "path": "../../Infrastructure/Repositories/Repositories.csproj",
@@ -9690,7 +9671,6 @@
     "net5.0": [
       "AutoMapper >= 10.1.1",
       "CrossCutting >= 1.0.0",
-      "Interfaces >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 5.0.2",
       "Repositories >= 1.0.0"
     ]
@@ -9724,9 +9704,6 @@
           "projectReferences": {
             "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
               "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj"
-            },
-            "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj": {
-              "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Interfaces\\Interfaces.csproj"
             },
             "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj": {
               "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj"
