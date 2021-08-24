@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Domain.Entities;
-using Microsoft.Extensions.Configuration;
+using Domain.Enums;
 
 namespace CrossCutting
 {
@@ -20,8 +20,8 @@ namespace CrossCutting
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Actor, client.Id.ToString()),
-                    new Claim(ClaimTypes.Email, client.Email.ToString())
+                    new Claim(CustomClaimType.Id.ToString(), client.Id.ToString(), ClaimValueTypes.Integer64),
+                    new Claim(CustomClaimType.Email.ToString(), client.Email, ClaimValueTypes.String)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Key), SecurityAlgorithms.HmacSha256Signature)

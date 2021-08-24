@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Security.Principal;
+using System.Security.Claims;
 
 namespace WebApi.Controllers
 {
     public class AccessController : ControllerBase
     {
-        protected IIdentity UserAuthenticated()
+        protected ClaimsPrincipal UserAuthenticated()
         {
-            return User.Identity;
+            return User;
         }
     }
 }

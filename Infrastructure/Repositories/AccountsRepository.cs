@@ -52,6 +52,7 @@ namespace Repositories
                         context.Entry(account.Client).State = EntityState.Unchanged;
 
                     context.Accounts.AddAsync(account).GetAwaiter().GetResult();
+
                     context.SaveChangesAsync().GetAwaiter().GetResult();
                 }
 

@@ -8,6 +8,7 @@
             public const string INTERNAL_SERVER_ERROR = "Erro interno no servidor.";
             public const string NOT_FOUND = "Recurso solicitado não encontrado.";
             public const string PRECONDITION_FAILED = "Alguma pré condição não foi atendida.";
+            public const string FORBIDDEN = "Acesso negado.";
         }
 
         public static class Clients

@@ -68,6 +68,7 @@ namespace Services
                     }
 
                     accountMapped.AccountNumber = GenerateAccountNumber();
+
                     accountMapped.Client = client;
 
                     _iAccountsRepository.AddAccount(accountMapped);

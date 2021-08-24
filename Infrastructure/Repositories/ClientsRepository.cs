@@ -5,9 +5,7 @@ using Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Domain.Entities;
-using System.Net;
 using Domain.Exceptions;
-using Domain.Responses;
 
 namespace Repositories
 {
@@ -43,22 +41,35 @@ namespace Repositories
             }
         }
 
-        public void UpdateClient(long id, Clients client)
+        public void AddClient(Clients client)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    Clients clientResult = context.Clients.FindAsync(id).GetAwaiter().GetResult();
+                    context.AddAsync(client);
 
-                    if (clientResult == null)
-                    {
-                        throw new CustomException(HttpStatusCode.NotFound, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND);
-                    }
+                    context.SaveChangesAsync().GetAwaiter().GetResult();
+                }
+            }
+            catch (CustomException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-                    client.Id = id;
+        public void UpdateClient(Clients client)
+        {
+            try
+            {
+                using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
+                {
+                    context.Update(client);
 
-                    context.Entry(clientResult).CurrentValues.SetValues(client);
                     context.SaveChangesAsync().GetAwaiter().GetResult();
                 }
             }

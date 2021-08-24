@@ -43,6 +43,7 @@ namespace Services
                 }).CreateMapper();
 
                 AuthClientDTO authClientDTO = mapper.Map<AuthClientDTO>(client);
+
                 authClientDTO.Token = Token.GenerateToken(client);
 
                 return authClientDTO;

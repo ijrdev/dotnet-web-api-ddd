@@ -6,6 +6,7 @@ namespace Domain.Interfaces.Repositories
     {
         Clients GetClient(long id);
         Clients GetClient(string documentEmail);
-        void UpdateClient(long id, Clients client);
+        void AddClient(Clients client);
+        void UpdateClient(Clients client);
     }
 }

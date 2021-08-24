@@ -5,6 +5,8 @@ using Domain.Interfaces.Services;
 using Domain.DTO;
 using Domain.Responses;
 using Domain.Exceptions;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Collections.Generic;
 
 namespace WebApi.Controllers
 {
@@ -24,6 +26,21 @@ namespace WebApi.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    IList<string> errors = new List<string>();
+
+                    foreach (KeyValuePair<string, ModelStateEntry> state in ModelState)
+                    {
+                        foreach (ModelError error in state.Value.Errors)
+                        {
+                            errors.Add(error.ErrorMessage);
+                        }
+                    }
+
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, errors);
+                }
+
                 AuthClientDTO authClient = _iAuthService.Login(auth);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, authClient);
