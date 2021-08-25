@@ -6,6 +6,7 @@ using Domain.Exceptions;
 using CrossCutting;
 using System.Net;
 using Domain.Responses;
+using Domain.Enums;
 
 namespace Services
 {
@@ -55,11 +56,13 @@ namespace Services
         {
             try
             {
+                CheckEnumsType(client);
+
                 Clients clientResult = GetClient(client.Document);
 
                 if (clientResult != null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED, new { client.Document });
                 }
 
                 client.Password = Crypto.Password.Hash(client.Password);
@@ -80,6 +83,8 @@ namespace Services
         {
             try
             {
+                CheckEnumsType(client);
+
                 Clients clientResult = GetClient((long) client.Id);
 
                 if (clientResult == null)
@@ -93,7 +98,7 @@ namespace Services
                 {
                     if(clientResult.Id != clientCheckDocument.Id)
                     {
-                        throw new CustomException(HttpStatusCode.NotFound, CustomResponseMessage.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED);
+                        throw new CustomException(HttpStatusCode.NotFound, CustomResponseMessage.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED, new { client.Document });
                     }
                 }
 
@@ -109,6 +114,15 @@ namespace Services
             {
                 throw;
             }
+        }
+
+        private void CheckEnumsType(Clients client)
+        {
+            if (!Enum.IsDefined(typeof(Genders), client.Gender))
+                throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INVALID_GENDER, new { client.Gender });
+
+            if (!Enum.IsDefined(typeof(Persons), client.Person))
+                throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INVALID_PERSON, new { client.Person });
         }
     }
 }

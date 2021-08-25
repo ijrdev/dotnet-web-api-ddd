@@ -17,6 +17,7 @@
             {
                 public const string DOCUMENT_ALREADY_REGISTERED = "Documento já cadastrado.";
                 public const string CLIENT_NOT_FOUND = "Cliente não encontrado.";
+                public const string INVALID_AGE = "Idade inválida.";
                 public const string INVALID_GENDER = "Gênero inválido.";
                 public const string INVALID_PERSON = "Tipo da pessoa inválido.";
                 public const string INCORRECT_PASSWORD = "Senha incorreta.";
@@ -24,14 +25,17 @@
 
             public static class DomainValidations {
                 public const string REQUIRED_DOCUMENT = "Documento é obrigatório.";
-                public const string LONG_NAME = "Nome muito longo.";
                 public const string REQUIRED_NAME = "Nome é obrigatório.";
+                public const string LONG_NAME = "Nome muito longo.";
+                public const string REQUIRED_AGE = "Idade é obrigatória.";
                 public const string INVALID_AGE = "Idade inválida ou não informada.";
+                public const string REQUIRED_GENDER = "Gênero é obrigatório.";
                 public const string INVALID_GENDER = "Gênero inválido ou não informado.";
+                public const string REQUIRED_PERSON = "Tipo da pessoa é obrigatório.";
                 public const string INVALID_PERSON = "Tipo da pessoa inválido ou não informado.";
+                public const string REQUIRED_EMAIL = "Email inválido ou não informado.";
                 public const string LONG_EMAIL = "Email muito longo.";
                 public const string INVALID_EMAIL = "Email invalido.";
-                public const string REQUIRED_EMAIL = "Email inválido ou não informado.";
                 public const string REQUIRED_PASSWORD = "Senha inválida ou não informado.";
             }
         }
@@ -48,7 +52,9 @@
             {
                 
                 public const string INVALID_ACCOUNT_TYPE = "Tipo da conta inválido ou não informado.";
-                public const string INVALID_BALANCE = "Valor inválido ou não informado.";
+                public const string REQUIRED_ACCOUNT_TYPE = "Tipo da conta é obrigatório.";
+                public const string INVALID_BALANCE = "Valor inválido.";
+                public const string REQUIRED_BALANCE = "Saldo é obrigatório.";
             }
         }
     }

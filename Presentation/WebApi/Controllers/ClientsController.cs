@@ -38,7 +38,7 @@ namespace WebApi.Controllers
 
                 client.Password = null;
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, client);
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, new { client });
             }
             catch (CustomException cex)
             {
@@ -67,7 +67,7 @@ namespace WebApi.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, errors);
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 _iClientsService.AddClient(client);
@@ -102,7 +102,7 @@ namespace WebApi.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, errors);
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
@@ -116,7 +116,7 @@ namespace WebApi.Controllers
                     return CustomResponse.Response(HttpStatusCode.Forbidden, CustomResponseMessage.HTTP.FORBIDDEN);
                 }
 
-                client.Id = id;
+                client.Id = userIdConverted;
 
                 _iClientsService.UpdateClient(client);
 

@@ -7,6 +7,6 @@ namespace Domain.Interfaces.Repositories
     {
         Accounts GetAccount(string accountNumber);
         IEnumerable<Accounts> GetAccounts(long clientId);
-        void AddAccount(Accounts account, bool newClient = false);
+        void AddAccount(Accounts account);
     }
 }

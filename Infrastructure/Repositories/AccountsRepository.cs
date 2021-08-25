@@ -42,14 +42,13 @@ namespace Repositories
             }
         }
 
-        public void AddAccount(Accounts account, bool newClient = false)
+        public void AddAccount(Accounts account)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    if(!newClient)
-                        context.Entry(account.Client).State = EntityState.Unchanged;
+                    context.Entry(account.Client).State = EntityState.Unchanged;
 
                     context.Accounts.AddAsync(account).GetAwaiter().GetResult();
 

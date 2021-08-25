@@ -1,6 +1,6 @@
 ﻿namespace Domain.DTO
 {
-    public class AuthClientDTO
+    public class AuthClientsDTO
     {
         public string Document { get; set; }
 

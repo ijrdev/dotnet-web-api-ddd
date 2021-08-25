@@ -21,6 +21,7 @@ namespace CrossCutting
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(CustomClaimType.Id.ToString(), client.Id.ToString(), ClaimValueTypes.Integer64),
+                    new Claim(CustomClaimType.Document.ToString(), client.Document.ToString(), ClaimValueTypes.String),
                     new Claim(CustomClaimType.Email.ToString(), client.Email, ClaimValueTypes.String)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),

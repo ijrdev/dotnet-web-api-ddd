@@ -38,10 +38,10 @@ namespace WebApi.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, errors);
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                AuthClientDTO authClient = _iAuthService.Login(auth);
+                AuthClientsDTO authClient = _iAuthService.Login(auth);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, authClient);
             }

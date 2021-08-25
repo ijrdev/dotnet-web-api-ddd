@@ -19,7 +19,7 @@ namespace Services
             _iClientsService = iClientsService;
         }
 
-        public AuthClientDTO Login(AuthDTO auth)
+        public AuthClientsDTO Login(AuthDTO auth)
         {
             try
             {
@@ -27,22 +27,22 @@ namespace Services
 
                 if (client == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND, auth.Email);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND, new { auth.Email });
                 }
 
                 bool checkPassword = Crypto.Password.Verify(auth.Password, client.Password);
 
                 if (!checkPassword)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INCORRECT_PASSWORD, auth.Email);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INCORRECT_PASSWORD, new { auth.Email });
                 }
 
                 IMapper mapper = new MapperConfiguration(cfg =>
                 {
-                    cfg.CreateMap<Clients, AuthClientDTO>();
+                    cfg.CreateMap<Clients, AuthClientsDTO>();
                 }).CreateMapper();
 
-                AuthClientDTO authClientDTO = mapper.Map<AuthClientDTO>(client);
+                AuthClientsDTO authClientDTO = mapper.Map<AuthClientsDTO>(client);
 
                 authClientDTO.Token = Token.GenerateToken(client);
 

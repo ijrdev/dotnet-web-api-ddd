@@ -1,4 +1,3 @@
-using Domain.DTO;
 using Domain.Exceptions;
 using Domain.Responses;
 using Domain.Interfaces.Services;
@@ -7,6 +6,10 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using Domain.Entities;
+using System.Security.Claims;
+using Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers
 {
@@ -22,7 +25,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody] AccountClientDTO accountClient)
+        [Authorize]
+        public IActionResult Add([FromBody] Accounts account)
         {
             try
             {
@@ -38,31 +42,18 @@ namespace WebApi.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, errors);
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                _iAccountsService.AddAccount(accountClient);
+                ClaimsPrincipal userAuthenticated = UserAuthenticated();
+
+                string id = userAuthenticated.FindFirstValue(CustomClaimType.Id.ToString());
+
+                _iAccountsService.AddAccount(Convert.ToInt64(id), account);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
             }
             catch(CustomException cex)
-            {
-                return CustomResponse.Response(cex.Status, cex.Msg, cex.Info);
-            }
-            catch (Exception)
-            {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
-            }
-        }
-
-        [HttpDelete]
-        public IActionResult Delete([FromBody] AccountClientDTO accountClient)
-        {
-            try
-            {
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
-            }
-            catch (CustomException cex)
             {
                 return CustomResponse.Response(cex.Status, cex.Msg, cex.Info);
             }

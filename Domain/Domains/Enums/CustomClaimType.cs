@@ -3,6 +3,7 @@
     public enum CustomClaimType
     {
         Id = 1,
-        Email = 2
+        Document = 2,
+        Email = 3
     }
 }

@@ -4,6 +4,6 @@ namespace Domain.Interfaces.Services
 {
     public interface IAuthService
     {
-        AuthClientDTO Login(AuthDTO auth);
+        AuthClientsDTO Login(AuthDTO auth);
     }
 }
