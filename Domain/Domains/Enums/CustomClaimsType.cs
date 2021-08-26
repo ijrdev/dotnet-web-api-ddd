@@ -1,6 +1,6 @@
 ﻿namespace Domain.Enums
 {
-    public enum CustomClaimType
+    public enum CustomClaimsType
     {
         Id = 1,
         Document = 2,

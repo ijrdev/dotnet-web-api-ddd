@@ -10,6 +10,7 @@ namespace Services
             services.AddTransient<IClientsService, ClientsService>();
             services.AddTransient<IAccountsService, AccountsService>();
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IAccountsTransactionsService, AccountsTransactionsService>();
         }
     }
 }

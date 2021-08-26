@@ -10,6 +10,7 @@ using Domain.Entities;
 using System.Security.Claims;
 using Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
+using Domain.DTO;
 
 namespace WebApi.Controllers
 {
@@ -26,7 +27,7 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Add([FromBody] Accounts account)
+        public IActionResult AddAccount([FromBody] Accounts account)
         {
             try
             {
@@ -47,13 +48,48 @@ namespace WebApi.Controllers
 
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
 
-                string id = userAuthenticated.FindFirstValue(CustomClaimType.Id.ToString());
+                string id = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
 
                 _iAccountsService.AddAccount(Convert.ToInt64(id), account);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
             }
             catch(CustomException cex)
+            {
+                return CustomResponse.Response(cex.Status, cex.Msg, cex.Info);
+            }
+            catch (Exception)
+            {
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+            }
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Deposit([FromBody] TransactionsDTO transaction)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    IList<string> errors = new List<string>();
+
+                    foreach (KeyValuePair<string, ModelStateEntry> state in ModelState)
+                    {
+                        foreach (ModelError error in state.Value.Errors)
+                        {
+                            errors.Add(error.ErrorMessage);
+                        }
+                    }
+
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                }
+
+                _iAccountsService.Deposit(transaction);
+
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+            }
+            catch (CustomException cex)
             {
                 return CustomResponse.Response(cex.Status, cex.Msg, cex.Info);
             }

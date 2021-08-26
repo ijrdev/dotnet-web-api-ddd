@@ -6,8 +6,9 @@ namespace Database.Contexts
 {
     public class DotnetWebApiDDDDbContext : DbContext
     {
-        public DbSet<Accounts> Accounts { get; set; }
         public DbSet<Clients> Clients { get; set; }
+        public DbSet<Accounts> Accounts { get; set; }
+        public DbSet<AccountsTransactions> AccountsTransactions { get; set; }
 
         public DotnetWebApiDDDDbContext(DbContextOptions<DotnetWebApiDDDDbContext> options) : base(options)
         {

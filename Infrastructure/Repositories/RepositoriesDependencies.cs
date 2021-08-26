@@ -9,6 +9,7 @@ namespace Repositories
         {
             services.AddTransient<IClientsRepository, ClientsRepository>();
             services.AddTransient<IAccountsRepository, AccountsRepository>();
+            services.AddTransient<IAccountsTransactionsRepository, AccountsTransactionsRepository>();
         }
     }
 }

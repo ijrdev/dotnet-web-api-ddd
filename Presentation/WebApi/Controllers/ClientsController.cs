@@ -32,7 +32,7 @@ namespace WebApi.Controllers
             {
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
                 
-                string id = userAuthenticated.FindFirstValue(CustomClaimType.Id.ToString());
+                string id = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
 
                 Clients client = _iClientsService.GetClient(Convert.ToInt64(id));
 
@@ -107,7 +107,7 @@ namespace WebApi.Controllers
 
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
 
-                string userId = userAuthenticated.FindFirstValue(CustomClaimType.Id.ToString());
+                string userId = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
 
                 long userIdConverted = Convert.ToInt64(userId);
 

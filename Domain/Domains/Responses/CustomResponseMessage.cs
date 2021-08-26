@@ -57,5 +57,22 @@
                 public const string REQUIRED_BALANCE = "Saldo é obrigatório.";
             }
         }
+
+        public static class AccountsTransactions
+        {
+            public static class ConditionValidations
+            {
+                public const string ACCOUNT_NUMBER_NOT_FOUND = "Número da conta não encontrado.";
+                public const string INSUFFICIENT_BALANCE = "Saldo insuficiente para realizar a operação.";
+            }
+
+            public static class DomainValidations
+            {
+                public const string REQUIRED_ACCOUNT_NUMBER_TO_TRANSFER = "Número da conta para transferir é obrigatório.";
+                public const string REQUIRED_ACCOUNT_NUMBER_TO_RECEIVE = "Número da conta para receber é obrigatório.";
+                public const string REQUIRED_VALUE = "Valor é obrigatório.";
+                public const string INVALID_VALUE = "Valor inválido ou não informado.";
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Net;
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Responses;
+using Domain.DTO;
 
 namespace Services
 {
@@ -14,11 +15,13 @@ namespace Services
     {
         private readonly IAccountsRepository _iAccountsRepository;
         private readonly IClientsService _iClientsService;
+        private readonly IAccountsTransactionsService _iAccountsTransactionsService;
 
-        public AccountsService(IAccountsRepository iAccountsRepository, IClientsService iClientsService)
+        public AccountsService(IAccountsRepository iAccountsRepository, IClientsService iClientsService, IAccountsTransactionsService iAccountsTransactionsService)
         {
             _iAccountsRepository = iAccountsRepository;
             _iClientsService = iClientsService;
+            _iAccountsTransactionsService = iAccountsTransactionsService;
         }
 
         public Accounts GetAccount(string accountNumber)
@@ -57,6 +60,47 @@ namespace Services
                 account.Client = client;
 
                 _iAccountsRepository.AddAccount(account);
+            }
+            catch (CustomException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void Deposit(TransactionsDTO transaction)
+        {
+            try
+            {
+                Accounts accountToTransfer = GetAccount(transaction.AccountNumberToTransfer);
+                Accounts accountToReceive = GetAccount(transaction.AccountNumberToReceive);
+
+                if(accountToTransfer != null && accountToReceive != null)
+                {
+                    // tipo da transção para primeiro verificar o saldo
+                    // colocar o tipo da transação e a operação em TransactionsDTO
+
+                    switch ()
+                    {
+                        case 
+                    }
+
+                    if(accountToTransfer.Balance >= transaction.Value)
+                    {
+                        // 
+                    }
+                    else
+                    {
+                        throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.AccountsTransactions.ConditionValidations.INSUFFICIENT_BALANCE, new { accountToTransfer.Balance });
+                    }
+                }
+                else
+                {
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.AccountsTransactions.ConditionValidations.ACCOUNT_NUMBER_NOT_FOUND, new { accountToTransfer, accountToReceive });
+                }
             }
             catch (CustomException)
             {
