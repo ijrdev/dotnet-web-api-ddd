@@ -7,23 +7,24 @@ using AutoMapper;
 using Domain.Responses;
 using Domain.Exceptions;
 using System;
+using Domain.Interfaces.Repositories;
 
 namespace Services
 {
     public class AuthService : IAuthService
     {
-        private readonly IClientsService _iClientsService;
+        private readonly IClientsRepository _iClientsRepository;
 
-        public AuthService(IClientsService iClientsService)
+        public AuthService(IClientsRepository iClientsRepository)
         {
-            _iClientsService = iClientsService;
+            _iClientsRepository = iClientsRepository;
         }
 
         public AuthClientsDTO Login(AuthDTO auth)
         {
             try
             {
-                Clients client = _iClientsService.GetClient(auth.Email);
+                Clients client = _iClientsRepository.GetClient(auth.Email);
 
                 if (client == null)
                 {

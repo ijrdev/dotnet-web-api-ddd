@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DotnetWebApiDDDDbContext))]
-    [Migration("20210822140926_ClientAccount")]
-    partial class ClientAccount
+    [Migration("20210827144049_Test")]
+    partial class Test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,6 +45,32 @@ namespace Database.Migrations
                     b.HasIndex("ClientId");
 
                     b.ToTable("Accounts");
+                });
+
+            modelBuilder.Entity("Domain.Entities.AccountsTransactions", b =>
+                {
+                    b.Property<long?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long?>("AccountId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Operation")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransactionType")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Value")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("AccountsTransactions");
                 });
 
             modelBuilder.Entity("Domain.Entities.Clients", b =>
@@ -93,6 +119,15 @@ namespace Database.Migrations
                         .HasForeignKey("ClientId");
 
                     b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("Domain.Entities.AccountsTransactions", b =>
+                {
+                    b.HasOne("Domain.Entities.Accounts", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("Domain.Entities.Clients", b =>

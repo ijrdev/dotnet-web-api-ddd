@@ -18,7 +18,7 @@ namespace Repositories
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Accounts.FirstOrDefaultAsync(a => a.AccountNumber == accountNumber).GetAwaiter().GetResult();
+                    return context.Accounts.Include(a => a.Client).FirstOrDefaultAsync(a => a.AccountNumber == accountNumber).GetAwaiter().GetResult();
                 }
             }
             catch (Exception)
@@ -51,6 +51,24 @@ namespace Repositories
                     context.Entry(account.Client).State = EntityState.Unchanged;
 
                     context.Accounts.AddAsync(account).GetAwaiter().GetResult();
+
+                    context.SaveChangesAsync().GetAwaiter().GetResult();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void UpdateAccount(Accounts account)
+        {
+            try
+            {
+                using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
+                {
+                    context.Accounts.Update(account);
 
                     context.SaveChangesAsync().GetAwaiter().GetResult();
                 }

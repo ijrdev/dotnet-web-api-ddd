@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.DTO
 {
-    public class TransactionsDTO
+    public class TransferTransactionsDTO
     {
         [Required(ErrorMessage = CustomResponseMessage.AccountsTransactions.DomainValidations.REQUIRED_ACCOUNT_NUMBER_TO_TRANSFER)]
         public string AccountNumberToTransfer { get; set; }

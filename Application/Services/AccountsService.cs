@@ -7,21 +7,18 @@ using System.Net;
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Responses;
-using Domain.DTO;
 
 namespace Services
 {
     public class AccountsService : IAccountsService
     {
         private readonly IAccountsRepository _iAccountsRepository;
-        private readonly IClientsService _iClientsService;
-        private readonly IAccountsTransactionsService _iAccountsTransactionsService;
+        private readonly IClientsRepository _iClientsRepository;
 
-        public AccountsService(IAccountsRepository iAccountsRepository, IClientsService iClientsService, IAccountsTransactionsService iAccountsTransactionsService)
+        public AccountsService(IAccountsRepository iAccountsRepository, IClientsRepository iClientsRepository)
         {
             _iAccountsRepository = iAccountsRepository;
-            _iClientsService = iClientsService;
-            _iAccountsTransactionsService = iAccountsTransactionsService;
+            _iClientsRepository = iClientsRepository;
         }
 
         public Accounts GetAccount(string accountNumber)
@@ -41,7 +38,7 @@ namespace Services
                 if (!Enum.IsDefined(typeof(AccountsType), account.AccountType))
                     throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INVALID_ACCOUNT_TYPE, new { account.AccountType });
 
-                Clients client = _iClientsService.GetClient(clientId);
+                Clients client = _iClientsRepository.GetClient(clientId);
 
                 if(client == null)
                 {
@@ -60,47 +57,6 @@ namespace Services
                 account.Client = client;
 
                 _iAccountsRepository.AddAccount(account);
-            }
-            catch (CustomException)
-            {
-                throw;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public void Deposit(TransactionsDTO transaction)
-        {
-            try
-            {
-                Accounts accountToTransfer = GetAccount(transaction.AccountNumberToTransfer);
-                Accounts accountToReceive = GetAccount(transaction.AccountNumberToReceive);
-
-                if(accountToTransfer != null && accountToReceive != null)
-                {
-                    // tipo da transção para primeiro verificar o saldo
-                    // colocar o tipo da transação e a operação em TransactionsDTO
-
-                    switch ()
-                    {
-                        case 
-                    }
-
-                    if(accountToTransfer.Balance >= transaction.Value)
-                    {
-                        // 
-                    }
-                    else
-                    {
-                        throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.AccountsTransactions.ConditionValidations.INSUFFICIENT_BALANCE, new { accountToTransfer.Balance });
-                    }
-                }
-                else
-                {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.AccountsTransactions.ConditionValidations.ACCOUNT_NUMBER_NOT_FOUND, new { accountToTransfer, accountToReceive });
-                }
             }
             catch (CustomException)
             {

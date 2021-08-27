@@ -2,7 +2,7 @@
 
 namespace Database.Migrations
 {
-    public partial class ClientAccount : Migration
+    public partial class Test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,14 +47,44 @@ namespace Database.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "AccountsTransactions",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TransactionType = table.Column<int>(type: "int", nullable: false),
+                    Operation = table.Column<int>(type: "int", nullable: false),
+                    Value = table.Column<double>(type: "float", nullable: false),
+                    AccountId = table.Column<long>(type: "bigint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AccountsTransactions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AccountsTransactions_Accounts_AccountId",
+                        column: x => x.AccountId,
+                        principalTable: "Accounts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_ClientId",
                 table: "Accounts",
                 column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AccountsTransactions_AccountId",
+                table: "AccountsTransactions",
+                column: "AccountId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AccountsTransactions");
+
             migrationBuilder.DropTable(
                 name: "Accounts");
 

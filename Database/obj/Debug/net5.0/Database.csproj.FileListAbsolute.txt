@@ -4,7 +4,6 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\ref\Datab
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Database.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Domain.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Domain.pdb
-E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.csprojAssemblyReference.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.GeneratedMSBuildEditorConfig.editorconfig
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.AssemblyInfoInputs.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.AssemblyInfo.cs
@@ -16,3 +15,4 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Database.runtimeconfig.json
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\bin\Debug\net5.0\Database.runtimeconfig.dev.json
 E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.genruntimeconfig.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Database\obj\Debug\net5.0\Database.csproj.AssemblyReference.cache

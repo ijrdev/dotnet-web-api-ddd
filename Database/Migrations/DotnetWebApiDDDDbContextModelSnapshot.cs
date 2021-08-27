@@ -45,6 +45,32 @@ namespace Database.Migrations
                     b.ToTable("Accounts");
                 });
 
+            modelBuilder.Entity("Domain.Entities.AccountsTransactions", b =>
+                {
+                    b.Property<long?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long?>("AccountId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Operation")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransactionType")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Value")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("AccountsTransactions");
+                });
+
             modelBuilder.Entity("Domain.Entities.Clients", b =>
                 {
                     b.Property<long?>("Id")
@@ -91,6 +117,15 @@ namespace Database.Migrations
                         .HasForeignKey("ClientId");
 
                     b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("Domain.Entities.AccountsTransactions", b =>
+                {
+                    b.HasOne("Domain.Entities.Accounts", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("Domain.Entities.Clients", b =>
