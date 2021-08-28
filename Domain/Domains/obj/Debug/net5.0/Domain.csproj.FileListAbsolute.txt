@@ -2,6 +2,7 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\bin\Debug\net5.0\Dom
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\bin\Debug\net5.0\Domain.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\bin\Debug\net5.0\ref\Domain.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\bin\Debug\net5.0\Domain.pdb
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.AssemblyInfo.cs
@@ -9,4 +10,3 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Dom
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\ref\Domain.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.pdb
-E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache

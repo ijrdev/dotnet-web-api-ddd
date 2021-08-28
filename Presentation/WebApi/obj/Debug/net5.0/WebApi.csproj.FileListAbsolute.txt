@@ -66,6 +66,7 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Database.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Domain.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\bin\Debug\net5.0\Repositories.pdb
+E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.csproj.AssemblyReference.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfoInputs.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfo.cs
@@ -81,4 +82,3 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\ref\WebApi.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
-E:\Programação\Códigos\dotnet-web-api-ddd\Presentation\WebApi\obj\Debug\net5.0\WebApi.csproj.AssemblyReference.cache

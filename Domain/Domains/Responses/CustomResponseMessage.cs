@@ -72,7 +72,7 @@
             {
                 public const string REQUIRED_ACCOUNT_NUMBER_TO_TRANSFER = "Número da conta para transferir é obrigatório.";
                 public const string REQUIRED_ACCOUNT_NUMBER_TO_RECEIVE = "Número da conta para receber é obrigatório.";
-                public const string REQUIRED_ACCOUNT_NUMBER = "Número da conta é obrigatório.";
+                public const string REQUIRED_ACCOUNT_NUMBER = "Número da conta é obrigatório."; 
                 public const string REQUIRED_VALUE = "Valor é obrigatório.";
                 public const string INVALID_VALUE = "Valor inválido ou não informado.";
             }

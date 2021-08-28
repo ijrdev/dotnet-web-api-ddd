@@ -85,46 +85,55 @@ namespace Services
             }
         }
 
-        //public void Transfer(TransactionsDTO transaction)
-        //{
-        //    try
-        //    {
-        //        Accounts accountToTransfer = GetAccount(transaction.AccountNumberToTransfer);
-        //        Accounts accountToReceive = GetAccount(transaction.AccountNumberToReceive);
+        public void Transfer(long clientId, TransferTransactionsDTO transferTransaction)
+        {
+            try
+            {
+                Accounts accountToTransfer = _iAccountsRepository.GetAccount(transferTransaction.AccountNumberToTransfer);
+                Accounts accountToReceive = _iAccountsRepository.GetAccount(transferTransaction.AccountNumberToReceive);
 
-        //        if (accountToTransfer != null && accountToReceive != null)
-        //        {
-        //            // tipo da transção para primeiro verificar o saldo
-        //            // colocar o tipo da transação e a operação em TransactionsDTO
+                if (accountToTransfer != null && accountToReceive != null)
+                {
+                    if(accountToTransfer.Client.Id == clientId)
+                    {
+                        if (accountToTransfer.Balance >= transferTransaction.Value)
+                        {
+                            accountToTransfer.Balance = accountToTransfer.Balance - transferTransaction.Value;
 
-        //            switch ()
-        //            {
-        //                case
-        //            }
+                            _iAccountsRepository.UpdateAccount(accountToTransfer);
 
-        //            if (accountToTransfer.Balance >= transaction.Value)
-        //            {
-        //                // 
-        //            }
-        //            else
-        //            {
-        //                throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.AccountsTransactions.ConditionValidations.INSUFFICIENT_BALANCE, new { accountToTransfer.Balance });
-        //            }
-        //        }
-        //        else
-        //        {
-        //            throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.AccountsTransactions.ConditionValidations.ACCOUNT_NUMBER_NOT_FOUND, new { accountToTransfer, accountToReceive });
-        //        }
-        //    }
-        //    catch (CustomException)
-        //    {
-        //        throw;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+                            Register(TransactionsType.Output, Operation.Transfer, transferTransaction.Value, accountToTransfer);
+
+                            accountToReceive.Balance = accountToReceive.Balance + transferTransaction.Value;
+
+                            _iAccountsRepository.UpdateAccount(accountToReceive);
+
+                            Register(TransactionsType.Entry, Operation.Transfer, transferTransaction.Value, accountToReceive);
+                        }
+                        else
+                        {
+                            throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INSUFFICIENT_BALANCE, new { accountToTransfer.Balance });
+                        }
+                    }
+                    else
+                    {
+                        throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_DOES_NOT_BELONG_TO_USER);
+                    }
+                }
+                else
+                {
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_NOT_FOUND);
+                }
+            }
+            catch (CustomException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         private void Register(TransactionsType transactionsType, Operation operation, double value, Accounts account)
         {
@@ -132,8 +141,8 @@ namespace Services
             {
                 AccountsTransactions accountTransaction = new AccountsTransactions();
 
-                accountTransaction.TransactionType = (int) operation;
-                accountTransaction.Operation = (int) transactionsType;
+                accountTransaction.TransactionType = (int) transactionsType;
+                accountTransaction.Operation = (int) operation;
                 accountTransaction.Value = value;
                 accountTransaction.Account = account;
 

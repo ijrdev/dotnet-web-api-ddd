@@ -10,6 +10,7 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Repositories.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Database.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\bin\Debug\net5.0\Domain.pdb
+E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.csproj.AssemblyReference.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.GeneratedMSBuildEditorConfig.editorconfig
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.AssemblyInfoInputs.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.AssemblyInfo.cs
@@ -18,4 +19,3 @@ E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\ref\Services.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.pdb
-E:\Programação\Códigos\dotnet-web-api-ddd\Application\Services\obj\Debug\net5.0\Services.csproj.AssemblyReference.cache

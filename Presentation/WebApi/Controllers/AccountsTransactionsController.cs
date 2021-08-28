@@ -97,5 +97,44 @@ namespace WebApi.Controllers
                 return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
+
+        [HttpPost("Transfer")]
+        [Authorize]
+        public IActionResult Transfer([FromBody] TransferTransactionsDTO transferTransaction)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    IList<string> errors = new List<string>();
+
+                    foreach (KeyValuePair<string, ModelStateEntry> state in ModelState)
+                    {
+                        foreach (ModelError error in state.Value.Errors)
+                        {
+                            errors.Add(error.ErrorMessage);
+                        }
+                    }
+
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                }
+
+                ClaimsPrincipal userAuthenticated = UserAuthenticated();
+
+                string id = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
+
+                _iAccountsTransactionsService.Transfer(Convert.ToInt64(id), transferTransaction);
+
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+            }
+            catch (CustomException cex)
+            {
+                return CustomResponse.Response(cex.Status, cex.Msg, cex.Info);
+            }
+            catch (Exception)
+            {
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+            }
+        }
     }
 }

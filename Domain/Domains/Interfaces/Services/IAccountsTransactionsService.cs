@@ -6,7 +6,7 @@ namespace Domain.Interfaces.Services
     {
         void Deposit(DepositWithdrawTransactionsDTO depositWithdrawTransaction);
         void Withdraw(long clientId, DepositWithdrawTransactionsDTO depositWithdrawTransaction);
-        //void Transfer(TransferTransactionsDTO transferTransaction);
+        void Transfer(long clietId, TransferTransactionsDTO transferTransaction);
         //void CheckBalance(TransactionsDTO transaction);
     }
 }
