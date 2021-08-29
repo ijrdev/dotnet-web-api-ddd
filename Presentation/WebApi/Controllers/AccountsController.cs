@@ -10,6 +10,7 @@ using Domain.Entities;
 using System.Security.Claims;
 using Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
+using Domain.Consts;
 
 namespace WebApi.Controllers
 {
@@ -47,7 +48,7 @@ namespace WebApi.Controllers
 
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
 
-                string id = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
+                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
 
                 _iAccountsService.AddAccount(Convert.ToInt64(id), account);
 

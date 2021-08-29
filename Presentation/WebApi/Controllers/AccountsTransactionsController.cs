@@ -1,4 +1,5 @@
-﻿using Domain.DTO;
+﻿using Domain.Consts;
+using Domain.DTO;
 using Domain.Enums;
 using Domain.Exceptions;
 using Domain.Interfaces.Services;
@@ -82,7 +83,7 @@ namespace WebApi.Controllers
 
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
 
-                string id = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
+                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
 
                 _iAccountsTransactionsService.Withdraw(Convert.ToInt64(id), depositWithdrawTransaction);
 
@@ -121,7 +122,7 @@ namespace WebApi.Controllers
 
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
 
-                string id = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
+                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
 
                 _iAccountsTransactionsService.Transfer(Convert.ToInt64(id), transferTransaction);
 

@@ -10,6 +10,7 @@ using System.Security.Claims;
 using Domain.Enums;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
+using Domain.Consts;
 
 namespace WebApi.Controllers
 {
@@ -32,7 +33,7 @@ namespace WebApi.Controllers
             {
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
                 
-                string id = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
+                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
 
                 Clients client = _iClientsService.GetClient(Convert.ToInt64(id));
 
@@ -107,7 +108,7 @@ namespace WebApi.Controllers
 
                 ClaimsPrincipal userAuthenticated = UserAuthenticated();
 
-                string userId = userAuthenticated.FindFirstValue(CustomClaimsType.Id.ToString());
+                string userId = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
 
                 long userIdConverted = Convert.ToInt64(userId);
 

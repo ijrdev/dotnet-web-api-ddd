@@ -1,24 +1,29 @@
 ﻿using BCrypt.Net;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.IO;
 using BC = BCrypt.Net.BCrypt;
 
 namespace CrossCutting
 {
     public static class Crypto
     {
+        private static readonly IConfiguration _iConfiguration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+
         public static class Password
         {
-            private static readonly string Salt = BC.GenerateSalt(10);
-            private static readonly bool EnhanceEntropy = false;
-            private static readonly HashType HashType = HashType.SHA256;
+            private static readonly string PasswordSalt = BC.GenerateSalt(Convert.ToInt32(_iConfiguration["Crypto:Salt"]));
+            private static readonly bool PasswordEnhanceEntropy = Convert.ToBoolean(_iConfiguration["Crypto:EnhanceEntropy"]);
+            private static readonly HashType PasswordHashType = HashType.SHA256;
 
             public static string Hash(string password)
             {
-                return BC.HashPassword(password, Salt, EnhanceEntropy, HashType);
+                return BC.HashPassword(password, PasswordSalt, PasswordEnhanceEntropy, PasswordHashType);
             }
 
             public static bool Verify(string password, string passwordHash)
             {
-                return BC.Verify(password, passwordHash, EnhanceEntropy, HashType);
+                return BC.Verify(password, passwordHash, PasswordEnhanceEntropy, PasswordHashType);
             }
         }
     }

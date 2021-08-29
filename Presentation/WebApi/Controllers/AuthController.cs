@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login([FromBody] AuthDTO auth)
+        public IActionResult Login([FromBody] AuthInDTO authIn)
         {
             try
             {
@@ -41,9 +41,9 @@ namespace WebApi.Controllers
                     return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                AuthClientsDTO authClient = _iAuthService.Login(auth);
+                AuthOutDTO authOut = _iAuthService.Login(authIn);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, authClient);
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, authOut);
             }
             catch (CustomException cex)
             {

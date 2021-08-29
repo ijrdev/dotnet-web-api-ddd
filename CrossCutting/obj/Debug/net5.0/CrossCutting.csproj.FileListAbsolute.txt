@@ -2,14 +2,11 @@ E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\bin\Debug\net5.0\Cross
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\bin\Debug\net5.0\CrossCutting.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\bin\Debug\net5.0\ref\CrossCutting.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\bin\Debug\net5.0\CrossCutting.pdb
-E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\bin\Debug\net5.0\Domain.dll
-E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\bin\Debug\net5.0\Domain.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\CrossCutting.csproj.AssemblyReference.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\CrossCutting.AssemblyInfoInputs.cache
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\CrossCutting.AssemblyInfo.cs
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\CrossCutting.csproj.CoreCompileInputs.cache
-E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\CrossCutting.csproj.CopyComplete
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\CrossCutting.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\ref\CrossCutting.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\CrossCutting\obj\Debug\net5.0\CrossCutting.pdb

@@ -1,4 +1,4 @@
-﻿namespace Domain.Database
+﻿namespace Domain.Consts
 {
     public static class DatabaseConnections
     {

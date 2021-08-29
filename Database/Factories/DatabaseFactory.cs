@@ -1,5 +1,5 @@
 ﻿using Database.Contexts;
-using Domain.Database;
+using Domain.Consts;
 using Microsoft.EntityFrameworkCore;
 
 namespace Database.Factories

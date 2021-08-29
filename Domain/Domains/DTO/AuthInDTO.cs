@@ -3,7 +3,7 @@ using Domain.Responses;
 
 namespace Domain.DTO
 {
-    public class AuthDTO
+    public class AuthInDTO
     {
         [StringLength(100, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.LONG_EMAIL)]
         [EmailAddress(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_EMAIL)]

@@ -98,11 +98,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -119,13 +115,13 @@
               "target": "Package",
               "version": "[4.0.2, )"
             },
-            "Microsoft.AspNetCore.Mvc.Core": {
+            "Microsoft.Extensions.Configuration.FileExtensions": {
               "target": "Package",
-              "version": "[2.2.5, )"
+              "version": "[5.0.0, )"
             },
-            "System.IdentityModel.Tokens.Jwt": {
+            "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
-              "version": "[6.12.1, )"
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -324,12 +320,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "dependencies": {
-            "Microsoft.Extensions.DependencyInjection": {
-              "target": "Package",
-              "version": "[5.0.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

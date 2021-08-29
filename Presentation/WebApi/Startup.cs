@@ -46,7 +46,7 @@ namespace WebApi
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("DotnetWebApiDDD0123456789")),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetValue<string>("Token:Key"))),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
@@ -57,7 +57,7 @@ namespace WebApi
 
             // Necessário setar uma conexão padrão para utilizar o migration.
             // Essa conexão padrão, caso utilizada em um modelo Multi Tenancy, poderia ser a principal.
-            services.AddDbContext<DotnetWebApiDDDDbContext>(options => options.UseSqlServer("Server=DESKTOP-ELFNCSC\\SQLEXPRESS;Database=dotnet_web_api_ddd;Trusted_Connection=True;"));
+            services.AddDbContext<DotnetWebApiDDDDbContext>(options => options.UseSqlServer($"Server={Configuration.GetValue<string>("ConnectionStrings:Server")};Database={Configuration.GetValue<string>("ConnectionStrings:Database")};Trusted_Connection=True;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +71,11 @@ namespace WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseAuthorization();

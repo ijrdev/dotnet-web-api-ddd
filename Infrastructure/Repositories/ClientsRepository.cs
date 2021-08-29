@@ -1,6 +1,6 @@
 ﻿using Database.Contexts;
 using Database.Factories;
-using Domain.Database;
+using Domain.Consts;
 using Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;

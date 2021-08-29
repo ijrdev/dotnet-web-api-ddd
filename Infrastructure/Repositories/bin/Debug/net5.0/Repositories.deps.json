@@ -8,8 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "Repositories/1.0.0": {
         "dependencies": {
-          "Database": "1.0.0",
-          "Microsoft.Extensions.DependencyInjection": "5.0.2"
+          "Database": "1.0.0"
         },
         "runtime": {
           "Repositories.dll": {}

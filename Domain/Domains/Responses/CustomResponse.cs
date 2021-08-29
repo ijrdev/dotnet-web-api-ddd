@@ -6,7 +6,7 @@ namespace Domain.Responses
 {
     public static class CustomResponse
     {
-        public static IActionResult Response(HttpStatusCode statusCode, string message, object data = null)
+        public static IActionResult Response(HttpStatusCode statusCode, string message, dynamic data = null)
         {
             ObjectResult result = new ObjectResult(
                 new
