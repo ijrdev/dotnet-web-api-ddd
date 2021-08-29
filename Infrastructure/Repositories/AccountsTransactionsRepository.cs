@@ -5,6 +5,8 @@ using Domain.Entities;
 using Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Repositories
 {
@@ -21,6 +23,22 @@ namespace Repositories
                     context.AccountsTransactions.AddAsync(accountTransaction).GetAwaiter().GetResult();
 
                     context.SaveChangesAsync().GetAwaiter().GetResult();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public IEnumerable<AccountsTransactions> GetStatements(long accountId)
+        {
+            try
+            {
+                using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
+                {
+                    return context.AccountsTransactions.Where(a => a.Account.Id == accountId).ToListAsync().GetAwaiter().GetResult();
                 }
 
             }

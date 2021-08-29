@@ -10,8 +10,6 @@
 
         public int Gender { get; set; }
 
-        public int Person { get; set; }
-
         public string Email { get; set; }
 
         public string Token { get; set; }

@@ -23,10 +23,6 @@ namespace Domain.Entities
         [Range(1, int.MaxValue, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_GENDER)]
         public int Gender { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_PERSON)]
-        [Range(1, int.MaxValue, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_PERSON)]
-        public int Person { get; set; }
-
         [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_EMAIL)]
         [StringLength(100, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.LONG_EMAIL)]
         [EmailAddress(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_EMAIL)]

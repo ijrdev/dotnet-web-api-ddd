@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Net;
 using Domain.Entities;
 using System.Security.Claims;
-using Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Domain.Consts;
 

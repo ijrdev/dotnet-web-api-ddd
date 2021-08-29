@@ -6,7 +6,7 @@ namespace Domain.Interfaces.Repositories
     public interface IAccountsRepository
     {
         Accounts GetAccount(string accountNumber);
-        IEnumerable<Accounts> GetAccounts(long clientId);
+        Accounts GetAccount(long clientId);
         void AddAccount(Accounts account);
         void UpdateAccount(Accounts account);
     }

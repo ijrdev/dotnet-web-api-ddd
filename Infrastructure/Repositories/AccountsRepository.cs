@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Database.Contexts;
 using Database.Factories;
 using Domain.Consts;
@@ -27,13 +25,13 @@ namespace Repositories
             }
         }
 
-        public IEnumerable<Accounts> GetAccounts(long clientId)
+        public Accounts GetAccount(long clientId)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Accounts.Where(a => a.Client.Id == clientId).ToListAsync().GetAwaiter().GetResult();
+                    return context.Accounts.Include(a => a.Client).FirstOrDefaultAsync(a => a.Client.Id == clientId).GetAwaiter().GetResult();
                 }
             }
             catch (Exception)

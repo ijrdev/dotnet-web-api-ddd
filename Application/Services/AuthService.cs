@@ -51,17 +51,17 @@ namespace Services
                     cfg.CreateMap<Clients, AuthOutDTO>();
                 }).CreateMapper();
 
-                AuthOutDTO authOutDTO = mapper.Map<AuthOutDTO>(client);
+                AuthOutDTO authOut = mapper.Map<AuthOutDTO>(client);
 
-                authOutDTO.Token = GenerateJWT(client);
+                authOut.Token = GenerateJWT(client);
 
-                return authOutDTO;
+                return authOut;
             }
             catch (CustomException)
             {
                 throw;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

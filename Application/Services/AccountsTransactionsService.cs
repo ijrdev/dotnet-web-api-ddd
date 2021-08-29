@@ -1,4 +1,5 @@
-﻿using Domain.DTO;
+﻿using AutoMapper;
+using Domain.DTO;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Exceptions;
@@ -6,6 +7,8 @@ using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using Domain.Responses;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 
 namespace Services
@@ -124,6 +127,45 @@ namespace Services
                 {
                     throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_NOT_FOUND);
                 }
+            }
+            catch (CustomException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public AccountsStatementsDTO GetStatements(long clientId)
+        {
+            try
+            {
+                AccountsStatementsDTO accountsStatements = new AccountsStatementsDTO();
+
+                Accounts account = _iAccountsRepository.GetAccount(clientId);
+
+                if(account == null)
+                {
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.NO_ONE_ACCOUNT_WAS_FOUND);
+                }
+
+                IEnumerable<AccountsTransactions> accountTransactions = _iAccountsTransactionsRepository.GetStatements((long) account.Id);
+
+                if(accountTransactions != null && accountTransactions.Count() > 0)
+                {
+                    IMapper mapper = new MapperConfiguration(cfg =>
+                    {
+                        cfg.CreateMap<Accounts, AccountsStatementsDTO>();
+                    }).CreateMapper();
+
+                    AccountsStatementsDTO accountStatement = mapper.Map<AccountsStatementsDTO>(account);
+
+                    accountStatement.AccountTransactions = accountTransactions;
+                }
+
+                return accountsStatements;
             }
             catch (CustomException)
             {

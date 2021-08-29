@@ -23,7 +23,11 @@ namespace Services
         {
             try
             {
-                return _iClientsRepository.GetClient(id);
+                Clients client = _iClientsRepository.GetClient(id);
+
+                client.Password = null;
+
+                return client;
             }
             catch (CustomException)
             {
@@ -120,9 +124,6 @@ namespace Services
         {
             if (!Enum.IsDefined(typeof(Genders), client.Gender))
                 throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INVALID_GENDER, new { client.Gender });
-
-            if (!Enum.IsDefined(typeof(Persons), client.Person))
-                throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INVALID_PERSON, new { client.Person });
         }
     }
 }

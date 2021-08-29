@@ -6,7 +6,7 @@ namespace Domain.Interfaces.Services
     public interface IAccountsService
     {
         Accounts GetAccount(string accountNumber);
-        IEnumerable<Accounts> GetAccounts(long clientId);
+        Accounts GetAccount(long clientId);
         void AddAccount(long clientId, Accounts accountClient);
     }
 }

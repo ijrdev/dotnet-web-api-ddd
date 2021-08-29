@@ -1,4 +1,6 @@
 ﻿using Domain.DTO;
+using Domain.Entities;
+using System.Collections.Generic;
 
 namespace Domain.Interfaces.Services
 {
@@ -7,6 +9,6 @@ namespace Domain.Interfaces.Services
         void Deposit(DepositWithdrawTransactionsDTO depositWithdrawTransaction);
         void Withdraw(long clientId, DepositWithdrawTransactionsDTO depositWithdrawTransaction);
         void Transfer(long clietId, TransferTransactionsDTO transferTransaction);
-        //void CheckBalance(TransactionsDTO transaction);
+        AccountsStatementsDTO GetStatements(long clientId);
     }
 }

@@ -1,8 +1,6 @@
-using Domain.Enums;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using Domain.Entities;
 using Domain.Exceptions;
@@ -26,31 +24,20 @@ namespace Services
             return _iAccountsRepository.GetAccount(accountNumber);
         }
 
-        public IEnumerable<Accounts> GetAccounts(long clientId)
+        public Accounts GetAccount(long clientId)
         {
-            return _iAccountsRepository.GetAccounts(clientId);
+            return _iAccountsRepository.GetAccount(clientId);
         }
 
         public void AddAccount(long clientId, Accounts account)
         {
             try
             {
-                if (!Enum.IsDefined(typeof(AccountsType), account.AccountType))
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INVALID_ACCOUNT_TYPE, new { account.AccountType });
-
                 Clients client = _iClientsRepository.GetClient(clientId);
 
                 if(client == null)
                 {
                     throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND);
-                }
-
-                IEnumerable<Accounts> accounts = GetAccounts((long) client.Id);
-
-                foreach (Accounts acc in accounts)
-                {
-                    if (acc.AccountType == account.AccountType)
-                        throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_ALREADY_REGISTERED, new { account.AccountType });
                 }
 
                 account.AccountNumber = GenerateAccountNumber();

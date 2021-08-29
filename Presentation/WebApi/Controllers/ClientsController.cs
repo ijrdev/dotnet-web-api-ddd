@@ -37,8 +37,6 @@ namespace WebApi.Controllers
 
                 Clients client = _iClientsService.GetClient(Convert.ToInt64(id));
 
-                client.Password = null;
-
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, new { client });
             }
             catch (CustomException cex)

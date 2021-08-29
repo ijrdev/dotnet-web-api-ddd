@@ -19,7 +19,6 @@
                 public const string CLIENT_NOT_FOUND = "Cliente não encontrado.";
                 public const string INVALID_AGE = "Idade inválida.";
                 public const string INVALID_GENDER = "Gênero inválido.";
-                public const string INVALID_PERSON = "Tipo da pessoa inválido.";
                 public const string INCORRECT_PASSWORD = "Senha incorreta.";
             }
 
@@ -31,8 +30,6 @@
                 public const string INVALID_AGE = "Idade inválida ou não informada.";
                 public const string REQUIRED_GENDER = "Gênero é obrigatório.";
                 public const string INVALID_GENDER = "Gênero inválido ou não informado.";
-                public const string REQUIRED_PERSON = "Tipo da pessoa é obrigatório.";
-                public const string INVALID_PERSON = "Tipo da pessoa inválido ou não informado.";
                 public const string REQUIRED_EMAIL = "Email inválido ou não informado.";
                 public const string LONG_EMAIL = "Email muito longo.";
                 public const string INVALID_EMAIL = "Email invalido.";
@@ -48,6 +45,7 @@
                 public const string ACCOUNT_DOES_NOT_BELONG_TO_USER = "Conta não pertence ao usuário.";
                 public const string INVALID_ACCOUNT_TYPE = "Tipo da conta inválido.";
                 public const string ACCOUNT_NUMBER_NOT_FOUND = "Número da conta não encontrado.";
+                public const string NO_ONE_ACCOUNT_WAS_FOUND = "Nenhuma conta foi encontrada.";
                 public const string INSUFFICIENT_BALANCE = "Saldo insuficiente para realizar a operação.";
             }
 

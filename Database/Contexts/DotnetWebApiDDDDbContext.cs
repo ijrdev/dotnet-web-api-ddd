@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Database.Mapping;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -22,7 +23,9 @@ namespace Database.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.ApplyConfiguration(new ClientsMapping());
+            modelBuilder.ApplyConfiguration(new AccountsMapping());
+            modelBuilder.ApplyConfiguration(new AccountsTransactionsMapping());
         }
     }
 }

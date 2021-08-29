@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domain.Entities;
 
-namespace Data.Mapping
+namespace Database.Mapping
 {
     public class ClientsMapping : IEntityTypeConfiguration<Clients>
     {
@@ -11,8 +11,7 @@ namespace Data.Mapping
             builder.ToTable("Clients");
 
             builder.HasKey(c => c.Id);
-            builder.Property(c => c.Id)
-                .ValueGeneratedOnAdd();
+            builder.Property(c => c.Id).ValueGeneratedOnAdd();
 
             builder.Property(c => c.Document)
                 .HasColumnType("nvarchar")
@@ -33,8 +32,6 @@ namespace Data.Mapping
             builder.Property(c => c.Password).IsRequired();
 
             builder.Property(c => c.Age).IsRequired();
-
-            builder.Property(c => c.Person).IsRequired();
         }
     }
 }

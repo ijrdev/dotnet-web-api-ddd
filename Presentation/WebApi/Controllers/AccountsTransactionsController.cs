@@ -1,6 +1,5 @@
 ﻿using Domain.Consts;
 using Domain.DTO;
-using Domain.Enums;
 using Domain.Exceptions;
 using Domain.Interfaces.Services;
 using Domain.Responses;
@@ -127,6 +126,30 @@ namespace WebApi.Controllers
                 _iAccountsTransactionsService.Transfer(Convert.ToInt64(id), transferTransaction);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+            }
+            catch (CustomException cex)
+            {
+                return CustomResponse.Response(cex.Status, cex.Msg, cex.Info);
+            }
+            catch (Exception)
+            {
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+            }
+        }
+
+        [HttpGet("Statements")]
+        [Authorize]
+        public IActionResult Statements()
+        {
+            try
+            {
+                ClaimsPrincipal userAuthenticated = UserAuthenticated();
+
+                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
+
+                AccountsStatementsDTO accountStatements = _iAccountsTransactionsService.GetStatements(Convert.ToInt64(id));
+
+                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, accountStatements);
             }
             catch (CustomException cex)
             {

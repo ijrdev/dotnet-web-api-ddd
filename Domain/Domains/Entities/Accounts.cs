@@ -15,7 +15,6 @@ namespace Domain.Entities
 
         [Required(ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.REQUIRED_ACCOUNT_TYPE)]
         [Range(1, int.MaxValue, ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.INVALID_ACCOUNT_TYPE)]
-        public int AccountType { get; set; }
 
         public virtual Clients Client { get; set; }
     }

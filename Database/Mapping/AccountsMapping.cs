@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domain.Entities;
 
-namespace Data.Mapping
+namespace Database.Mapping
 {
     public class AccountsMapping : IEntityTypeConfiguration<Accounts>
     {
@@ -11,10 +11,7 @@ namespace Data.Mapping
             builder.ToTable("Accounts");
 
             builder.HasKey(a => a.Id);
-            builder.Property(a => a.Id)
-                .ValueGeneratedOnAdd();
-
-            builder.Property(a => a.AccountType).IsRequired();
+            builder.Property(a => a.Id).ValueGeneratedOnAdd();
 
             builder.Property(a => a.AccountNumber)
                 .HasColumnType("nvarchar")
@@ -22,8 +19,7 @@ namespace Data.Mapping
                 .IsRequired();
             //builder.HasIndex(a => a.AccountNumber).IsUnique();
 
-            builder.Property(a => a.Balance)
-                .HasDefaultValue(0);
+            builder.Property(a => a.Balance).HasDefaultValue(0);
         }
     }
 }
