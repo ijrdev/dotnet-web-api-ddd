@@ -32,10 +32,10 @@ namespace Services
 
                 if (account == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_NOT_FOUND, new { depositWithdrawTransaction.AccountNumber });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND, new { depositWithdrawTransaction.AccountNumber });
                 }
 
-                account.Balance = depositWithdrawTransaction.Value;
+                account.Value = depositWithdrawTransaction.Value;
 
                 _iAccountsRepository.UpdateAccount(account);
 
@@ -59,7 +59,7 @@ namespace Services
 
                 if (account == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_NOT_FOUND, new { depositWithdrawTransaction.AccountNumber });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND, new { depositWithdrawTransaction.AccountNumber });
                 }
 
                 if (account.Client.Id != clientId)
@@ -67,12 +67,12 @@ namespace Services
                     throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_DOES_NOT_BELONG_TO_USER);
                 }
 
-                if (account.Balance < depositWithdrawTransaction.Value)
+                if (account.Value < depositWithdrawTransaction.Value)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INSUFFICIENT_BALANCE, new { account.Balance, depositWithdrawTransaction.Value });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INSUFFICIENT_VALUE, new { AccountValue = account.Value, WithdrawValue = depositWithdrawTransaction.Value });
                 }
 
-                account.Balance = account.Balance - depositWithdrawTransaction.Value;
+                account.Value = account.Value - depositWithdrawTransaction.Value;
 
                 _iAccountsRepository.UpdateAccount(account);
 
@@ -99,15 +99,15 @@ namespace Services
                 {
                     if(accountToTransfer.Client.Id == clientId)
                     {
-                        if (accountToTransfer.Balance >= transferTransaction.Value)
+                        if (accountToTransfer.Value >= transferTransaction.Value)
                         {
-                            accountToTransfer.Balance = accountToTransfer.Balance - transferTransaction.Value;
+                            accountToTransfer.Value = accountToTransfer.Value - transferTransaction.Value;
 
                             _iAccountsRepository.UpdateAccount(accountToTransfer);
 
                             Register(TransactionsType.Output, Operation.Transfer, transferTransaction.Value, accountToTransfer);
 
-                            accountToReceive.Balance = accountToReceive.Balance + transferTransaction.Value;
+                            accountToReceive.Value = accountToReceive.Value + transferTransaction.Value;
 
                             _iAccountsRepository.UpdateAccount(accountToReceive);
 
@@ -115,7 +115,7 @@ namespace Services
                         }
                         else
                         {
-                            throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INSUFFICIENT_BALANCE, new { accountToTransfer.Balance });
+                            throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INSUFFICIENT_VALUE, new { accountToTransfer.Value });
                         }
                     }
                     else
@@ -125,7 +125,7 @@ namespace Services
                 }
                 else
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_NOT_FOUND);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND);
                 }
             }
             catch (CustomException)
@@ -148,7 +148,7 @@ namespace Services
 
                 if(account == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.NO_ONE_ACCOUNT_WAS_FOUND);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND);
                 }
 
                 IEnumerable<AccountsTransactions> accountTransactions = _iAccountsTransactionsRepository.GetStatements((long) account.Id);

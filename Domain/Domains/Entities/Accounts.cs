@@ -9,12 +9,8 @@ namespace Domain.Entities
 
         public string AccountNumber { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.REQUIRED_BALANCE)]
-        [Range(0, double.MaxValue, ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.INVALID_BALANCE)]
-        public double Balance { get; set; }
-
-        [Required(ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.REQUIRED_ACCOUNT_TYPE)]
-        [Range(1, int.MaxValue, ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.INVALID_ACCOUNT_TYPE)]
+        [Range(0, double.MaxValue, ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.INVALID_VALUE)]
+        public double Value { get; set; }
 
         public virtual Clients Client { get; set; }
     }
