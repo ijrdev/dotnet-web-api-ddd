@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Domain.Exceptions
+namespace Domain.Domain.Core.Exceptions
 {
     public class CustomException : Exception
     {

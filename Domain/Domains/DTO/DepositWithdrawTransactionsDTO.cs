@@ -1,8 +1,8 @@
-﻿using Domain.Responses;
+﻿using Domain.Domain.Core.Responses;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Domain.DTO
+namespace Domain.Domain.Core.DTO
 {
     public class DepositWithdrawTransactionsDTO
     {

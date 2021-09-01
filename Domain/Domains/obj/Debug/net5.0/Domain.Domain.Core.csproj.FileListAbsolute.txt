@@ -1,0 +1,11 @@
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\bin\Debug\net5.0\Domain.Domain.Core.deps.json
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\bin\Debug\net5.0\Domain.Domain.Core.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\bin\Debug\net5.0\ref\Domain.Domain.Core.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\bin\Debug\net5.0\Domain.Domain.Core.pdb
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.Domain.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.Domain.Core.AssemblyInfoInputs.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.Domain.Core.AssemblyInfo.cs
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.Domain.Core.csproj.CoreCompileInputs.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.Domain.Core.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\ref\Domain.Domain.Core.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\Domain\Domains\obj\Debug\net5.0\Domain.Domain.Core.pdb

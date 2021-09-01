@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using BC = BCrypt.Net.BCrypt;
 
-namespace CrossCutting
+namespace Infrastructure.CrossCutting.Core
 {
     public static class Crypto
     {

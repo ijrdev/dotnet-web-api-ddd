@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
+namespace UI.WebApi.Core.Controllers
 {
     abstract public class DefaultController : ControllerBase
     {

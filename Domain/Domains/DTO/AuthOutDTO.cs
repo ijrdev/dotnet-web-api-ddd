@@ -1,4 +1,4 @@
-﻿namespace Domain.DTO
+﻿namespace Domain.Domain.Core.DTO
 {
     public class AuthOutDTO
     {

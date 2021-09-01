@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
-using Domain.Interfaces.Services;
-using Domain.DTO;
-using Domain.Responses;
-using Domain.Exceptions;
+using Domain.Domain.Core.Interfaces.Services;
+using Domain.Domain.Core.DTO;
+using Domain.Domain.Core.Responses;
+using Domain.Domain.Core.Exceptions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 
-namespace WebApi.Controllers
+namespace UI.WebApi.Core.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

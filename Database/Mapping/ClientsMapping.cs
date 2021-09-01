@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Domain.Entities;
+using Domain.Domain.Core.Entities;
 
-namespace Database.Mapping
+namespace Infrastructure.Database.Core.Mapping
 {
     public class ClientsMapping : IEntityTypeConfiguration<Clients>
     {

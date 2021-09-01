@@ -3081,7 +3081,20 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "CrossCutting/1.0.0": {
+      "Domain.Domain.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc": "2.2.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.Domain.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.Domain.Core.dll": {}
+        }
+      },
+      "Infrastructure.CrossCutting.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -3090,68 +3103,56 @@
           "Microsoft.Extensions.Configuration.Json": "5.0.0"
         },
         "compile": {
-          "bin/placeholder/CrossCutting.dll": {}
+          "bin/placeholder/Infrastructure.CrossCutting.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CrossCutting.dll": {}
+          "bin/placeholder/Infrastructure.CrossCutting.Core.dll": {}
         }
       },
-      "Database/1.0.0": {
+      "Infrastructure.Database.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Domain": "1.0.0",
+          "Domain.Domain.Core": "1.0.0",
+          "Infrastructure.CrossCutting.Core": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9",
           "Microsoft.Extensions.Logging.Console": "5.0.0"
         },
         "compile": {
-          "bin/placeholder/Database.dll": {}
+          "bin/placeholder/Infrastructure.Database.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Database.dll": {}
+          "bin/placeholder/Infrastructure.Database.Core.dll": {}
         }
       },
-      "Domain/1.0.0": {
+      "Infrastructure.Repositories.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc": "2.2.0"
+          "Infrastructure.Database.Core": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Domain.dll": {}
+          "bin/placeholder/Infrastructure.Repositories.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Domain.dll": {}
+          "bin/placeholder/Infrastructure.Repositories.Core.dll": {}
         }
       },
-      "Repositories/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Database": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Repositories.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Repositories.dll": {}
-        }
-      },
-      "Services/1.0.0": {
+      "Infrastructure.Services.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "CrossCutting": "1.0.0",
-          "Microsoft.Extensions.DependencyInjection": "5.0.2",
-          "Repositories": "1.0.0"
+          "Infrastructure.CrossCutting.Core": "1.0.0",
+          "Infrastructure.Repositories.Core": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2"
         },
         "compile": {
-          "bin/placeholder/Services.dll": {}
+          "bin/placeholder/Infrastructure.Services.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Services.dll": {}
+          "bin/placeholder/Infrastructure.Services.Core.dll": {}
         }
       }
     }
@@ -9510,39 +9511,39 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "CrossCutting/1.0.0": {
+    "Domain.Domain.Core/1.0.0": {
       "type": "project",
-      "path": "../../CrossCutting/CrossCutting.csproj",
-      "msbuildProject": "../../CrossCutting/CrossCutting.csproj"
+      "path": "../../Domain/Domains/Domain.Domain.Core.csproj",
+      "msbuildProject": "../../Domain/Domains/Domain.Domain.Core.csproj"
     },
-    "Database/1.0.0": {
+    "Infrastructure.CrossCutting.Core/1.0.0": {
       "type": "project",
-      "path": "../../Database/Database.csproj",
-      "msbuildProject": "../../Database/Database.csproj"
+      "path": "../../CrossCutting/Infrastructure.CrossCutting.Core.csproj",
+      "msbuildProject": "../../CrossCutting/Infrastructure.CrossCutting.Core.csproj"
     },
-    "Domain/1.0.0": {
+    "Infrastructure.Database.Core/1.0.0": {
       "type": "project",
-      "path": "../../Domain/Domains/Domain.csproj",
-      "msbuildProject": "../../Domain/Domains/Domain.csproj"
+      "path": "../../Database/Infrastructure.Database.Core.csproj",
+      "msbuildProject": "../../Database/Infrastructure.Database.Core.csproj"
     },
-    "Repositories/1.0.0": {
+    "Infrastructure.Repositories.Core/1.0.0": {
       "type": "project",
-      "path": "../../Infrastructure/Repositories/Repositories.csproj",
-      "msbuildProject": "../../Infrastructure/Repositories/Repositories.csproj"
+      "path": "../../Infrastructure/Repositories/Infrastructure.Repositories.Core.csproj",
+      "msbuildProject": "../../Infrastructure/Repositories/Infrastructure.Repositories.Core.csproj"
     },
-    "Services/1.0.0": {
+    "Infrastructure.Services.Core/1.0.0": {
       "type": "project",
-      "path": "../../Application/Services/Services.csproj",
-      "msbuildProject": "../../Application/Services/Services.csproj"
+      "path": "../../Application/Services/Infrastructure.Services.Core.csproj",
+      "msbuildProject": "../../Application/Services/Infrastructure.Services.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Infrastructure.Services.Core >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.9",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.9",
-      "Microsoft.EntityFrameworkCore.Tools >= 5.0.9",
-      "Services >= 1.0.0"
+      "Microsoft.EntityFrameworkCore.Tools >= 5.0.9"
     ]
   },
   "packageFolders": {
@@ -9551,9 +9552,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Presentation\\WebApi\\WebApi.csproj",
-      "projectName": "WebApi",
-      "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Presentation\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Presentation\\WebApi\\UI.WebApi.Core.csproj",
+      "projectName": "UI.WebApi.Core",
+      "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Presentation\\WebApi\\UI.WebApi.Core.csproj",
       "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
       "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Presentation\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
@@ -9572,8 +9573,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Application\\Services\\Services.csproj": {
-              "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Application\\Services\\Services.csproj"
+            "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Application\\Services\\Infrastructure.Services.Core.csproj": {
+              "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Application\\Services\\Infrastructure.Services.Core.csproj"
             }
           }
         }

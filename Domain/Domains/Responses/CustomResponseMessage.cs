@@ -1,4 +1,4 @@
-﻿namespace Domain.Responses
+﻿namespace Domain.Domain.Core.Responses
 {
     public static class CustomResponseMessage
     {

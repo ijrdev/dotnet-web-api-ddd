@@ -6,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-using Repositories;
+using Infrastructure.Repositories.Core;
 using Services;
 using Microsoft.IdentityModel.Tokens;
-using Database.Contexts;
+using Infrastructure.Database.Core.Contexts;
 using System.Text;
 
-namespace WebApi
+namespace UI.WebApi.Core
 {
     public class Startup
     {

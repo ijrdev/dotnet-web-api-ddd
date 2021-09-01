@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 
-namespace Domain.Interfaces.Services
+namespace Domain.Domain.Core.Interfaces.Services
 {
     public interface IClientsService
     {

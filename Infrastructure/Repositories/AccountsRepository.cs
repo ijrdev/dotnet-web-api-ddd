@@ -1,12 +1,12 @@
 ﻿using System;
-using Database.Contexts;
-using Database.Factories;
-using Domain.Consts;
-using Domain.Interfaces.Repositories;
+using Infrastructure.Database.Core.Contexts;
+using Infrastructure.Database.Core.Factories;
+using Domain.Domain.Core.Consts;
+using Domain.Domain.Core.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Domain.Entities;
+using Domain.Domain.Core.Entities;
 
-namespace Repositories
+namespace Infrastructure.Repositories.Core
 {
     public class AccountsRepository : IAccountsRepository
     {

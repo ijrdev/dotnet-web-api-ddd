@@ -1,14 +1,14 @@
-using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Services;
+using Domain.Domain.Core.Interfaces.Repositories;
+using Domain.Domain.Core.Interfaces.Services;
 using System;
-using Domain.Entities;
-using Domain.Exceptions;
-using CrossCutting;
+using Domain.Domain.Core.Entities;
+using Domain.Domain.Core.Exceptions;
+using Infrastructure.CrossCutting.Core;
 using System.Net;
-using Domain.Responses;
-using Domain.Enums;
+using Domain.Domain.Core.Responses;
+using Domain.Domain.Core.Enums;
 
-namespace Services
+namespace Infrastructure.Services.Core
 {
     public class ClientsService : IClientsService
     {

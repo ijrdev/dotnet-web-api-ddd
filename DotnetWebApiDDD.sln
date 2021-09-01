@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "Presentation\WebApi\WebApi.csproj", "{D375D14D-D9F9-459D-B3F4-5A71E2404CB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI.WebApi.Core", "Presentation\WebApi\UI.WebApi.Core.csproj", "{D375D14D-D9F9-459D-B3F4-5A71E2404CB8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Infrastructure\Repositories\Repositories.csproj", "{550BAE2C-D9F7-441E-91D6-FEA2C1FD01B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Repositories.Core", "Infrastructure\Repositories\Infrastructure.Repositories.Core.csproj", "{550BAE2C-D9F7-441E-91D6-FEA2C1FD01B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domains\Domain.csproj", "{D3C0211C-348D-4864-ADD2-571CF81A3CC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Domain.Core", "Domain\Domains\Domain.Domain.Core.csproj", "{D3C0211C-348D-4864-ADD2-571CF81A3CC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Application\Services\Services.csproj", "{91E7C4FE-6AB7-429F-9698-1CF3B5605849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Services.Core", "Application\Services\Infrastructure.Services.Core.csproj", "{91E7C4FE-6AB7-429F-9698-1CF3B5605849}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{D54436BD-D2AD-4903-9870-5C5763118AAA}"
 EndProject
@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{8BC1D3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{812E1620-339E-410E-84AD-1AA379206B53}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting", "CrossCutting\CrossCutting.csproj", "{D0D5C126-E2F6-4D5C-9EC6-2D1BEF195B6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.CrossCutting.Core", "CrossCutting\Infrastructure.CrossCutting.Core.csproj", "{D0D5C126-E2F6-4D5C-9EC6-2D1BEF195B6B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Database.csproj", "{CBAA408F-FB11-41B4-A64C-1F9B3D90EB35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Database.Core", "Database\Infrastructure.Database.Core.csproj", "{CBAA408F-FB11-41B4-A64C-1F9B3D90EB35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

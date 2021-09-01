@@ -1,9 +1,9 @@
-﻿using Database.Mapping;
-using Domain.Entities;
+﻿using Infrastructure.Database.Core.Mapping;
+using Domain.Domain.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Database.Contexts
+namespace Infrastructure.Database.Core.Contexts
 {
     public class DotnetWebApiDDDDbContext : DbContext
     {

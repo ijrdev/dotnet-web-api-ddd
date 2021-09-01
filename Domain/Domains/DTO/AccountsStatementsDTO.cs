@@ -1,7 +1,7 @@
-﻿using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 using System.Collections.Generic;
 
-namespace Domain.DTO
+namespace Domain.Domain.Core.DTO
 {
     public class AccountsStatementsDTO
     {

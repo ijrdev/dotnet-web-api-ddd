@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
-using Domain.DTO;
-using Domain.Entities;
-using Domain.Enums;
-using Domain.Exceptions;
-using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Services;
-using Domain.Responses;
+using Domain.Domain.Core.DTO;
+using Domain.Domain.Core.Entities;
+using Domain.Domain.Core.Enums;
+using Domain.Domain.Core.Exceptions;
+using Domain.Domain.Core.Interfaces.Repositories;
+using Domain.Domain.Core.Interfaces.Services;
+using Domain.Domain.Core.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace Services
+namespace Infrastructure.Services.Core
 {
     public class AccountsTransactionsService : IAccountsTransactionsService
     {

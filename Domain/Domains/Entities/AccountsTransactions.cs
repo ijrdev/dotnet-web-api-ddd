@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities
+﻿namespace Domain.Domain.Core.Entities
 {
     public class AccountsTransactions
     {

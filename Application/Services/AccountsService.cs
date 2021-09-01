@@ -1,12 +1,12 @@
-using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Services;
+using Domain.Domain.Core.Interfaces.Repositories;
+using Domain.Domain.Core.Interfaces.Services;
 using System;
 using System.Net;
-using Domain.Entities;
-using Domain.Exceptions;
-using Domain.Responses;
+using Domain.Domain.Core.Entities;
+using Domain.Domain.Core.Exceptions;
+using Domain.Domain.Core.Responses;
 
-namespace Services
+namespace Infrastructure.Services.Core
 {
     public class AccountsService : IAccountsService
     {

@@ -1,4 +1,4 @@
-﻿namespace Domain.Consts
+﻿namespace Domain.Domain.Core.Consts
 {
     public static class AutenticatedUser
     {

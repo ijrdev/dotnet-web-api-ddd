@@ -2,7 +2,7 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Domain.Responses
+namespace Domain.Domain.Core.Responses
 {
     public static class CustomResponse
     {

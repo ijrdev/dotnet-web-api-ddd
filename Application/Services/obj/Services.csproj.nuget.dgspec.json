@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj"
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj"
               },
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj"
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Infrastructure.Repositories.Core.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Infrastructure.Repositories.Core.csproj"
               }
             }
           }
@@ -75,12 +75,12 @@
         }
       }
     },
-    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj": {
+    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj",
-        "projectName": "CrossCutting",
-        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj",
+        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj",
+        "projectName": "Infrastructure.CrossCutting.Core",
+        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
         "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\obj\\",
         "projectStyle": "PackageReference",
@@ -143,12 +143,12 @@
         }
       }
     },
-    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj": {
+    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj",
-        "projectName": "Database",
-        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj",
+        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj",
+        "projectName": "Infrastructure.Database.Core",
+        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
         "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\obj\\",
         "projectStyle": "PackageReference",
@@ -167,8 +167,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj"
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj"
+              },
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.Domain.Core.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.Domain.Core.csproj"
               }
             }
           }
@@ -221,12 +224,12 @@
         }
       }
     },
-    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj": {
+    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.Domain.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj",
-        "projectName": "Domain",
-        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj",
+        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.Domain.Core.csproj",
+        "projectName": "Domain.Domain.Core",
+        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.Domain.Core.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
         "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\obj\\",
         "projectStyle": "PackageReference",
@@ -281,12 +284,12 @@
         }
       }
     },
-    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj": {
+    "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Infrastructure.Repositories.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj",
-        "projectName": "Repositories",
-        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Infrastructure.Repositories.Core.csproj",
+        "projectName": "Infrastructure.Repositories.Core",
+        "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\Infrastructure.Repositories.Core.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
         "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
@@ -305,8 +308,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj": {
-                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Database.csproj"
+              "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj": {
+                "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj"
               }
             }
           }

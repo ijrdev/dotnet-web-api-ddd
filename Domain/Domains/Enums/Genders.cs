@@ -1,4 +1,4 @@
-﻿namespace Domain.Enums
+﻿namespace Domain.Domain.Core.Enums
 {
     public enum Genders
     {

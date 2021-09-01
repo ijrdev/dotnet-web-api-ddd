@@ -1,21 +1,21 @@
-﻿using CrossCutting;
-using Domain.DTO;
-using Domain.Interfaces.Services;
-using Domain.Entities;
+﻿using Infrastructure.CrossCutting.Core;
+using Domain.Domain.Core.DTO;
+using Domain.Domain.Core.Interfaces.Services;
+using Domain.Domain.Core.Entities;
 using System.Net;
 using AutoMapper;
-using Domain.Responses;
-using Domain.Exceptions;
+using Domain.Domain.Core.Responses;
+using Domain.Domain.Core.Exceptions;
 using System;
-using Domain.Interfaces.Repositories;
+using Domain.Domain.Core.Interfaces.Repositories;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
-using Domain.Consts;
+using Domain.Domain.Core.Consts;
 
-namespace Services
+namespace Infrastructure.Services.Core
 {
     public class AuthService : IAuthService
     {

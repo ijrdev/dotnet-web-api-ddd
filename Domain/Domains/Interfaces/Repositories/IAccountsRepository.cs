@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 
-namespace Domain.Interfaces.Repositories
+namespace Domain.Domain.Core.Interfaces.Repositories
 {
     public interface IAccountsRepository
     {

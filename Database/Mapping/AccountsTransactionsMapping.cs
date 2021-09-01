@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Database.Mapping
+namespace Infrastructure.Database.Core.Mapping
 {
     public class AccountsTransactionsMapping : IEntityTypeConfiguration<AccountsTransactions>
     {
@@ -19,7 +19,7 @@ namespace Database.Mapping
 
             builder.Property(a => a.Value).HasDefaultValue(0);
 
-            builder.Property(c => c.Account.Id).IsRequired();
+            //builder.Property(c => c.Account.Id).IsRequired();
         }
     }
 }

@@ -7624,9 +7624,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj",
-      "projectName": "Domain",
-      "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.csproj",
+      "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.Domain.Core.csproj",
+      "projectName": "Domain.Domain.Core",
+      "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\Domain.Domain.Core.csproj",
       "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
       "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Domain\\Domains\\obj\\",
       "projectStyle": "PackageReference",

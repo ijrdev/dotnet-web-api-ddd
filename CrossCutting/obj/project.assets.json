@@ -325,9 +325,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj",
-      "projectName": "CrossCutting",
-      "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\CrossCutting.csproj",
+      "projectUniqueName": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj",
+      "projectName": "Infrastructure.CrossCutting.Core",
+      "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\Infrastructure.CrossCutting.Core.csproj",
       "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
       "outputPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\CrossCutting\\obj\\",
       "projectStyle": "PackageReference",

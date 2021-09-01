@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r09kqi2Ob7sBWlJHPSloO4FKQw5rriMqwOEbdd4Lq3nqRxJRP0HOEzLNfKMGKcMNFncejj1uTB7P0hV6E7T48w==",
+  "dgSpecHash": "7HOtTT0AyLB79k+mf5yGQuCFBl0Ro8IT45O8yNDLMDPWxHIuJNIrswsxnkwGZ0P0c2fTW529Wcnf1z5XCg2FdA==",
   "success": true,
-  "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Presentation\\WebApi\\WebApi.csproj",
+  "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Presentation\\WebApi\\UI.WebApi.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",

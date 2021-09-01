@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Domain.Responses;
+using Domain.Domain.Core.Responses;
 
-namespace Domain.Entities
+namespace Domain.Domain.Core.Entities
 {
     public class Clients
     {

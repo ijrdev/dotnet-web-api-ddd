@@ -1,7 +1,7 @@
-﻿using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 using System.Collections.Generic;
 
-namespace Domain.Interfaces.Repositories
+namespace Domain.Domain.Core.Interfaces.Repositories
 {
     public interface IAccountsTransactionsRepository
     {

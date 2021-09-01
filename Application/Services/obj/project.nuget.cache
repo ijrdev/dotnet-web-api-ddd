@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rRjfZWFylpEggrxTvF8XQWUdPgQgGpv2e4I/adu70M3D3lsEd0NWdr3Ojc05T+KgsUZ7XwEN/ozwMQSTqCxBYQ==",
+  "dgSpecHash": "sslB4liogVsxC+H3e7th/ClRwWrKkyhMqyBQKHB35ue2LOSKRWj3xEXIu3YfD3h3Ws9NcM2Ggppc5ZuraBkndw==",
   "success": true,
-  "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Application\\Services\\Services.csproj",
+  "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Application\\Services\\Infrastructure.Services.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",

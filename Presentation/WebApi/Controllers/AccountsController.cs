@@ -1,17 +1,17 @@
-using Domain.Exceptions;
-using Domain.Responses;
-using Domain.Interfaces.Services;
+using Domain.Domain.Core.Exceptions;
+using Domain.Domain.Core.Responses;
+using Domain.Domain.Core.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using Domain.Entities;
+using Domain.Domain.Core.Entities;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
-using Domain.Consts;
+using Domain.Domain.Core.Consts;
 
-namespace WebApi.Controllers
+namespace UI.WebApi.Core.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

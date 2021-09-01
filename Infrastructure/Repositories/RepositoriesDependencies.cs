@@ -1,7 +1,7 @@
-﻿using Domain.Interfaces.Repositories;
+﻿using Domain.Domain.Core.Interfaces.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Repositories
+namespace Infrastructure.Repositories.Core
 {
     public static class RepositoriesDependencies
     {
