@@ -1,11 +1,12 @@
-﻿using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 
-namespace Interfaces.Services
+namespace Domain.Domain.Core.Interfaces.Services
 {
     public interface IClientsService
     {
         Clients GetClient(long id);
         Clients GetClient(string documentEmail);
-        void UpdateClient(long id, Clients client);
+        void AddClient(Clients client);
+        void UpdateClient(Clients client);
     }
 }

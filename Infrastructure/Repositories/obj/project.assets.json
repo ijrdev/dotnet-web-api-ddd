@@ -9724,18 +9724,18 @@
     },
     "Domain.Domain.Core/1.0.0": {
       "type": "project",
-      "path": "../../Domain/Domains/Domain.Domain.Core.csproj",
-      "msbuildProject": "../../Domain/Domains/Domain.Domain.Core.csproj"
+      "path": "../../Domain/Domain.Domain.Core.csproj",
+      "msbuildProject": "../../Domain/Domain.Domain.Core.csproj"
     },
     "Infrastructure.CrossCutting.Core/1.0.0": {
       "type": "project",
-      "path": "../../CrossCutting/Infrastructure.CrossCutting.Core.csproj",
-      "msbuildProject": "../../CrossCutting/Infrastructure.CrossCutting.Core.csproj"
+      "path": "../CrossCutting/Infrastructure.CrossCutting.Core.csproj",
+      "msbuildProject": "../CrossCutting/Infrastructure.CrossCutting.Core.csproj"
     },
     "Infrastructure.Database.Core/1.0.0": {
       "type": "project",
-      "path": "../../Database/Infrastructure.Database.Core.csproj",
-      "msbuildProject": "../../Database/Infrastructure.Database.Core.csproj"
+      "path": "../Database/Infrastructure.Database.Core.csproj",
+      "msbuildProject": "../Database/Infrastructure.Database.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9772,6 +9772,9 @@
           "projectReferences": {
             "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj": {
               "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj"
+            },
+            "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Database\\Infrastructure.Database.Core.csproj": {
+              "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Database\\Infrastructure.Database.Core.csproj"
             }
           }
         }

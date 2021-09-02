@@ -1,11 +1,12 @@
-﻿using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 
-namespace Interfaces.Repositories
+namespace Domain.Domain.Core.Interfaces.Repositories
 {
     public interface IClientsRepository
     {
         Clients GetClient(long id);
         Clients GetClient(string documentEmail);
-        void UpdateClient(long id, Clients client);
+        void AddClient(Clients client);
+        void UpdateClient(Clients client);
     }
 }

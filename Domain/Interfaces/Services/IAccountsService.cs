@@ -1,13 +1,11 @@
-﻿using Domain.DTO;
-using System.Collections.Generic;
-using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 
-namespace Interfaces.Services
+namespace Domain.Domain.Core.Interfaces.Services
 {
     public interface IAccountsService
     {
         Accounts GetAccount(string accountNumber);
-        IEnumerable<Accounts> GetAccounts(long clientId);
-        void AddAccount(AccountClientDTO accountClient);
+        Accounts GetAccount(long clientId);
+        void AddAccount(long clientId, Accounts accountClient);
     }
 }

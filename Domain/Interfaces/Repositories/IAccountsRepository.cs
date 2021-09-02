@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using Domain.Entities;
+﻿using Domain.Domain.Core.Entities;
 
-namespace Interfaces.Repositories
+namespace Domain.Domain.Core.Interfaces.Repositories
 {
     public interface IAccountsRepository
     {
         Accounts GetAccount(string accountNumber);
-        IEnumerable<Accounts> GetAccounts(long clientId);
-        void AddAccount(Accounts account, bool newClient = false);
+        Accounts GetAccount(long clientId);
+        void AddAccount(Accounts account);
+        void UpdateAccount(Accounts account);
     }
 }
