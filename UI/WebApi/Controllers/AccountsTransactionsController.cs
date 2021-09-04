@@ -80,11 +80,9 @@ namespace UI.WebApi.Core.Controllers
                     return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                ClaimsPrincipal userAuthenticated = UserAuthenticated();
+                long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
-
-                _iAccountsTransactionsService.Withdraw(Convert.ToInt64(id), depositWithdrawTransaction);
+                _iAccountsTransactionsService.Withdraw(id, depositWithdrawTransaction);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
             }
@@ -119,11 +117,9 @@ namespace UI.WebApi.Core.Controllers
                     return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                ClaimsPrincipal userAuthenticated = UserAuthenticated();
+                long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
-
-                _iAccountsTransactionsService.Transfer(Convert.ToInt64(id), transferTransaction);
+                _iAccountsTransactionsService.Transfer(id, transferTransaction);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
             }
@@ -143,11 +139,9 @@ namespace UI.WebApi.Core.Controllers
         {
             try
             {
-                ClaimsPrincipal userAuthenticated = UserAuthenticated();
+                long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
-
-                AccountsStatementsDTO accountStatements = _iAccountsTransactionsService.GetStatements(Convert.ToInt64(id));
+                AccountsStatementsDTO accountStatements = _iAccountsTransactionsService.GetStatements(id);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, accountStatements);
             }

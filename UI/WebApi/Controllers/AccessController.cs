@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Security.Claims;
 
 namespace UI.WebApi.Core.Controllers
@@ -8,6 +9,13 @@ namespace UI.WebApi.Core.Controllers
         protected ClaimsPrincipal UserAuthenticated()
         {
             return User;
+        }
+
+        protected T UserAuthenticated<T>(string claimType)
+        {
+            ClaimsPrincipal userAuthenticated = UserAuthenticated();
+
+            return (T) Convert.ChangeType(userAuthenticated.FindFirstValue(claimType), typeof(T));
         }
     }
 }

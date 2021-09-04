@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using Domain.Domain.Core.Entities;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Domain.Domain.Core.Consts;
 
@@ -45,11 +44,9 @@ namespace UI.WebApi.Core.Controllers
                     return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                ClaimsPrincipal userAuthenticated = UserAuthenticated();
+                long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
-
-                _iAccountsService.AddAccount(Convert.ToInt64(id), account);
+                _iAccountsService.AddAccount(id, account);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
             }

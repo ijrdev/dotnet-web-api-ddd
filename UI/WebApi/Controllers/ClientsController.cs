@@ -6,7 +6,6 @@ using Domain.Domain.Core.Exceptions;
 using Domain.Domain.Core.Responses;
 using Domain.Domain.Core.Entities;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using Domain.Domain.Core.Consts;
@@ -30,11 +29,9 @@ namespace UI.WebApi.Core.Controllers
         {
             try
             {
-                ClaimsPrincipal userAuthenticated = UserAuthenticated();
-                
-                string id = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
+                long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                Clients client = _iClientsService.GetClient(Convert.ToInt64(id));
+                Clients client = _iClientsService.GetClient(id);
 
                 return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, new { client });
             }
@@ -103,11 +100,7 @@ namespace UI.WebApi.Core.Controllers
                     return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                ClaimsPrincipal userAuthenticated = UserAuthenticated();
-
-                string userId = userAuthenticated.FindFirstValue(AutenticatedUser.Id);
-
-                long userIdConverted = Convert.ToInt64(userId);
+                long userIdConverted = UserAuthenticated<long>(AutenticatedUser.Id);
 
                 if (id != userIdConverted)
                 {
