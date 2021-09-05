@@ -9770,9 +9770,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj": {
-              "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Database\\Infrastructure.Database.Core.csproj"
-            },
             "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Database\\Infrastructure.Database.Core.csproj": {
               "projectPath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Database\\Infrastructure.Database.Core.csproj"
             }

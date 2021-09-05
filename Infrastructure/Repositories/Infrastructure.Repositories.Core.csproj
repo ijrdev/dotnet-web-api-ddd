@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Database\Infrastructure.Database.Core.csproj" />
     <ProjectReference Include="..\Database\Infrastructure.Database.Core.csproj" />
   </ItemGroup>
 

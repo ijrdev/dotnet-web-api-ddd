@@ -9,6 +9,7 @@ namespace Domain.Domain.Core.Entities
         public long? Id { get; set; }
 
         [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_DOCUMENT)]
+        [RegularExpression(@"([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})", ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_DOCUMENT)]
         public string Document { get; set; }
 
         [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_NAME)]
