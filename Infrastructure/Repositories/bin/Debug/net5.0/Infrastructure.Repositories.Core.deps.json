@@ -22,6 +22,26 @@
           }
         }
       },
+      "Castle.Core/4.4.1": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.TraceSource": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/Castle.Core.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.4.1.0"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Antiforgery/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.DataProtection": "2.2.0",
@@ -735,6 +755,18 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/5.0.9": {},
+      "Microsoft.EntityFrameworkCore.Proxies/5.0.9": {
+        "dependencies": {
+          "Castle.Core": "4.4.1",
+          "Microsoft.EntityFrameworkCore": "5.0.9"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Proxies.dll": {
+            "assemblyVersion": "5.0.9.0",
+            "fileVersion": "5.0.921.36501"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/5.0.9": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.9",
@@ -1456,6 +1488,19 @@
           "Microsoft.NETCore.Platforms": "3.1.0",
           "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Diagnostics.TraceSource/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "runtime.native.System": "4.3.0"
         }
       },
       "System.Diagnostics.Tracing/4.3.0": {
@@ -2314,6 +2359,7 @@
           "Domain.Domain.Core": "1.0.0",
           "Infrastructure.CrossCutting.Core": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.9",
+          "Microsoft.EntityFrameworkCore.Proxies": "5.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9",
           "Microsoft.Extensions.Logging.Console": "5.0.0"
         },
@@ -2335,6 +2381,13 @@
       "sha512": "sha512-LyNKpIpr4GraRD9+xlTviyxxbZpF6J4xJf7DvraC1mR8PSN/KonGc4rt8C/fjkD3vaEvgA7BcvsbHFCOjgczyQ==",
       "path": "bcrypt.net-next/4.0.2",
       "hashPath": "bcrypt.net-next.4.0.2.nupkg.sha512"
+    },
+    "Castle.Core/4.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zanbjWC0Y05gbx4eGXkzVycOQqVOFVeCjVsDSyuao9P4mtN1w3WxxTo193NGC7j3o2u3AJRswaoC6hEbnGACnQ==",
+      "path": "castle.core/4.4.1",
+      "hashPath": "castle.core.4.4.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.2.0": {
       "type": "package",
@@ -2699,6 +2752,13 @@
       "sha512": "sha512-eyuPLRFjcF7VWH8qy1uUuMrO02W15n9EXAXnYjCTWgH0SDIeZAa2XZXMZ9U3dvOPtvllMBy0obYA5SSbnpaNoQ==",
       "path": "microsoft.entityframeworkcore.analyzers/5.0.9",
       "hashPath": "microsoft.entityframeworkcore.analyzers.5.0.9.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Proxies/5.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-c+lkXoT5cZT/phqQKXuWkX09WprZJbo8OyxYOZMIhy6GJ+k5fbSvW2iiWianSFE6DR4UE+Za37zTf1cfGBX+gQ==",
+      "path": "microsoft.entityframeworkcore.proxies/5.0.9",
+      "hashPath": "microsoft.entityframeworkcore.proxies.5.0.9.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/5.0.9": {
       "type": "package",
@@ -3238,6 +3298,13 @@
       "sha512": "sha512-UUvkJfSYJMM6x527dJg2VyWPSRqIVB0Z7dbjHst1zmwTXz5CcXSYJFWRpuigfbO1Lf7yfZiIaEUesfnl/g5EyA==",
       "path": "system.diagnostics.tools/4.3.0",
       "hashPath": "system.diagnostics.tools.4.3.0.nupkg.sha512"
+    },
+    "System.Diagnostics.TraceSource/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
+      "path": "system.diagnostics.tracesource/4.3.0",
+      "hashPath": "system.diagnostics.tracesource.4.3.0.nupkg.sha512"
     },
     "System.Diagnostics.Tracing/4.3.0": {
       "type": "package",

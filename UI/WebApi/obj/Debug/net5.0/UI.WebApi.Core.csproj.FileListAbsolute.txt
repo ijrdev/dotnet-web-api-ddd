@@ -158,3 +158,5 @@ E:\Programação\Códigos\dotnet-web-api-ddd\UI\WebApi\obj\Debug\net5.0\UI.WebAp
 E:\Programação\Códigos\dotnet-web-api-ddd\UI\WebApi\obj\Debug\net5.0\ref\UI.WebApi.Core.dll
 E:\Programação\Códigos\dotnet-web-api-ddd\UI\WebApi\obj\Debug\net5.0\UI.WebApi.Core.pdb
 E:\Programação\Códigos\dotnet-web-api-ddd\UI\WebApi\obj\Debug\net5.0\UI.WebApi.Core.genruntimeconfig.cache
+E:\Programação\Códigos\dotnet-web-api-ddd\UI\WebApi\bin\Debug\net5.0\Castle.Core.dll
+E:\Programação\Códigos\dotnet-web-api-ddd\UI\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll

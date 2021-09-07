@@ -5,12 +5,12 @@ namespace Domain.Domain.Core.DTO
 {
     public class AuthInDTO
     {
-        [StringLength(100, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.LONG_EMAIL)]
-        [EmailAddress(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_EMAIL)]
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_EMAIL)]
+        [StringLength(100, ErrorMessage = ResponseMessages.Clients.DomainValidations.LONG_EMAIL)]
+        [EmailAddress(ErrorMessage = ResponseMessages.Clients.DomainValidations.INVALID_EMAIL)]
+        [Required(ErrorMessage = ResponseMessages.Clients.DomainValidations.REQUIRED_EMAIL)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_PASSWORD)]
+        [Required(ErrorMessage = ResponseMessages.Clients.DomainValidations.REQUIRED_PASSWORD)]
         public string Password { get; set; }
     }
 }

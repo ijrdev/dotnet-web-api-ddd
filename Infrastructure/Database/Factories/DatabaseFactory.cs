@@ -14,7 +14,7 @@ namespace Infrastructure.Database.Core.Factories
                 case DatabaseConnections.DOTNET_WEB_API_DDD:
                     return new DbContextOptionsBuilder<DotnetWebApiDDDDbContext>()
                         .UseSqlServer($"Server={InternalConfiguration.AppSettings["ConnectionStrings:Server"]};Database={InternalConfiguration.AppSettings["ConnectionStrings:Database"]};Trusted_Connection=True;")
-                        // .UseLazyLoadingProxies()
+                        //.UseLazyLoadingProxies()
                         .Options;
 
                 default:

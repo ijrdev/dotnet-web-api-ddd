@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Database.Core.Migrations
 {
-    public partial class Init : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,11 +12,11 @@ namespace Infrastructure.Database.Core.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Document = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Document = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -30,9 +30,9 @@ namespace Infrastructure.Database.Core.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountNumber = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    AccountNumber = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Value = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
-                    ClientId = table.Column<long>(type: "bigint", nullable: true)
+                    ClientId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,7 +42,7 @@ namespace Infrastructure.Database.Core.Migrations
                         column: x => x.ClientId,
                         principalTable: "Clients",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,7 +54,7 @@ namespace Infrastructure.Database.Core.Migrations
                     TransactionType = table.Column<int>(type: "int", nullable: false),
                     Operation = table.Column<int>(type: "int", nullable: false),
                     Value = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
-                    AccountId = table.Column<long>(type: "bigint", nullable: true)
+                    AccountId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,7 +64,7 @@ namespace Infrastructure.Database.Core.Migrations
                         column: x => x.AccountId,
                         principalTable: "Accounts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

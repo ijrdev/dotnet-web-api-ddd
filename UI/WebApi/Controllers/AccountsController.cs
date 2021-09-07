@@ -41,14 +41,14 @@ namespace UI.WebApi.Core.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
                 _iAccountsService.AddAccount(id, account);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
             catch(CustomException cex)
             {
@@ -56,7 +56,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
     }

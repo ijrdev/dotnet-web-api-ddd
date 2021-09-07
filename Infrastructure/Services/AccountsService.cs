@@ -37,7 +37,7 @@ namespace Infrastructure.Services.Core
 
                 if(client == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Clients.ConditionValidations.CLIENT_NOT_FOUND);
                 }
 
                 account.AccountNumber = GenerateAccountNumber();

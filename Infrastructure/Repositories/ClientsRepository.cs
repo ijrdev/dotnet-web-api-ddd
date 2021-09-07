@@ -17,7 +17,7 @@ namespace Infrastructure.Repositories.Core
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Clients.Include(c => c.Accounts).FirstOrDefaultAsync(c => c.Document == documentEmail || c.Email == documentEmail).GetAwaiter().GetResult();
+                    return context.Clients.FirstOrDefaultAsync(c => c.Document == documentEmail || c.Email == documentEmail).GetAwaiter().GetResult();
                 }
             }
             catch (Exception)
@@ -32,7 +32,7 @@ namespace Infrastructure.Repositories.Core
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Clients.Include(c => c.Accounts).FirstOrDefaultAsync(c => c.Id == id).GetAwaiter().GetResult();
+                    return context.Clients.FirstOrDefaultAsync(c => c.Id == id).GetAwaiter().GetResult();
                 }
             }
             catch (Exception)

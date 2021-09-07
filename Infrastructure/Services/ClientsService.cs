@@ -66,7 +66,7 @@ namespace Infrastructure.Services.Core
 
                 if (clientResult != null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED, new { client.Document });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED, new { client.Document });
                 }
 
                 client.Password = Crypto.Password.Hash(client.Password);
@@ -93,7 +93,7 @@ namespace Infrastructure.Services.Core
 
                 if (clientResult == null)
                 {
-                    throw new CustomException(HttpStatusCode.NotFound, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND);
+                    throw new CustomException(HttpStatusCode.NotFound, ResponseMessages.Clients.ConditionValidations.CLIENT_NOT_FOUND);
                 }
 
                 Clients clientCheckDocument = GetClient(client.Document);
@@ -102,7 +102,7 @@ namespace Infrastructure.Services.Core
                 {
                     if(clientResult.Id != clientCheckDocument.Id)
                     {
-                        throw new CustomException(HttpStatusCode.NotFound, CustomResponseMessage.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED, new { client.Document });
+                        throw new CustomException(HttpStatusCode.NotFound, ResponseMessages.Clients.ConditionValidations.DOCUMENT_ALREADY_REGISTERED, new { client.Document });
                     }
                 }
 
@@ -123,7 +123,7 @@ namespace Infrastructure.Services.Core
         private void CheckEnumsType(Clients client)
         {
             if (!Enum.IsDefined(typeof(Genders), client.Gender))
-                throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INVALID_GENDER, new { client.Gender });
+                throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Clients.ConditionValidations.INVALID_GENDER, new { client.Gender });
         }
     }
 }

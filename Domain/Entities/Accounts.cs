@@ -9,7 +9,7 @@ namespace Domain.Domain.Core.Entities
 
         public string AccountNumber { get; set; }
 
-        [Range(0, double.MaxValue, ErrorMessage = CustomResponseMessage.Accounts.DomainValidations.INVALID_VALUE)]
+        [Range(0, double.MaxValue, ErrorMessage = ResponseMessages.Accounts.DomainValidations.INVALID_VALUE)]
         public double Value { get; set; }
 
         public virtual Clients Client { get; set; }

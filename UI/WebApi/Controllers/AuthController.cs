@@ -7,6 +7,7 @@ using Domain.Domain.Core.Responses;
 using Domain.Domain.Core.Exceptions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
+using UI.WebApi.Core.Filters;
 
 namespace UI.WebApi.Core.Controllers
 {
@@ -20,7 +21,7 @@ namespace UI.WebApi.Core.Controllers
         {
             _iAuthService = iAuthService;
         }
-
+        
         [HttpPost]
         public IActionResult Login([FromBody] AuthInDTO authIn)
         {
@@ -38,12 +39,12 @@ namespace UI.WebApi.Core.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 AuthOutDTO authOut = _iAuthService.Login(authIn);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, authOut);
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK, authOut);
             }
             catch (CustomException cex)
             {
@@ -51,7 +52,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
     }

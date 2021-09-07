@@ -29,9 +29,10 @@ namespace Infrastructure.Database.Core.Migrations
                     b.Property<string>("AccountNumber")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<long?>("ClientId")
+                        .IsRequired()
                         .HasColumnType("bigint");
 
                     b.Property<double>("Value")
@@ -57,6 +58,7 @@ namespace Infrastructure.Database.Core.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<long?>("AccountId")
+                        .IsRequired()
                         .HasColumnType("bigint");
 
                     b.Property<int>("Operation")
@@ -90,12 +92,12 @@ namespace Infrastructure.Database.Core.Migrations
                     b.Property<string>("Document")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
@@ -103,7 +105,7 @@ namespace Infrastructure.Database.Core.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -121,7 +123,9 @@ namespace Infrastructure.Database.Core.Migrations
                 {
                     b.HasOne("Domain.Domain.Core.Entities.Clients", "Client")
                         .WithMany("Accounts")
-                        .HasForeignKey("ClientId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Client");
                 });
@@ -130,7 +134,9 @@ namespace Infrastructure.Database.Core.Migrations
                 {
                     b.HasOne("Domain.Domain.Core.Entities.Accounts", "Account")
                         .WithMany()
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Account");
                 });

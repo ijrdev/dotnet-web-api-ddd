@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Domain.Domain.Core.Responses;
 
@@ -8,30 +7,28 @@ namespace Domain.Domain.Core.Entities
     {
         public long? Id { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_DOCUMENT)]
-        [RegularExpression(@"([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})", ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_DOCUMENT)]
+        [Required(ErrorMessage = ResponseMessages.Clients.DomainValidations.REQUIRED_DOCUMENT)]
+        [RegularExpression(@"([0-9]{11})", ErrorMessage = ResponseMessages.Clients.DomainValidations.INVALID_DOCUMENT)]
         public string Document { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_NAME)]
-        [StringLength(100, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.LONG_NAME)]
+        [Required(ErrorMessage = ResponseMessages.Clients.DomainValidations.REQUIRED_NAME)]
+        [StringLength(100, ErrorMessage = ResponseMessages.Clients.DomainValidations.LONG_NAME)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_AGE)]
-        [Range(1, int.MaxValue, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_AGE)]
+        [Required(ErrorMessage = ResponseMessages.Clients.DomainValidations.REQUIRED_AGE)]
+        [Range(1, int.MaxValue, ErrorMessage = ResponseMessages.Clients.DomainValidations.INVALID_AGE)]
         public int Age { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_GENDER)]
-        [Range(1, int.MaxValue, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_GENDER)]
+        [Required(ErrorMessage = ResponseMessages.Clients.DomainValidations.REQUIRED_GENDER)]
+        [Range(1, int.MaxValue, ErrorMessage = ResponseMessages.Clients.DomainValidations.INVALID_GENDER)]
         public int Gender { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_EMAIL)]
-        [StringLength(100, ErrorMessage = CustomResponseMessage.Clients.DomainValidations.LONG_EMAIL)]
-        [EmailAddress(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.INVALID_EMAIL)]
+        [Required(ErrorMessage = ResponseMessages.Clients.DomainValidations.REQUIRED_EMAIL)]
+        [StringLength(100, ErrorMessage = ResponseMessages.Clients.DomainValidations.LONG_EMAIL)]
+        [EmailAddress(ErrorMessage = ResponseMessages.Clients.DomainValidations.INVALID_EMAIL)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = CustomResponseMessage.Clients.DomainValidations.REQUIRED_PASSWORD)]
+        [Required(ErrorMessage = ResponseMessages.Clients.DomainValidations.REQUIRED_PASSWORD)]
         public string Password { get; set; }
-
-        public virtual IEnumerable<Accounts> Accounts { get; set; }
     }
 }

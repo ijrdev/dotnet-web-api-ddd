@@ -1,6 +1,6 @@
 ﻿namespace Domain.Domain.Core.Responses
 {
-    public static class CustomResponseMessage
+    public static class ResponseMessages
     {
         public static class HTTP
         {

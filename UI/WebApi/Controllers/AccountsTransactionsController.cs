@@ -42,12 +42,12 @@ namespace UI.WebApi.Core.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 _iAccountsTransactionsService.Deposit(depositWithdrawTransaction);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
             catch (CustomException cex)
             {
@@ -55,7 +55,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
 
@@ -77,14 +77,14 @@ namespace UI.WebApi.Core.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
                 _iAccountsTransactionsService.Withdraw(id, depositWithdrawTransaction);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
             catch (CustomException cex)
             {
@@ -92,7 +92,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
 
@@ -114,14 +114,14 @@ namespace UI.WebApi.Core.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
                 _iAccountsTransactionsService.Transfer(id, transferTransaction);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
             catch (CustomException cex)
             {
@@ -129,7 +129,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
 
@@ -143,7 +143,7 @@ namespace UI.WebApi.Core.Controllers
 
                 AccountsStatementsDTO accountStatements = _iAccountsTransactionsService.GetStatements(id);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, accountStatements);
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK, accountStatements);
             }
             catch (CustomException cex)
             {
@@ -151,7 +151,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
     }

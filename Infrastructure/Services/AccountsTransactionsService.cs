@@ -32,10 +32,10 @@ namespace Infrastructure.Services.Core
 
                 if (account == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND, new { depositWithdrawTransaction.AccountNumber });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND, new { depositWithdrawTransaction.AccountNumber });
                 }
 
-                account.Value = depositWithdrawTransaction.Value;
+                account.Value = account.Value + depositWithdrawTransaction.Value;
 
                 _iAccountsRepository.UpdateAccount(account);
 
@@ -59,17 +59,17 @@ namespace Infrastructure.Services.Core
 
                 if (account == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND, new { depositWithdrawTransaction.AccountNumber });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND, new { depositWithdrawTransaction.AccountNumber });
                 }
 
                 if (account.Client.Id != clientId)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_DOES_NOT_BELONG_TO_USER);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.ACCOUNT_DOES_NOT_BELONG_TO_USER);
                 }
 
                 if (account.Value < depositWithdrawTransaction.Value)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INSUFFICIENT_VALUE, new { AccountValue = account.Value, WithdrawValue = depositWithdrawTransaction.Value });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.INSUFFICIENT_VALUE, new { AccountValue = account.Value, WithdrawValue = depositWithdrawTransaction.Value });
                 }
 
                 account.Value = account.Value - depositWithdrawTransaction.Value;
@@ -115,17 +115,17 @@ namespace Infrastructure.Services.Core
                         }
                         else
                         {
-                            throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.INSUFFICIENT_VALUE, new { accountToTransfer.Value });
+                            throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.INSUFFICIENT_VALUE, new { accountToTransfer.Value });
                         }
                     }
                     else
                     {
-                        throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_DOES_NOT_BELONG_TO_USER);
+                        throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.ACCOUNT_DOES_NOT_BELONG_TO_USER);
                     }
                 }
                 else
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND);
                 }
             }
             catch (CustomException)
@@ -142,13 +142,13 @@ namespace Infrastructure.Services.Core
         {
             try
             {
-                AccountsStatementsDTO accountsStatements = new AccountsStatementsDTO();
+                AccountsStatementsDTO accountStatements = new AccountsStatementsDTO();
 
                 Accounts account = _iAccountsRepository.GetAccount(clientId);
 
                 if(account == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND);
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND);
                 }
 
                 IEnumerable<AccountsTransactions> accountTransactions = _iAccountsTransactionsRepository.GetStatements((long) account.Id);
@@ -160,12 +160,14 @@ namespace Infrastructure.Services.Core
                         cfg.CreateMap<Accounts, AccountsStatementsDTO>();
                     }).CreateMapper();
 
-                    AccountsStatementsDTO accountStatement = mapper.Map<AccountsStatementsDTO>(account);
+                    accountStatements = mapper.Map<AccountsStatementsDTO>(account);
 
-                    accountStatement.AccountTransactions = accountTransactions;
+                    accountStatements.AccountTransactions = accountTransactions;
+
+                    return accountStatements;
                 }
 
-                return accountsStatements;
+                return accountStatements;
             }
             catch (CustomException)
             {

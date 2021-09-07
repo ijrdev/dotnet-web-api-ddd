@@ -19,7 +19,7 @@ namespace Infrastructure.Database.Core.Mapping
 
             builder.Property(a => a.Value).HasDefaultValue(0);
 
-            //builder.Property(c => c.Account.Id).IsRequired();
+            builder.Property("AccountId").IsRequired();
         }
     }
 }

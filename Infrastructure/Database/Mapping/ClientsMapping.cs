@@ -15,19 +15,19 @@ namespace Infrastructure.Database.Core.Mapping
 
             builder.HasIndex(c => c.Document).IsUnique();
             builder.Property(c => c.Document)
-                .HasColumnType("nvarchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(c => c.Name)
-                .HasColumnType("nvarchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(c => c.Age).IsRequired();
 
             builder.Property(c => c.Email)
-                .HasColumnType("nvarchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(100)
                 .IsRequired();
 

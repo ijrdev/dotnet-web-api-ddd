@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Security.Claims;
+using UI.WebApi.Core.Filters;
 
 namespace UI.WebApi.Core.Controllers
 {
+    [LogFilter]
     public class AccessController : ControllerBase
     {
         protected ClaimsPrincipal UserAuthenticated()

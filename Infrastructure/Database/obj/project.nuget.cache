@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0EdxPXxhHDGi3Lzw1InlI7SDY/Wkni1zpJJz6rxjvg5LYoYUkdyBBVF1/QaHmct2g08lt2W/1Trg9YxhMVcIvw==",
+  "dgSpecHash": "GgTfzYSp+lsvbo8iSapxuJNA4YDLl/vmXgVYKKrx+vpY8ecgyqFEj7lLNQdYxpHCa579+PP9iu2ExEkXX6+rpw==",
   "success": true,
   "projectFilePath": "E:\\Programação\\Códigos\\dotnet-web-api-ddd\\Infrastructure\\Database\\Infrastructure.Database.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -59,6 +60,7 @@
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.9\\microsoft.entityframeworkcore.abstractions.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.9\\microsoft.entityframeworkcore.analyzers.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.9\\microsoft.entityframeworkcore.design.5.0.9.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.proxies\\5.0.9\\microsoft.entityframeworkcore.proxies.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.9\\microsoft.entityframeworkcore.relational.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.9\\microsoft.entityframeworkcore.sqlserver.5.0.9.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
@@ -136,6 +138,7 @@
     "C:\\Users\\Ivan\\.nuget\\packages\\system.diagnostics.fileversioninfo\\4.3.0\\system.diagnostics.fileversioninfo.4.3.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\system.diagnostics.stacktrace\\4.3.0\\system.diagnostics.stacktrace.4.3.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
+    "C:\\Users\\Ivan\\.nuget\\packages\\system.diagnostics.tracesource\\4.3.0\\system.diagnostics.tracesource.4.3.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\Ivan\\.nuget\\packages\\system.dynamic.runtime\\4.3.0\\system.dynamic.runtime.4.3.0.nupkg.sha512",

@@ -36,14 +36,14 @@ namespace Infrastructure.Services.Core
 
                 if (client == null)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.CLIENT_NOT_FOUND, new { authIn.Email });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Clients.ConditionValidations.CLIENT_NOT_FOUND, new { authIn.Email });
                 }
 
                 bool checkPassword = Crypto.Password.Verify(authIn.Password, client.Password);
 
                 if (!checkPassword)
                 {
-                    throw new CustomException(HttpStatusCode.PreconditionFailed, CustomResponseMessage.Clients.ConditionValidations.INCORRECT_PASSWORD, new { authIn.Email });
+                    throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Clients.ConditionValidations.INCORRECT_PASSWORD, new { authIn.Email });
                 }
 
                 IMapper mapper = new MapperConfiguration(cfg =>

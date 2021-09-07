@@ -33,7 +33,7 @@ namespace UI.WebApi.Core.Controllers
 
                 Clients client = _iClientsService.GetClient(id);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK, new { client });
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK, new { client });
             }
             catch (CustomException cex)
             {
@@ -41,7 +41,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
 
@@ -62,12 +62,12 @@ namespace UI.WebApi.Core.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 _iClientsService.AddClient(client);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
             catch (CustomException cex)
             {
@@ -75,7 +75,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
 
@@ -97,21 +97,21 @@ namespace UI.WebApi.Core.Controllers
                         }
                     }
 
-                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, CustomResponseMessage.HTTP.PRECONDITION_FAILED, new { errors });
+                    return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
                 long userIdConverted = UserAuthenticated<long>(AutenticatedUser.Id);
 
                 if (id != userIdConverted)
                 {
-                    return CustomResponse.Response(HttpStatusCode.Forbidden, CustomResponseMessage.HTTP.FORBIDDEN);
+                    return CustomResponse.Response(HttpStatusCode.Forbidden, ResponseMessages.HTTP.FORBIDDEN);
                 }
 
                 client.Id = userIdConverted;
 
                 _iClientsService.UpdateClient(client);
 
-                return CustomResponse.Response(HttpStatusCode.OK, CustomResponseMessage.HTTP.OK);
+                return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
             catch (CustomException cex)
             {
@@ -119,7 +119,7 @@ namespace UI.WebApi.Core.Controllers
             }
             catch (Exception)
             {
-                return CustomResponse.Response(HttpStatusCode.InternalServerError, CustomResponseMessage.HTTP.INTERNAL_SERVER_ERROR);
+                return CustomResponse.Response(HttpStatusCode.InternalServerError, ResponseMessages.HTTP.INTERNAL_SERVER_ERROR);
             }
         }
     }

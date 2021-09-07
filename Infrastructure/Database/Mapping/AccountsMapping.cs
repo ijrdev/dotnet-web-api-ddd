@@ -15,13 +15,13 @@ namespace Infrastructure.Database.Core.Mapping
 
             builder.HasIndex(a => a.AccountNumber).IsUnique();
             builder.Property(a => a.AccountNumber)
-                .HasColumnType("nvarchar")
+                .HasColumnType("varchar")
                 .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(a => a.Value).HasDefaultValue(0);
 
-            //builder.Property(a => a.Client.Id).IsRequired();
+            builder.Property("ClientId").IsRequired();
         }
     }
 }
