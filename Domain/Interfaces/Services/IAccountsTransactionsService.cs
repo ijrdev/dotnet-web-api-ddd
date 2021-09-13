@@ -1,12 +1,13 @@
 ﻿using Domain.Domain.Core.DTO;
+using System.Threading.Tasks;
 
 namespace Domain.Domain.Core.Interfaces.Services
 {
     public interface IAccountsTransactionsService
     {
-        void Deposit(DepositWithdrawTransactionsDTO depositWithdrawTransaction);
-        void Withdraw(long clientId, DepositWithdrawTransactionsDTO depositWithdrawTransaction);
-        void Transfer(long clietId, TransferTransactionsDTO transferTransaction);
-        AccountsStatementsDTO GetStatements(long clientId);
+        Task Deposit(DepositWithdrawTransactionsDTO depositWithdrawTransaction);
+        Task Withdraw(long clientId, DepositWithdrawTransactionsDTO depositWithdrawTransaction);
+        Task Transfer(long clietId, TransferTransactionsDTO transferTransaction);
+        Task<AccountsStatementsDTO> GetStatements(long clientId);
     }
 }

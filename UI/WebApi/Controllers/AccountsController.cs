@@ -9,6 +9,7 @@ using System.Net;
 using Domain.Domain.Core.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Domain.Domain.Core.Consts;
+using System.Threading.Tasks;
 
 namespace UI.WebApi.Core.Controllers
 {
@@ -25,7 +26,7 @@ namespace UI.WebApi.Core.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult AddAccount([FromBody] Accounts account)
+        public async Task<IActionResult> AddAccount([FromBody] Accounts account)
         {
             try
             {
@@ -46,7 +47,7 @@ namespace UI.WebApi.Core.Controllers
 
                 long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                _iAccountsService.AddAccount(id, account);
+                await _iAccountsService.AddAccount(id, account);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }

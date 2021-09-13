@@ -1,12 +1,13 @@
 ﻿using Domain.Domain.Core.Entities;
+using System.Threading.Tasks;
 
 namespace Domain.Domain.Core.Interfaces.Repositories
 {
     public interface IAccountsRepository
     {
-        Accounts GetAccount(string accountNumber);
-        Accounts GetAccount(long clientId);
-        void AddAccount(Accounts account);
-        void UpdateAccount(Accounts account);
+        Task<Accounts> GetAccount(string accountNumber);
+        Task<Accounts> GetAccount(long clientId);
+        Task AddAccount(Accounts account);
+        Task UpdateAccount(Accounts account);
     }
 }

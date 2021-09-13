@@ -14,6 +14,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
 using Domain.Domain.Core.Consts;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Services.Core
 {
@@ -28,11 +29,11 @@ namespace Infrastructure.Services.Core
             _iClientsRepository = iClientsRepository;
         }
 
-        public AuthOutDTO Login(AuthInDTO authIn)
+        public async Task<AuthOutDTO> Login(AuthInDTO authIn)
         {
             try
             {
-                Clients client = _iClientsRepository.GetClient(authIn.Email);
+                Clients client = await _iClientsRepository.GetClient(authIn.Email);
 
                 if (client == null)
                 {

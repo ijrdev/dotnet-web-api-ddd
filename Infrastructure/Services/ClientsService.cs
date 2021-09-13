@@ -7,6 +7,7 @@ using Infrastructure.CrossCutting.Core;
 using System.Net;
 using Domain.Domain.Core.Responses;
 using Domain.Domain.Core.Enums;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Services.Core
 {
@@ -19,11 +20,11 @@ namespace Infrastructure.Services.Core
             _iClientsRepository = iClientsRepository;
         }
 
-        public Clients GetClient(long id)
+        public async Task<Clients> GetClient(long id)
         {
             try
             {
-                Clients client = _iClientsRepository.GetClient(id);
+                Clients client = await _iClientsRepository.GetClient(id);
 
                 client.Password = null;
 
@@ -39,11 +40,11 @@ namespace Infrastructure.Services.Core
             }
         }
 
-        public Clients GetClient(string documentEmail)
+        public async Task<Clients> GetClient(string documentEmail)
         {
             try
             {
-                return _iClientsRepository.GetClient(documentEmail);
+                return await _iClientsRepository.GetClient(documentEmail);
             }
             catch (CustomException)
             {
@@ -56,13 +57,13 @@ namespace Infrastructure.Services.Core
 
         }
 
-        public void AddClient(Clients client)
+        public async Task AddClient(Clients client)
         {
             try
             {
                 CheckEnumsType(client);
 
-                Clients clientResult = GetClient(client.Document);
+                Clients clientResult = await GetClient(client.Document);
 
                 if (clientResult != null)
                 {
@@ -71,7 +72,7 @@ namespace Infrastructure.Services.Core
 
                 client.Password = Crypto.Password.Hash(client.Password);
 
-                _iClientsRepository.AddClient(client);
+                await _iClientsRepository.AddClient(client);
             }
             catch (CustomException)
             {
@@ -83,20 +84,20 @@ namespace Infrastructure.Services.Core
             }
         }
 
-        public void UpdateClient(Clients client)
+        public async Task UpdateClient(Clients client)
         {
             try
             {
                 CheckEnumsType(client);
 
-                Clients clientResult = GetClient((long) client.Id);
+                Clients clientResult = await GetClient((long) client.Id);
 
                 if (clientResult == null)
                 {
                     throw new CustomException(HttpStatusCode.NotFound, ResponseMessages.Clients.ConditionValidations.CLIENT_NOT_FOUND);
                 }
 
-                Clients clientCheckDocument = GetClient(client.Document);
+                Clients clientCheckDocument = await GetClient (client.Document);
 
                 if (clientCheckDocument != null)
                 {

@@ -1,12 +1,13 @@
 ﻿using Domain.Domain.Core.Entities;
+using System.Threading.Tasks;
 
 namespace Domain.Domain.Core.Interfaces.Services
 {
     public interface IClientsService
     {
-        Clients GetClient(long id);
-        Clients GetClient(string documentEmail);
-        void AddClient(Clients client);
-        void UpdateClient(Clients client);
+        Task<Clients> GetClient(long id);
+        Task<Clients> GetClient(string documentEmail);
+        Task AddClient(Clients client);
+        Task UpdateClient(Clients client);
     }
 }

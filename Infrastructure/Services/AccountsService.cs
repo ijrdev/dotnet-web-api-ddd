@@ -5,6 +5,7 @@ using System.Net;
 using Domain.Domain.Core.Entities;
 using Domain.Domain.Core.Exceptions;
 using Domain.Domain.Core.Responses;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Services.Core
 {
@@ -19,31 +20,31 @@ namespace Infrastructure.Services.Core
             _iClientsRepository = iClientsRepository;
         }
 
-        public Accounts GetAccount(string accountNumber)
+        public async Task<Accounts> GetAccount(string accountNumber)
         {
-            return _iAccountsRepository.GetAccount(accountNumber);
+            return await _iAccountsRepository.GetAccount(accountNumber);
         }
 
-        public Accounts GetAccount(long clientId)
+        public async Task<Accounts> GetAccount(long clientId)
         {
-            return _iAccountsRepository.GetAccount(clientId);
+            return await _iAccountsRepository.GetAccount(clientId);
         }
 
-        public void AddAccount(long clientId, Accounts account)
+        public async Task AddAccount(long clientId, Accounts account)
         {
             try
             {
-                Clients client = _iClientsRepository.GetClient(clientId);
+                Clients client = await _iClientsRepository.GetClient(clientId);
 
                 if(client == null)
                 {
                     throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Clients.ConditionValidations.CLIENT_NOT_FOUND);
                 }
 
-                account.AccountNumber = GenerateAccountNumber();
+                account.AccountNumber = await GenerateAccountNumber();
                 account.Client = client;
 
-                _iAccountsRepository.AddAccount(account);
+                await _iAccountsRepository.AddAccount(account);
             }
             catch (CustomException)
             {
@@ -55,7 +56,7 @@ namespace Infrastructure.Services.Core
             }
         }
 
-        private string GenerateAccountNumber()
+        private async Task<string> GenerateAccountNumber()
         {
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
@@ -71,7 +72,7 @@ namespace Infrastructure.Services.Core
             {
                 accountNumber = $"{new Random().Next(0, 9)}{year}{month}{day}{hour}{minutes}{seconds}{new Random().Next(0, 9)}";
 
-                Accounts acc = GetAccount(accountNumber);
+                Accounts acc = await GetAccount(accountNumber);
 
                 if (acc == null)
                     checkAccount = false;

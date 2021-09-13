@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Services.Core
 {
@@ -24,11 +25,11 @@ namespace Infrastructure.Services.Core
             _iAccountsRepository = iAccountsRepository;
         }
 
-        public void Deposit(DepositWithdrawTransactionsDTO depositWithdrawTransaction)
+        public async Task Deposit(DepositWithdrawTransactionsDTO depositWithdrawTransaction)
         {
             try
             {
-                Accounts account = _iAccountsRepository.GetAccount(depositWithdrawTransaction.AccountNumber);
+                Accounts account = await _iAccountsRepository.GetAccount(depositWithdrawTransaction.AccountNumber);
 
                 if (account == null)
                 {
@@ -37,9 +38,9 @@ namespace Infrastructure.Services.Core
 
                 account.Value = account.Value + depositWithdrawTransaction.Value;
 
-                _iAccountsRepository.UpdateAccount(account);
+                await _iAccountsRepository.UpdateAccount(account);
 
-                Register(TransactionsType.Entry, Operation.Deposit, depositWithdrawTransaction.Value, account);
+                await Register (TransactionsType.Entry, Operation.Deposit, depositWithdrawTransaction.Value, account);
             }
             catch (CustomException)
             {
@@ -51,11 +52,11 @@ namespace Infrastructure.Services.Core
             }
         }
 
-        public void Withdraw(long clientId, DepositWithdrawTransactionsDTO depositWithdrawTransaction)
+        public async Task Withdraw(long clientId, DepositWithdrawTransactionsDTO depositWithdrawTransaction)
         {
             try
             {
-                Accounts account = _iAccountsRepository.GetAccount(depositWithdrawTransaction.AccountNumber);
+                Accounts account = await _iAccountsRepository.GetAccount(depositWithdrawTransaction.AccountNumber);
 
                 if (account == null)
                 {
@@ -74,9 +75,9 @@ namespace Infrastructure.Services.Core
 
                 account.Value = account.Value - depositWithdrawTransaction.Value;
 
-                _iAccountsRepository.UpdateAccount(account);
+                await _iAccountsRepository.UpdateAccount(account);
 
-                Register(TransactionsType.Output, Operation.Deposit, depositWithdrawTransaction.Value, account);
+                await Register (TransactionsType.Output, Operation.Deposit, depositWithdrawTransaction.Value, account);
             }
             catch (CustomException)
             {
@@ -88,12 +89,12 @@ namespace Infrastructure.Services.Core
             }
         }
 
-        public void Transfer(long clientId, TransferTransactionsDTO transferTransaction)
+        public async Task Transfer(long clientId, TransferTransactionsDTO transferTransaction)
         {
             try
             {
-                Accounts accountToTransfer = _iAccountsRepository.GetAccount(transferTransaction.AccountNumberToTransfer);
-                Accounts accountToReceive = _iAccountsRepository.GetAccount(transferTransaction.AccountNumberToReceive);
+                Accounts accountToTransfer = await _iAccountsRepository.GetAccount(transferTransaction.AccountNumberToTransfer);
+                Accounts accountToReceive = await _iAccountsRepository.GetAccount(transferTransaction.AccountNumberToReceive);
 
                 if (accountToTransfer != null && accountToReceive != null)
                 {
@@ -103,15 +104,15 @@ namespace Infrastructure.Services.Core
                         {
                             accountToTransfer.Value = accountToTransfer.Value - transferTransaction.Value;
 
-                            _iAccountsRepository.UpdateAccount(accountToTransfer);
+                            await _iAccountsRepository.UpdateAccount(accountToTransfer);
 
-                            Register(TransactionsType.Output, Operation.Transfer, transferTransaction.Value, accountToTransfer);
+                            await Register (TransactionsType.Output, Operation.Transfer, transferTransaction.Value, accountToTransfer);
 
                             accountToReceive.Value = accountToReceive.Value + transferTransaction.Value;
 
-                            _iAccountsRepository.UpdateAccount(accountToReceive);
+                            await _iAccountsRepository.UpdateAccount(accountToReceive);
 
-                            Register(TransactionsType.Entry, Operation.Transfer, transferTransaction.Value, accountToReceive);
+                            await Register(TransactionsType.Entry, Operation.Transfer, transferTransaction.Value, accountToReceive);
                         }
                         else
                         {
@@ -138,20 +139,20 @@ namespace Infrastructure.Services.Core
             }
         }
 
-        public AccountsStatementsDTO GetStatements(long clientId)
+        public async Task<AccountsStatementsDTO> GetStatements(long clientId)
         {
             try
             {
                 AccountsStatementsDTO accountStatements = new AccountsStatementsDTO();
 
-                Accounts account = _iAccountsRepository.GetAccount(clientId);
+                Accounts account = await _iAccountsRepository.GetAccount(clientId);
 
                 if(account == null)
                 {
                     throw new CustomException(HttpStatusCode.PreconditionFailed, ResponseMessages.Accounts.ConditionValidations.ACCOUNT_NUMBER_WAS_NOT_FOUND);
                 }
 
-                IEnumerable<AccountsTransactions> accountTransactions = _iAccountsTransactionsRepository.GetStatements((long) account.Id);
+                IEnumerable<AccountsTransactions> accountTransactions = await _iAccountsTransactionsRepository.GetStatements((long) account.Id);
 
                 if(accountTransactions != null && accountTransactions.Count() > 0)
                 {
@@ -179,7 +180,7 @@ namespace Infrastructure.Services.Core
             }
         }
 
-        private void Register(TransactionsType transactionsType, Operation operation, double value, Accounts account)
+        private async Task Register(TransactionsType transactionsType, Operation operation, double value, Accounts account)
         {
             try 
             {
@@ -190,7 +191,7 @@ namespace Infrastructure.Services.Core
                 accountTransaction.Value = value;
                 accountTransaction.Account = account;
 
-                _iAccountsTransactionsRepository.Register(accountTransaction);
+                await _iAccountsTransactionsRepository.Register(accountTransaction);
             }
             catch (Exception)
             {

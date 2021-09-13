@@ -5,18 +5,19 @@ using Domain.Domain.Core.Consts;
 using Domain.Domain.Core.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Domain.Domain.Core.Entities;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.Core
 {
     public class AccountsRepository : IAccountsRepository
     {
-        public Accounts GetAccount(string accountNumber)
+        public async Task<Accounts> GetAccount(string accountNumber)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Accounts.Include(a => a.Client).FirstOrDefaultAsync(a => a.AccountNumber == accountNumber).GetAwaiter().GetResult();
+                    return await context.Accounts.Include(a => a.Client).FirstOrDefaultAsync(a => a.AccountNumber == accountNumber);
                 }
             }
             catch (Exception)
@@ -25,13 +26,13 @@ namespace Infrastructure.Repositories.Core
             }
         }
 
-        public Accounts GetAccount(long clientId)
+        public async Task<Accounts> GetAccount(long clientId)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Accounts.Include(a => a.Client).FirstOrDefaultAsync(a => a.Client.Id == clientId).GetAwaiter().GetResult();
+                    return await context.Accounts.Include(a => a.Client).FirstOrDefaultAsync(a => a.Client.Id == clientId);
                 }
             }
             catch (Exception)
@@ -40,7 +41,7 @@ namespace Infrastructure.Repositories.Core
             }
         }
 
-        public void AddAccount(Accounts account)
+        public async Task AddAccount(Accounts account)
         {
             try
             {
@@ -48,9 +49,9 @@ namespace Infrastructure.Repositories.Core
                 {
                     context.Entry(account.Client).State = EntityState.Unchanged;
 
-                    context.Accounts.AddAsync(account).GetAwaiter().GetResult();
+                    await context.Accounts.AddAsync(account);
 
-                    context.SaveChangesAsync().GetAwaiter().GetResult();
+                    await context.SaveChangesAsync();
                 }
 
             }
@@ -60,7 +61,7 @@ namespace Infrastructure.Repositories.Core
             }
         }
 
-        public void UpdateAccount(Accounts account)
+        public async Task UpdateAccount(Accounts account)
         {
             try
             {
@@ -68,7 +69,7 @@ namespace Infrastructure.Repositories.Core
                 {
                     context.Accounts.Update(account);
 
-                    context.SaveChangesAsync().GetAwaiter().GetResult();
+                    await context.SaveChangesAsync();
                 }
 
             }

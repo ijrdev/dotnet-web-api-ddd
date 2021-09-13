@@ -6,18 +6,19 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using Domain.Domain.Core.Entities;
 using Domain.Domain.Core.Exceptions;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.Core
 {
     public class ClientsRepository : IClientsRepository
     {
-        public Clients GetClient(string documentEmail)
+        public async Task<Clients> GetClient(string documentEmail)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Clients.FirstOrDefaultAsync(c => c.Document == documentEmail || c.Email == documentEmail).GetAwaiter().GetResult();
+                    return await context.Clients.FirstOrDefaultAsync(c => c.Document == documentEmail || c.Email == documentEmail);
                 }
             }
             catch (Exception)
@@ -26,13 +27,13 @@ namespace Infrastructure.Repositories.Core
             }
         }
 
-        public Clients GetClient(long id)
+        public async Task<Clients> GetClient(long id)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.Clients.FirstOrDefaultAsync(c => c.Id == id).GetAwaiter().GetResult();
+                    return await context.Clients.FirstOrDefaultAsync(c => c.Id == id);
                 }
             }
             catch (Exception)
@@ -41,15 +42,15 @@ namespace Infrastructure.Repositories.Core
             }
         }
 
-        public void AddClient(Clients client)
+        public async Task AddClient(Clients client)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    context.AddAsync(client);
+                    await context.AddAsync(client);
 
-                    context.SaveChangesAsync().GetAwaiter().GetResult();
+                    await context.SaveChangesAsync();
                 }
             }
             catch (CustomException)
@@ -62,7 +63,7 @@ namespace Infrastructure.Repositories.Core
             }
         }
 
-        public void UpdateClient(Clients client)
+        public async Task UpdateClient(Clients client)
         {
             try
             {
@@ -70,7 +71,7 @@ namespace Infrastructure.Repositories.Core
                 {
                     context.Update(client);
 
-                    context.SaveChangesAsync().GetAwaiter().GetResult();
+                    await context.SaveChangesAsync();
                 }
             }
             catch (CustomException)

@@ -1,11 +1,12 @@
 ﻿using Domain.Domain.Core.Entities;
+using System.Threading.Tasks;
 
 namespace Domain.Domain.Core.Interfaces.Services
 {
     public interface IAccountsService
     {
-        Accounts GetAccount(string accountNumber);
-        Accounts GetAccount(long clientId);
-        void AddAccount(long clientId, Accounts accountClient);
+        Task<Accounts> GetAccount(string accountNumber);
+        Task<Accounts> GetAccount(long clientId);
+        Task AddAccount(long clientId, Accounts accountClient);
     }
 }

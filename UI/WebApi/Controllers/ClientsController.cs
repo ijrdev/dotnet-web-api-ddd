@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using Domain.Domain.Core.Consts;
+using System.Threading.Tasks;
 
 namespace UI.WebApi.Core.Controllers
 {
@@ -25,13 +26,13 @@ namespace UI.WebApi.Core.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
                 long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                Clients client = _iClientsService.GetClient(id);
+                Clients client = await _iClientsService.GetClient(id);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK, new { client });
             }
@@ -46,7 +47,7 @@ namespace UI.WebApi.Core.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Clients client)
+        public async Task<IActionResult> Post([FromBody] Clients client)
         {
             try
             {
@@ -65,7 +66,7 @@ namespace UI.WebApi.Core.Controllers
                     return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                _iClientsService.AddClient(client);
+                await _iClientsService.AddClient(client);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
@@ -81,7 +82,7 @@ namespace UI.WebApi.Core.Controllers
 
         [HttpPut("{id:long}")]
         [Authorize]
-        public IActionResult Put(long id, [FromBody] Clients client)
+        public async Task<IActionResult> Put(long id, [FromBody] Clients client)
         {
             try
             {
@@ -109,7 +110,7 @@ namespace UI.WebApi.Core.Controllers
 
                 client.Id = userIdConverted;
 
-                _iClientsService.UpdateClient(client);
+                await _iClientsService.UpdateClient(client);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }

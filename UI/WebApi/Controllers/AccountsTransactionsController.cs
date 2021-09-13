@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace UI.WebApi.Core.Controllers
 {
@@ -26,7 +26,7 @@ namespace UI.WebApi.Core.Controllers
 
         [HttpPost("Deposit")]
         [Authorize]
-        public IActionResult Deposit([FromBody] DepositWithdrawTransactionsDTO depositWithdrawTransaction)
+        public async Task<IActionResult> Deposit([FromBody] DepositWithdrawTransactionsDTO depositWithdrawTransaction)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace UI.WebApi.Core.Controllers
                     return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                _iAccountsTransactionsService.Deposit(depositWithdrawTransaction);
+                await _iAccountsTransactionsService.Deposit(depositWithdrawTransaction);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
@@ -61,7 +61,7 @@ namespace UI.WebApi.Core.Controllers
 
         [HttpPost("Withdraw")]
         [Authorize]
-        public IActionResult Withdraw([FromBody] DepositWithdrawTransactionsDTO depositWithdrawTransaction)
+        public async Task<IActionResult> Withdraw([FromBody] DepositWithdrawTransactionsDTO depositWithdrawTransaction)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace UI.WebApi.Core.Controllers
 
                 long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                _iAccountsTransactionsService.Withdraw(id, depositWithdrawTransaction);
+                await _iAccountsTransactionsService.Withdraw(id, depositWithdrawTransaction);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
@@ -98,7 +98,7 @@ namespace UI.WebApi.Core.Controllers
 
         [HttpPost("Transfer")]
         [Authorize]
-        public IActionResult Transfer([FromBody] TransferTransactionsDTO transferTransaction)
+        public async Task<IActionResult> Transfer([FromBody] TransferTransactionsDTO transferTransaction)
         {
             try
             {
@@ -119,7 +119,7 @@ namespace UI.WebApi.Core.Controllers
 
                 long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                _iAccountsTransactionsService.Transfer(id, transferTransaction);
+                await _iAccountsTransactionsService.Transfer(id, transferTransaction);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK);
             }
@@ -135,13 +135,13 @@ namespace UI.WebApi.Core.Controllers
 
         [HttpGet("Statements")]
         [Authorize]
-        public IActionResult Statements()
+        public async Task<IActionResult> Statements()
         {
             try
             {
                 long id = UserAuthenticated<long>(AutenticatedUser.Id);
 
-                AccountsStatementsDTO accountStatements = _iAccountsTransactionsService.GetStatements(id);
+                AccountsStatementsDTO accountStatements = await _iAccountsTransactionsService.GetStatements(id);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK, accountStatements);
             }

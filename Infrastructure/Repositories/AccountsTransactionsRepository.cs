@@ -7,12 +7,13 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.Core
 {
     public class AccountsTransactionsRepository : IAccountsTransactionsRepository
     {
-        public void Register(AccountsTransactions accountTransaction)
+        public async Task Register(AccountsTransactions accountTransaction)
         {
             try
             {
@@ -20,9 +21,9 @@ namespace Infrastructure.Repositories.Core
                 {
                     context.Entry(accountTransaction.Account).State = EntityState.Unchanged;
 
-                    context.AccountsTransactions.AddAsync(accountTransaction).GetAwaiter().GetResult();
+                    await context.AccountsTransactions.AddAsync(accountTransaction);
 
-                    context.SaveChangesAsync().GetAwaiter().GetResult();
+                    await context.SaveChangesAsync();
                 }
 
             }
@@ -32,13 +33,13 @@ namespace Infrastructure.Repositories.Core
             }
         }
 
-        public IEnumerable<AccountsTransactions> GetStatements(long accountId)
+        public async Task<IEnumerable<AccountsTransactions>> GetStatements(long accountId)
         {
             try
             {
                 using (DotnetWebApiDDDDbContext context = new DotnetWebApiDDDDbContext(DatabaseFactory.CreateConnection(DatabaseConnections.DOTNET_WEB_API_DDD)))
                 {
-                    return context.AccountsTransactions.Where(a => a.Account.Id == accountId).ToListAsync().GetAwaiter().GetResult();
+                    return await context.AccountsTransactions.Where(a => a.Account.Id == accountId).ToListAsync();
                 }
 
             }

@@ -7,7 +7,7 @@ using Domain.Domain.Core.Responses;
 using Domain.Domain.Core.Exceptions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
-using UI.WebApi.Core.Filters;
+using System.Threading.Tasks;
 
 namespace UI.WebApi.Core.Controllers
 {
@@ -23,7 +23,7 @@ namespace UI.WebApi.Core.Controllers
         }
         
         [HttpPost]
-        public IActionResult Login([FromBody] AuthInDTO authIn)
+        public async Task<IActionResult> Login([FromBody] AuthInDTO authIn)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace UI.WebApi.Core.Controllers
                     return CustomResponse.Response(HttpStatusCode.PreconditionFailed, ResponseMessages.HTTP.PRECONDITION_FAILED, new { errors });
                 }
 
-                AuthOutDTO authOut = _iAuthService.Login(authIn);
+                AuthOutDTO authOut = await _iAuthService.Login(authIn);
 
                 return CustomResponse.Response(HttpStatusCode.OK, ResponseMessages.HTTP.OK, authOut);
             }
